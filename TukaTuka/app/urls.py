@@ -15,5 +15,9 @@ from django.contrib.auth.views import(
 )
 urlpatterns = [
  path('', views.base, name='base'),
- path('show1', views.show, name='show')
+ path('main', views.main, name='main'),
+ path('sell', views.table, name='sell'),
+ path('buy', views.table, name='buy'),
+ path('buy_rec', views.table, name='buy_rec'),
+ path('sell_rec', views.table, name='sell_rec')
 ]

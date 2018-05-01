@@ -6,6 +6,11 @@ from app.models import *
 def base(request):
     return render(request, 'base.html')
 
-def show(request):
-    return HttpResponse("Hello, World, r")
+def main(request):
+    return render(request, 'index.html')
 
+def table(request):
+    return render(request, 'tables.html')
+
+def ad(request):
+    return render(request, 'ad.html')
