@@ -4,7 +4,7 @@ from app.models import *
 
 
 def base(request):
-    return render(request, 'base.html')
+    return render(request, 'index.html')
 
 def show(request):
     return HttpResponse("Hello, World, r")
