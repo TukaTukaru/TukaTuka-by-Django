@@ -1,0 +1,319 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="8ebd3aa8-6a15-4974-9eb7-3de9ab83ed32" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/TukaTuka/TukaTuka/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/TukaTuka/TukaTuka/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TukaTuka/TukaTuka/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/TukaTuka/TukaTuka/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TukaTuka/app/templates/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/TukaTuka/app/templates/base.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TukaTuka/app/templates/footer.html" beforeDir="false" afterPath="$PROJECT_DIR$/TukaTuka/app/templates/footer.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TukaTuka/app/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/TukaTuka/app/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TukaTuka/static/css/font-awesome.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/TukaTuka/static/assets/css/font-awesome.min.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TukaTuka/static/css/ie8.css" beforeDir="false" afterPath="$PROJECT_DIR$/TukaTuka/static/assets/css/ie8.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TukaTuka/static/css/ie9.css" beforeDir="false" afterPath="$PROJECT_DIR$/TukaTuka/static/assets/css/ie9.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TukaTuka/static/css/images/bg01.png" beforeDir="false" afterPath="$PROJECT_DIR$/TukaTuka/static/assets/css/images/bg01.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TukaTuka/static/css/images/bg02.png" beforeDir="false" afterPath="$PROJECT_DIR$/TukaTuka/static/assets/css/images/bg02.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TukaTuka/static/css/images/bg03.png" beforeDir="false" afterPath="$PROJECT_DIR$/TukaTuka/static/assets/css/images/bg03.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TukaTuka/static/css/images/bg04.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/TukaTuka/static/assets/css/images/bg04.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TukaTuka/static/css/images/bg04.png" beforeDir="false" afterPath="$PROJECT_DIR$/TukaTuka/static/assets/css/images/bg04.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TukaTuka/static/css/images/ie/bg04.png" beforeDir="false" afterPath="$PROJECT_DIR$/TukaTuka/static/assets/css/images/ie/bg04.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TukaTuka/static/css/images/ie/grad0-20.svg" beforeDir="false" afterPath="$PROJECT_DIR$/TukaTuka/static/assets/css/images/ie/grad0-20.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TukaTuka/static/css/images/ie/grad0-35.svg" beforeDir="false" afterPath="$PROJECT_DIR$/TukaTuka/static/assets/css/images/ie/grad0-35.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TukaTuka/static/css/images/ie/grad35-0.svg" beforeDir="false" afterPath="$PROJECT_DIR$/TukaTuka/static/assets/css/images/ie/grad35-0.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TukaTuka/static/css/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/TukaTuka/static/assets/css/main.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TukaTuka/static/fonts/FontAwesome.otf" beforeDir="false" afterPath="$PROJECT_DIR$/TukaTuka/static/assets/fonts/FontAwesome.otf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TukaTuka/static/fonts/fontawesome-webfont.eot" beforeDir="false" afterPath="$PROJECT_DIR$/TukaTuka/static/assets/fonts/fontawesome-webfont.eot" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TukaTuka/static/fonts/fontawesome-webfont.svg" beforeDir="false" afterPath="$PROJECT_DIR$/TukaTuka/static/assets/fonts/fontawesome-webfont.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TukaTuka/static/fonts/fontawesome-webfont.ttf" beforeDir="false" afterPath="$PROJECT_DIR$/TukaTuka/static/assets/fonts/fontawesome-webfont.ttf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TukaTuka/static/fonts/fontawesome-webfont.woff" beforeDir="false" afterPath="$PROJECT_DIR$/TukaTuka/static/assets/fonts/fontawesome-webfont.woff" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TukaTuka/static/fonts/fontawesome-webfont.woff2" beforeDir="false" afterPath="$PROJECT_DIR$/TukaTuka/static/assets/fonts/fontawesome-webfont.woff2" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TukaTuka/static/js/cookie.js" beforeDir="false" afterPath="$PROJECT_DIR$/TukaTuka/static/assets/js/cookie.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TukaTuka/static/js/ie/PIE.htc" beforeDir="false" afterPath="$PROJECT_DIR$/TukaTuka/static/assets/js/ie/PIE.htc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TukaTuka/static/js/ie/backgroundsize.min.htc" beforeDir="false" afterPath="$PROJECT_DIR$/TukaTuka/static/assets/js/ie/backgroundsize.min.htc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TukaTuka/static/js/ie/html5shiv.js" beforeDir="false" afterPath="$PROJECT_DIR$/TukaTuka/static/assets/js/ie/html5shiv.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TukaTuka/static/js/ie/respond.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/TukaTuka/static/assets/js/ie/respond.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TukaTuka/static/js/jquery.dropotron.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/TukaTuka/static/assets/js/jquery.dropotron.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TukaTuka/static/js/jquery.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/TukaTuka/static/assets/js/jquery.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TukaTuka/static/js/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/TukaTuka/static/assets/js/main.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TukaTuka/static/js/skel-viewport.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/TukaTuka/static/assets/js/skel-viewport.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TukaTuka/static/js/skel.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/TukaTuka/static/assets/js/skel.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TukaTuka/static/js/util.js" beforeDir="false" afterPath="$PROJECT_DIR$/TukaTuka/static/assets/js/util.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TukaTuka/static/sass/ie8.scss" beforeDir="false" afterPath="$PROJECT_DIR$/TukaTuka/static/assets/sass/ie8.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TukaTuka/static/sass/ie9.scss" beforeDir="false" afterPath="$PROJECT_DIR$/TukaTuka/static/assets/sass/ie9.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TukaTuka/static/sass/libs/_functions.scss" beforeDir="false" afterPath="$PROJECT_DIR$/TukaTuka/static/assets/sass/libs/_functions.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TukaTuka/static/sass/libs/_mixins.scss" beforeDir="false" afterPath="$PROJECT_DIR$/TukaTuka/static/assets/sass/libs/_mixins.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TukaTuka/static/sass/libs/_skel.scss" beforeDir="false" afterPath="$PROJECT_DIR$/TukaTuka/static/assets/sass/libs/_skel.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TukaTuka/static/sass/libs/_vars.scss" beforeDir="false" afterPath="$PROJECT_DIR$/TukaTuka/static/assets/sass/libs/_vars.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TukaTuka/static/sass/main.scss" beforeDir="false" afterPath="$PROJECT_DIR$/TukaTuka/static/assets/sass/main.scss" afterDir="false" />
+    </list>
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="TRACKING_ENABLED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf>
+      <file leaf-file-name="settings.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/TukaTuka/TukaTuka/settings.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="164">
+              <caret line="126" column="29" selection-start-line="126" selection-start-column="29" selection-end-line="126" selection-end-column="29" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="urls.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/TukaTuka/app/urls.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="255">
+              <caret line="17" column="39" selection-start-line="17" selection-start-column="39" selection-end-line="17" selection-end-column="39" />
+              <folding>
+                <element signature="e#0#28#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="views.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/TukaTuka/app/views.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state>
+              <folding>
+                <element signature="e#0#35#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="base.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/TukaTuka/app/templates/base.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="135">
+              <caret line="9" column="24" selection-start-line="9" selection-start-column="24" selection-end-line="9" selection-end-column="24" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="urls.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/TukaTuka/TukaTuka/urls.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="285">
+              <caret line="22" column="6" selection-start-line="22" selection-start-column="6" selection-end-line="22" selection-end-column="6" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="footer.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/TukaTuka/app/templates/footer.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="15">
+              <caret line="96" column="1" selection-start-line="96" selection-start-column="12" selection-end-line="96" selection-end-column="13" />
+              <folding>
+                <element signature="n#style#0;n#img#0;n#div#0;n#noscript#0;n#!!top" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="header.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/TukaTuka/app/templates/header.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-138" />
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>&quot;assets/js</find>
+      <find>img</find>
+    </findStrings>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/TukaTuka/app/urls.py" />
+        <option value="$PROJECT_DIR$/TukaTuka/TukaTuka/urls.py" />
+        <option value="$PROJECT_DIR$/TukaTuka/TukaTuka/settings.py" />
+        <option value="$PROJECT_DIR$/TukaTuka/app/templates/footer.html" />
+        <option value="$PROJECT_DIR$/TukaTuka/app/templates/base.html" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectFrameBounds" fullScreen="true">
+    <option name="width" value="1440" />
+    <option name="height" value="900" />
+  </component>
+  <component name="ProjectView">
+    <navigator proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="Scope" />
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="TukaTuka-by-Django" type="b2602c69:ProjectViewProjectNode" />
+              <item name="TukaTuka-by-Django" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="TukaTuka-by-Django" type="b2602c69:ProjectViewProjectNode" />
+              <item name="TukaTuka-by-Django" type="462c0819:PsiDirectoryNode" />
+              <item name="TukaTuka" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="TukaTuka-by-Django" type="b2602c69:ProjectViewProjectNode" />
+              <item name="TukaTuka-by-Django" type="462c0819:PsiDirectoryNode" />
+              <item name="TukaTuka" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="TukaTuka-by-Django" type="b2602c69:ProjectViewProjectNode" />
+              <item name="TukaTuka-by-Django" type="462c0819:PsiDirectoryNode" />
+              <item name="TukaTuka" type="462c0819:PsiDirectoryNode" />
+              <item name="static" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="TukaTuka-by-Django" type="b2602c69:ProjectViewProjectNode" />
+              <item name="TukaTuka-by-Django" type="462c0819:PsiDirectoryNode" />
+              <item name="TukaTuka" type="462c0819:PsiDirectoryNode" />
+              <item name="static" type="462c0819:PsiDirectoryNode" />
+              <item name="assets" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="TukaTuka-by-Django" type="b2602c69:ProjectViewProjectNode" />
+              <item name="TukaTuka-by-Django" type="462c0819:PsiDirectoryNode" />
+              <item name="TukaTuka" type="462c0819:PsiDirectoryNode" />
+              <item name="TukaTuka" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/TukaTuka/static/assets" />
+      <recent name="$PROJECT_DIR$/TukaTuka/static/assets/assets" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="8ebd3aa8-6a15-4974-9eb7-3de9ab83ed32" name="Default" comment="" />
+      <created>1525168385335</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1525168385335</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="0" y="0" width="1440" height="900" extended-state="0" />
+    <editor active="true" />
+    <layout>
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.25369978" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Event Log" side_tool="true" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32900944" />
+      <window_info anchor="bottom" id="Version Control" />
+      <window_info anchor="bottom" id="Python Console" />
+      <window_info anchor="bottom" id="Run" order="2" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info active="true" anchor="bottom" id="Terminal" visible="true" weight="0.25939393" />
+      <window_info id="Favorites" side_tool="true" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+    </layout>
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/TukaTuka/TukaTuka/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="22" column="6" selection-start-line="22" selection-start-column="6" selection-end-line="22" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TukaTuka/app/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <folding>
+            <element signature="e#0#35#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TukaTuka/app/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="17" column="39" selection-start-line="17" selection-start-column="39" selection-end-line="17" selection-end-column="39" />
+          <folding>
+            <element signature="e#0#28#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TukaTuka/TukaTuka/settings.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="164">
+          <caret line="126" column="29" selection-start-line="126" selection-start-column="29" selection-end-line="126" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TukaTuka/app/templates/footer.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="96" column="1" selection-start-line="96" selection-start-column="12" selection-end-line="96" selection-end-column="13" />
+          <folding>
+            <element signature="n#style#0;n#img#0;n#div#0;n#noscript#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TukaTuka/app/templates/header.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-138" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TukaTuka/app/templates/base.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="9" column="24" selection-start-line="9" selection-start-column="24" selection-end-line="9" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+  </component>
+</project>

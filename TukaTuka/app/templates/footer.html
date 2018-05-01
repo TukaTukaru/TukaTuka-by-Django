@@ -1,3 +1,4 @@
+{% load static %}
 <!-- Footer Wrapper -->
 <div id="footer-wrapper">
     <footer id="footer" class="container">
@@ -92,13 +93,13 @@
 
 <!-- Scripts -->
 
-<script src="assets/js/jquery.min.js"></script>
-<script src="assets/js/jquery.dropotron.min.js"></script>
-<script src="assets/js/skel.min.js"></script>
-<script src="assets/js/skel-viewport.min.js"></script>
-<script src="assets/js/util.js"></script>
-<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
-<script src="assets/js/main.js"></script>
+<script src="{% static "assets/js/jquery.min.js" %}"></script>
+<script src="{% static "assets/js/jquery.dropotron.min.js" %}"></script>
+<script src="{% static "assets/js/skel.min.js" %}"></script>
+<script src="{% static "assets/js/skel-viewport.min.js" %}"></script>
+<script src="{% static "assets/js/util.js" %}"></script>
+<!--[if lte IE 8]><script src="{% static "assets/js/ie/respond.min.js" %}"></script><![endif]-->
+<script src="{% static "assets/js/main.js" %}"></script>
 <script type="text/javascript">
     if (!navigator.cookieEnabled) {
         alert('Включите cookie для комфортной работы с этим сайтом');
@@ -125,7 +126,7 @@
             };
         s.type = "text/javascript";
         s.async = true;
-        s.src = "https://mc.yandex.ru/metrika/tag.js";
+        s.src = "https://mc.yandex.ru/metrika/tag.js" %}";
         if (w.opera == "[object Opera]") {
             d.addEventListener("DOMContentLoaded", f, false);
         } else {
@@ -154,7 +155,7 @@
         s.async = true;
         s.src =
             (d.location.protocol == "https:" ? "https:" : "http:") +
-            "//st.top100.ru/top100/top100.js";
+            "//st.top100.ru/top100/top100.js" %}";
 
         if (w.opera == "[object Opera]") {
             d.addEventListener("DOMContentLoaded", f, false);
@@ -193,7 +194,7 @@
         var j = d.createElement(t);
         j.async = true;
         j.type = "text/javascript";
-        j.src = ("https:" == p ? "https:" : "http:") + "//openstat.net/cnt.js";
+        j.src = ("https:" == p ? "https:" : "http:") + "//openstat.net/cnt.js" %}";
         var s = d.getElementsByTagName(t)[0];
         s.parentNode.insertBefore(j, s);
     })(document, "script", document.location.protocol);

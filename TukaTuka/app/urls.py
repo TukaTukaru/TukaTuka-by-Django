@@ -16,5 +16,4 @@ from django.contrib.auth.views import(
 urlpatterns = [
  path('', views.base, name='base'),
  path('show1', views.show, name='show')
- path('')
 ]
