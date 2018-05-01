@@ -4,10 +4,11 @@ from app.models import *
 
 
 def base(request):
-    return render(request, 'index.html')
+	news = list(News.objects.all())
+	return render(request, 'index.html', {'news': news})
 
-def main(request):
-    return render(request, 'index.html')
+def about(request):
+    return render(request, 'about.html')
 
 def table(request):
     return render(request, 'tables.html')

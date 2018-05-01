@@ -15,7 +15,7 @@ class Comment(models.Model):
         (5, "Отлично"),
     )
 
-	user = models.ForeignKey(on_delete=models.CASCADE,to=settings.AUTH_USER_MODEL)
+	user = models.ForeignKey(on_delete=models.CASCADE,to=settings.AUTH_USER_MODEL,blank=True, null=True)
 	comment_text = models.TextField(blank=True, null=True)
 	date = models.DateTimeField(auto_now_add=True)
 	rating = models.IntegerField(choices=rating_choice, default=0)
@@ -42,8 +42,8 @@ class Ad(models.Model):
     )
 	title = models.CharField(max_length=255)
 	description = models.TextField(blank=True, null=True)
-	# author = models.ForeignKey(
-		# on_delete=models.CASCADE, to=settings.AUTH_USER_MODEL)
+	author = models.ForeignKey(
+		on_delete=models.CASCADE, to=settings.AUTH_USER_MODEL,blank=True, null=True)
 	created_at = models.DateTimeField(auto_now_add=True)
 	category = models.IntegerField(choices=category_choice, default=0)
 
@@ -84,7 +84,7 @@ class RatingAd(models.Model):
         (5, "Отлично"),
     )
 
-	# user = models.ForeignKey(on_delete=models.CASCADE,to=settings.AUTH_USER_MODEL)
+	user = models.ForeignKey(on_delete=models.CASCADE,to=settings.AUTH_USER_MODEL,blank=True, null=True)
 	date = models.DateTimeField(auto_now_add=True)
 	rating = models.IntegerField(choices=rating_choice, default=0)
 	ad = models.ForeignKey(Ad, on_delete=models.CASCADE, null=True, blank=True)
@@ -107,7 +107,7 @@ class Complaint(models.Model):
         (5, "Другая причина"),
     )
 
-	# user = models.ForeignKey(on_delete=models.CASCADE,to=settings.AUTH_USER_MODEL)
+	user = models.ForeignKey(on_delete=models.CASCADE,to=settings.AUTH_USER_MODEL,blank=True, null=True)
 	complaint_text = models.TextField(blank=True, null=True)
 	date = models.DateTimeField(auto_now_add=True)
 	complaint_type = models.IntegerField(choices=complaint_choice, default=0)
@@ -121,3 +121,19 @@ class Complaint(models.Model):
 		
 		verbose_name = 'Жалоба'
 		verbose_name_plural = 'Жалобы'
+
+class News(models.Model):
+	title = models.CharField(max_length=255)
+	description = models.TextField()
+	author = models.ForeignKey(
+		on_delete=models.CASCADE, to=settings.AUTH_USER_MODEL,blank=True, null=True)
+	created_at = models.DateTimeField(auto_now_add=True)
+
+	def __str__(self):
+		return f"Загаловок {self.title}, дата: {self.created_at}"
+
+	class Meta:
+		ordering = ['-created_at']
+		verbose_name = 'Новость'
+		verbose_name_plural = 'Новости'
+		
