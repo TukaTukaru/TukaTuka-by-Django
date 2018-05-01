@@ -1,0 +1,47 @@
+<!-- Main Wrapper -->
+<div id="main-wrapper">
+    <div class="wrapper style2">
+        <div class="inner">
+            <div class="container">
+                <div class="row">
+                    <div class="12u(mobile) important(mobile)">
+                        <div id="content">
+
+                            <!-- Content -->
+
+                            <article>
+                                <header class="major">
+                                    <h1>Купить вторичное сырье на переработку</h1>
+                                </header>
+
+                                <table border="0" cellpadding="0" cellspacing="0" id="sheet0" class="bordered">
+                                    <col class="col0">
+                                    <col class="col1">
+                                    <col class="col2">
+                                    <col class="col3">
+                                    <col class="col4">
+                                    <col class="col5">
+                                    <col class="col6">
+                                    <col class="col7">
+                                    <col class="col8">
+                                    <thead>
+                                        <tr class="row1">
+                                            <th class="column0 style1 s ">№</th>
+                                            <th class="column1 style1 s d-none d-md-table-cell">Фото</th>
+                                            <th class="column2 style1 s">Наименование продукции</th>
+                                            <th class="column3 style1 s d-none d-md-table-cell">Адрес</th>
+                                            <th class="column4 style1 s">Цена</th>
+                                            <th class="column5 style1 s d-none d-md-table-cell">Объем</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {% for table in tables %}
+                                        <tr class="row0" onclick="window.location.href='ad-all/ad-buy-80.html'; return false">
+                                            <td class="column5 style4 s">1</td>
+                                            <td class="column0 d-none d-md-table-cell style4 null"><a href="ad-all/ad-buy-80.html"><img src="images/buy/80.jpg" border="0" /></a></td>
+                                            <td class="column1 style1 s"><a href="ad-all/ad-buy-80.html">Производственные отходы спандбонда</a></td>
+                                            <td class="column2 d-none d-md-table-cell style4 s"><a href="ad-all/ad-buy-80.html">МО, г. Электросталь, ул. Карла Маркса, 18</a></td>
+                                            <td class="column3 style4 null"><a href="ad-all/ad-buy-80.html"></a></td>
+                                            <td class="column4 d-none d-md-table-cell style5 s"><a href="ad-all/ad-buy-80.html">60 тонн</a></td>
+                                        </tr>
+                                        {% endfor %}

@@ -1,0 +1,81 @@
+<!-- Main Wrapper -->
+<div id="main-wrapper">
+    <div class="wrapper style2">
+        <div class="inner">
+            <div class="container">
+                <div id="content">
+
+                    <!-- Content -->
+                    <article>
+                        <header class="major">
+                            <div class="row justify-content-between">
+                                <div class="col">
+                                    <h1><!-- goods --></h1>
+                                    <h6><!-- adress --></h6>
+                                </div>
+                                <div class="col-">
+                                    <h1><!-- price --></h1>
+                                    <h6><!-- volume --></h6>
+                                </div>
+                            </div>
+                        </header>
+
+
+
+                        <!-- Block with number -->
+                        <div class="row">
+                            <div class="col-lg col-sm-auto btnup">
+                                <button class="button" type="button" id="button"><span class="button__text" id="button__text">Показать телефон </span><span id="telephone" hidden>+7&nbsp;<!-- phone --></span><span id="phones__mask" >+7&nbsp;XXX XXX XX-XX</span></button>
+                            </div>
+                            <div class="w-100 d-sm-none"><br></div>
+                            <div class="col-lg col-sm-auto btnup">
+                                <p><strong></strong>
+                                    <br></p>
+                            </div>
+                            <div class="row justify-content-start">
+                                <div class="col-lg col-sm-auto  btnup" align="center">
+
+                                    <a href="http://to-group.ru/onlayn-kalkulyator-gruzoperevozki" class="buttongreen" style="color:#259433"></a>
+                                </div>
+                            </div>
+                        </div>
+                        <br>
+                        <!-- Number script -->
+                        <script>
+                            button.onclick = function(event) {
+
+                                var elem = document.getElementById("telephone");
+
+                                elem.hidden = !elem.hidden;
+                                document.getElementById("phones__mask").parentNode.removeChild(document.getElementById("phones__mask"));
+                                document.getElementById("button__text").parentNode.removeChild(document.getElementById("button__text"));
+
+                            };
+                        </script>
+
+
+
+                        <!-- Item description -->
+                        <div class="row">
+                            <div class="col-xl col-sm-auto">
+                                <span><img class="butterfly adimg" src="../images/<!-- image -->" border="0" /></span>
+                            </div>
+                            <div class="w-100 d-sm-none"></div>
+                            <div class="col-xl-9 col-sm-auto  ">
+                                <h3>Описание:</h3>
+                                <h5><!-- Description --></h5>
+                            </div>
+                        </div>
+
+                        <br>
+
+                        <!-- Yandex maps -->
+                        <div class="d-none d-md-block">
+                            <!-- Map -->
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
