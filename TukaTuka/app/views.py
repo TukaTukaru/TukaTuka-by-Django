@@ -10,8 +10,9 @@ def base(request):
 def about(request):
     return render(request, 'about.html')
 
-def table(request):
-    return render(request, 'tables.html')
+def table(request, category):
+    ad_list = list(Ad.objects.filter(category=category))
+    return render(request, 'tables.html', {'category': category,'ad_list': ad_list})
 
 def ad(request):
     return render(request, 'ad.html')
