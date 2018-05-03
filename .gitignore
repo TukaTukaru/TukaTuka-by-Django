@@ -100,4 +100,7 @@ ENV/
 # mypy
 .mypy_cache/
 .idea/workspace.xml
+.idea/workspace.xml
+TukaTuka/.DS_Store
+.idea/workspace.xml
 *.pyc
