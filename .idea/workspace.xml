@@ -1,13 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="8ebd3aa8-6a15-4974-9eb7-3de9ab83ed32" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/TukaTuka/app/migrations/0001_initial.py" beforeDir="false" afterPath="$PROJECT_DIR$/TukaTuka/app/migrations/0001_initial.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TukaTuka/app/migrations/0002_comment.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/TukaTuka/app/migrations/0003_auto_20180503_0927.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/TukaTuka/app/migrations/0004_auto_20180503_1800.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/TukaTuka/app/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/TukaTuka/app/models.py" afterDir="false" />
-    </list>
+    <list default="true" id="8ebd3aa8-6a15-4974-9eb7-3de9ab83ed32" name="Default" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
