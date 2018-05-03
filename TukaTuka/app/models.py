@@ -125,9 +125,11 @@ class Complaint(models.Model):
 class News(models.Model):
 	title = models.CharField(max_length=255)
 	description = models.TextField()
+	date = models.CharField(max_length=255,blank=True, null=True)
 	author = models.ForeignKey(
 		on_delete=models.CASCADE, to=settings.AUTH_USER_MODEL,blank=True, null=True)
 	created_at = models.DateTimeField(auto_now_add=True)
+	photo = models.ImageField(upload_to='images', blank=True, verbose_name='Фото новости')
 
 	def __str__(self):
 		return f"Загаловок {self.title}, дата: {self.created_at}"

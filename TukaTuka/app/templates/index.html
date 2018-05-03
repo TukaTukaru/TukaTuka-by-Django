@@ -79,35 +79,18 @@
 												<!-- Excerpt -->
 												{% for new in news reversed %}
 													<article class="box excerpt">
-														<a class="image left" href="news/20.03.18.html#main-wrapper"><img src="{% static "images/22.jpg" %}" class="d-none d-md-block" style="width:260px; height: 278px;" alt="Вторичные переработанные гранулы" /><img src="{% static "images/22.jpg" %}" class="d-md-none" style="width:85px; height: 85px;" alt="Вторичные переработанные гранулы" /></a>
+														<a class="image left" href="news/20.03.18.html#main-wrapper"><img src="{{ new.photo.url }}" class="d-none d-md-block" style="width:260px; height: 278px;" alt="Вторичные переработанные гранулы" /><img src="{{ new.photo.url }}" class="d-md-none" style="width:85px; height: 85px;" alt="Вторичные переработанные гранулы" /></a>
 														<div>
 															<header>
-																<span class="date">{% cycle "Март, 20" "Апрель, 9" %}</span>
+																<span class="date">{{ new.date }}</span>
                                                                 <h3><a href="news/20.03.18.html#main-wrapper">{{new.title}}</a></h3>
 															</header>
-															<p>{{new.description|truncatewords:20}}<a href="news/20.03.18.html#main-wrapper">...</a>
-															</p>{% endfor %}
+															<p>{{new.description|linebreaksbr|truncatewords:40}}<a href="news/20.03.18.html#main-wrapper">.</a>
+															</p>
 														</div> 
 													</article>
+                                                {% endfor %}
                                                 
-                                                 
-                                                <article class="box excerpt">
-                                                    <a class="image left" href="news/09.04.18.html#main-wrapper"><img src="{% static "images/26.jpg" %}" class="d-none d-md-block" style="width:260px; height: 278px;" alt="Вторичные переработанные гранулы" /><img src="{% static "images/26.jpg" %}" class="d-md-none" style="width:85px; height: 85px;" alt="Вторичные переработанные гранулы" /></a>
-														<div>
-															<header>
-																<span class="date">Апрель, 9</span>
-                                                                <h3><a href="news/09.04.18.html#main-wrapper">{{new.title}}</a></h3>
-															</header>
-															<p>{{new.description}}
-                                                            <br> <br><a href="news/09.04.18.html#main-wrapper">...</a>
-															</p>
-														</div>
-                                                    <br>
-                                                </article>
-												
-
-												
-                                                                    
 											</section>
 								      </div>
         
