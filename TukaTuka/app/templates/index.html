@@ -71,44 +71,27 @@
 							<div class="container">
 								<div class="row">
 									<div class="8u 12u(mobile)">
-
+									
 										<!-- Article list -->
 											<section class="box article-list">
 												<h2 class="icon fa-file-text-o">Наши новости</h2>
 
 												<!-- Excerpt -->
+												{% for new in news reversed %}
 													<article class="box excerpt">
-														<a class="image left" href="news/20.03.18.html#main-wrapper"><img src="{% static "images/22.jpg" %}" class="d-none d-md-block" style="width:260px; height: 278px;" alt="Вторичные переработанные гранулы" /><img src="{% static "images/22.jpg" %}" class="d-md-none" style="width:85px; height: 85px;" alt="Вторичные переработанные гранулы" /></a>
+														<a class="image left" href="news/20.03.18.html#main-wrapper"><img src="{{ new.photo.url }}" class="d-none d-md-block" style="width:260px; height: 278px;" alt="Вторичные переработанные гранулы" /><img src="{{ new.photo.url }}" class="d-md-none" style="width:85px; height: 85px;" alt="Вторичные переработанные гранулы" /></a>
 														<div>
 															<header>
-																<span class="date">Март, 20</span>
-                                                                <h3><a href="news/20.03.18.html#main-wrapper">Долгожданный запуск пилотного проекта!</a></h3>
+																<span class="date">{{ new.date }}</span>
+                                                                <h3><a href="news/20.03.18.html#main-wrapper">{{new.title}}</a></h3>
 															</header>
-															<p>На данный момент наш проект охватывает Москву и Московскую область и нацелен на рынок полимерных материалов. Мы стремимся сделать каждому пользователю подходящее именно для него предложение и всегда открыты для Ваших предложений. Для Вашего удобства на нашем ресурсе возможно оформление доставки Вашего товара надежной транспортной<a href="news/20.03.18.html#main-wrapper">...</a>
+															<p>{{new.description|linebreaksbr|truncatewords:40}}<a href="news/20.03.18.html#main-wrapper">.</a>
 															</p>
 														</div> 
 													</article>
+                                                {% endfor %}
                                                 
-                                                
-                                                <article class="box excerpt">
-                                                    <a class="image left" href="news/09.04.18.html#main-wrapper"><img src="{% static "images/26.jpg" %}" class="d-none d-md-block" style="width:260px; height: 278px;" alt="Вторичные переработанные гранулы" /><img src="{% static "images/26.jpg" %}" class="d-md-none" style="width:85px; height: 85px;" alt="Вторичные переработанные гранулы" /></a>
-														<div>
-															<header>
-																<span class="date">Апрель, 9</span>
-                                                                <h3><a href="news/09.04.18.html#main-wrapper">Что у нас нового?</a></h3>
-															</header>
-															<p>• Рады сообщить Вам, что форма внесения объявления стала удобнее! Теперь Вы без труда можете загружать сразу несколько фотографий продукции.
-                                                            <br>• Кроме того, у нас появился чат - мы постараемся оперативно ответить на все Ваши сообщения. <br>• Помимо этого, были добавлены новые объявления и убраны неактуальные. Мы стремимся контактировать со всеми нашими клиентами для публикации только<a href="news/09.04.18.html#main-wrapper">...</a>
-															</p>
-														</div>
-                                                    <br>
-                                                </article>
-												
-
-												
-                                                                    
 											</section>
-
 								      </div>
         
 									</div>
