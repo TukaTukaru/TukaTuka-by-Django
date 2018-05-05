@@ -1,21 +1,25 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
 <!-- Main Wrapper -->
 <div id="main-wrapper">
     <div class="wrapper style2">
         <div class="inner">
             <div class="container">
                 <div id="content">
-
+                    {% for ad in ad_info %}
                     <!-- Content -->
                     <article>
                         <header class="major">
                             <div class="row justify-content-between">
                                 <div class="col">
-                                    <h1><!-- goods --></h1>
-                                    <h6><!-- adress --></h6>
+                                    <h1>Куплю{{ ad.title }}</h1>
+                                    <h6>{{ ad.company_adress }}</h6>
                                 </div>
                                 <div class="col-">
-                                    <h1><!-- price --></h1>
-                                    <h6><!-- volume --></h6>
+                                    <h1>{{ ad.price }} руб за тонну</h1>
+                                    <h6>{{ ad.volume }} тонн</h6>
                                 </div>
                             </div>
                         </header>
@@ -25,7 +29,7 @@
                         <!-- Block with number -->
                         <div class="row">
                             <div class="col-lg col-sm-auto btnup">
-                                <button class="button" type="button" id="button"><span class="button__text" id="button__text">Показать телефон </span><span id="telephone" hidden>+7&nbsp;<!-- phone --></span><span id="phones__mask" >+7&nbsp;XXX XXX XX-XX</span></button>
+                                <button class="button" type="button" id="button"><span class="button__text" id="button__text">Показать телефон </span><span id="telephone" hidden>{{ ad.phone_number }}</span><span id="phones__mask" >+7&nbsp;XXX XXX XX-XX</span></button>
                             </div>
                             <div class="w-100 d-sm-none"><br></div>
                             <div class="col-lg col-sm-auto btnup">
@@ -35,7 +39,7 @@
                             <div class="row justify-content-start">
                                 <div class="col-lg col-sm-auto  btnup" align="center">
 
-                                    <a href="http://to-group.ru/onlayn-kalkulyator-gruzoperevozki" class="buttongreen" style="color:#259433"></a>
+                                    <a href="http://to-group.ru/onlayn-kalkulyator-gruzoperevozki" class="buttongreen" style="color:#259433">Рассчитать доставку</a>  
                                 </div>
                             </div>
                         </div>
@@ -58,12 +62,12 @@
                         <!-- Item description -->
                         <div class="row">
                             <div class="col-xl col-sm-auto">
-                                <span><img class="butterfly adimg" src="../images/<!-- image -->" border="0" /></span>
+                                <span><img  src="/media/images/40.jpg" border="0" style="width:260px; height: 278px;" alt="Вторичные переработанные гранулы" /></span>
                             </div>
                             <div class="w-100 d-sm-none"></div>
                             <div class="col-xl-9 col-sm-auto  ">
                                 <h3>Описание:</h3>
-                                <h5><!-- Description --></h5>
+                                <h5>{{ ad.description }}</h5>
                             </div>
                         </div>
 
@@ -73,9 +77,11 @@
                         <div class="d-none d-md-block">
                             <!-- Map -->
                         </div>
+                        {% endfor %}
                     </article>
                 </div>
             </div>
         </div>
     </div>
 </div>
+{% endblock %}

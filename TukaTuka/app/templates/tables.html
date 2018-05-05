@@ -2,22 +2,16 @@
 {% load static %}
 {% block title %}
 {% if category == 1 %} 
-   <title>Купить вторсырье на переработку</title>
+   <title>Купить вторсырье на переработку - TukaTuka</title>
 {% elif category == 2 %} 
-<title>Купить переработанное сырье</title>
+<title>Купить переработанное сырье - TukaTuka</title>
 {% elif category == 3 %} 
-<title>Продать вторсырье на переработку</title>
+<title>Продать вторсырье на переработку - TukaTuka</title>
 {% elif category == 4 %} 
-<title>Продать переработанное сырье</title>
+<title>Продать переработанное сырье - TukaTuka</title>
 {% endif %}
 {% endblock %}
-{% block script %}
-<!--[if lte IE 8]><script src="{% static "assets/js/ie/html5shiv.js" %}"><a href="ad-all/ad-sell-30.html"></script><![endif]-->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-<link rel="stylesheet" href="{% static "assets/css/main.css" %}"/>
-<!--[if lte IE 8]><link rel="stylesheet" href="{% static "assets/css/ie8.css" %}" /><![endif]-->
-<!--[if lte IE 9]><link rel="stylesheet" href="{% static "assets/css/ie9.css" %}" /><![endif]-->
-{% endblock %}
+
 {% block content %}
 <!-- Main Wrapper -->
 <div id="main-wrapper">
@@ -62,12 +56,12 @@
                                     <tbody>
                                         {% for ad in ad_list %}
                                         <tr class="row0" onclick="window.location.href='ad-all/ad-buy-80.html'; return false">
-                                            <td class="column5 style4 s">1</td>
-                                            <td class="column0 d-none d-md-table-cell style4 null"><a href="ad-all/ad-buy-80.html"><img src="images/buy/80.jpg" border="0" /></a></td>
+                                            <td class="column5 style4 s">{{ ad.id }}</td>
+                                            <td class="column0 d-none d-md-table-cell style4 null"><a href="ad-all/ad-buy-80.html"><img src="{% get_media_prefix %}{{ ad.photo.url }}" border="0" style="height: 100px;width: 100px;" /></a></td>
                                             <td class="column1 style1 s"><a href="ad-all/ad-buy-80.html">{{ ad.title }}</a></td>
                                             <td class="column2 d-none d-md-table-cell style4 s"><a href="ad-all/ad-buy-80.html">{{ ad.company_adress }}</a></td>
-                                            <td class="column3 style4 null"><a href="ad-all/ad-buy-80.html">{{ ad.price }}</a></td>
-                                            <td class="column4 d-none d-md-table-cell style5 s"><a href="ad-all/ad-buy-80.html">{{ ad.volume }}</a></td>
+                                            <td class="column3 style4 null"><a href="ad-all/ad-buy-80.html">{{ ad.price }} за тонну</a></td>
+                                            <td class="column4 d-none d-md-table-cell style5 s"><a href="ad-all/ad-buy-80.html">{{ ad.volume }} тонн</a></td>
                                         </tr>
                                         {% endfor %}
                                                 </tbody>

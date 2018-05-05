@@ -38,7 +38,7 @@ class Ad(models.Model):
 	price = models.PositiveIntegerField(blank=True, null=True)
 	volume = models.PositiveIntegerField(blank=True, null=True)
 	position = models.CharField(blank=True, max_length=200, db_index=True)
-	photo = models.ImageField(upload_to='ads', blank=True, verbose_name='Фото продукции')
+	photo = models.ImageField(upload_to='images/ad', blank=True, verbose_name='Фото продукции')
 	phone_number = PhoneNumberField(blank=True)
 	company_name = models.CharField(blank=True, null=True, max_length=200, db_index=True, unique=True)
 	company_type = models.CharField(blank=True, max_length=20)
