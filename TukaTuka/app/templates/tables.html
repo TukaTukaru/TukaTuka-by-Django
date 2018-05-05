@@ -1,3 +1,18 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}
+{% if category == 1 %} 
+   <title>Купить вторсырье на переработку - TukaTuka</title>
+{% elif category == 2 %} 
+<title>Купить переработанное сырье - TukaTuka</title>
+{% elif category == 3 %} 
+<title>Продать вторсырье на переработку - TukaTuka</title>
+{% elif category == 4 %} 
+<title>Продать переработанное сырье - TukaTuka</title>
+{% endif %}
+{% endblock %}
+
+{% block content %}
 <!-- Main Wrapper -->
 <div id="main-wrapper">
     <div class="wrapper style2">
@@ -10,8 +25,15 @@
                             <!-- Content -->
 
                             <article>
-                                <header class="major">
-                                    <h1>Купить вторичное сырье на переработку</h1>
+                                <header class="major">{% if category == 1 %} 
+                                   <h1>Купить вторсырье на переработку</h1>
+                                {% elif category == 2 %} 
+                                <h1>Купить переработанное сырье</h1>
+                                {% elif category == 3 %} 
+                                <h1>Продать вторсырье на переработку</h1>
+                                {% elif category == 4 %} 
+                                <h1>Продать переработанное сырье</h1>
+                                {% endif %}   
                                 </header>
 
                                 <table border="0" cellpadding="0" cellspacing="0" id="sheet0" class="bordered">
@@ -21,9 +43,6 @@
                                     <col class="col3">
                                     <col class="col4">
                                     <col class="col5">
-                                    <col class="col6">
-                                    <col class="col7">
-                                    <col class="col8">
                                     <thead>
                                         <tr class="row1">
                                             <th class="column0 style1 s ">№</th>
@@ -35,13 +54,24 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        {% for table in tables %}
+                                        {% for ad in ad_list %}
                                         <tr class="row0" onclick="window.location.href='ad-all/ad-buy-80.html'; return false">
-                                            <td class="column5 style4 s">1</td>
-                                            <td class="column0 d-none d-md-table-cell style4 null"><a href="ad-all/ad-buy-80.html"><img src="images/buy/80.jpg" border="0" /></a></td>
-                                            <td class="column1 style1 s"><a href="ad-all/ad-buy-80.html">Производственные отходы спандбонда</a></td>
-                                            <td class="column2 d-none d-md-table-cell style4 s"><a href="ad-all/ad-buy-80.html">МО, г. Электросталь, ул. Карла Маркса, 18</a></td>
-                                            <td class="column3 style4 null"><a href="ad-all/ad-buy-80.html"></a></td>
-                                            <td class="column4 d-none d-md-table-cell style5 s"><a href="ad-all/ad-buy-80.html">60 тонн</a></td>
+                                            <td class="column5 style4 s">{{ ad.id }}</td>
+                                            <td class="column0 d-none d-md-table-cell style4 null"><a href="ad-all/ad-buy-80.html"><img src="{% get_media_prefix %}{{ ad.photo.url }}" border="0" style="height: 100px;width: 100px;" /></a></td>
+                                            <td class="column1 style1 s"><a href="ad-all/ad-buy-80.html">{{ ad.title }}</a></td>
+                                            <td class="column2 d-none d-md-table-cell style4 s"><a href="ad-all/ad-buy-80.html">{{ ad.company_adress }}</a></td>
+                                            <td class="column3 style4 null"><a href="ad-all/ad-buy-80.html">{{ ad.price }} за тонну</a></td>
+                                            <td class="column4 d-none d-md-table-cell style5 s"><a href="ad-all/ad-buy-80.html">{{ ad.volume }} тонн</a></td>
                                         </tr>
                                         {% endfor %}
+                                                </tbody>
+    </table>        
+                                                </article>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+{% endblock %}

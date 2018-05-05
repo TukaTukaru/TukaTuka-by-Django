@@ -1,18 +1,3 @@
-<!--Start of Tawk.to Script-->
-<script type="text/javascript">
-    var Tawk_API = Tawk_API || {},
-        Tawk_LoadStart = new Date();
-    (function() {
-        var s1 = document.createElement("script"),
-            s0 = document.getElementsByTagName("script")[0];
-        s1.async = true;
-        s1.src = 'https://embed.tawk.to/5ace6e094b401e45400e8cc9/default';
-        s1.charset = 'UTF-8';
-        s1.setAttribute('crossorigin', '*');
-        s0.parentNode.insertBefore(s1, s0);
-    })();
-</script>
-<!--End of Tawk.to Script-->
 <!-- Google Tag Manager (noscript) -->
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MJJSPHR"
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -37,19 +22,19 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                                                 <li>
                                                     <a href="#">Купить</a>
                                                     <ul>
-                                                        <li><a href="buy.html">Сырье на переработку</a></li>
-                                                        <li><a href="buy-rec.html">Переработанное сырье</a></li>
+                                                        <li><a href="{% url 'buy' category=1 %}">Сырье на переработку</a></li>
+                                                        <li><a href="{% url 'buy-rec' category=2 %}">Переработанное сырье</a></li>
                                                         <li><a href="form.html">Добавить объявление</a></li>
                                                     </ul>
                                                 </li>
                                                 <li>
                                                     <a href="#">Продать</a>
                                                     <ul>
-                                                        <li><a href="sell.html">Сырье на переработку</a></li>
-                                                        <li><a href="sell-rec.html">Переработанное сырье</a></li>
+                                                        <li><a href="{% url 'sell' category=3 %}">Сырье на переработку</a></li>
+                                                        <li><a href="{% url 'sell-rec' category=4 %}">Переработанное сырье</a></li>
                                                         <li><a href="form.html">Добавить объявление</a></li>
                                                     </ul>
-                                                <li><a href="about">О нас</a></li>
+                                                <li><a href="{% url 'about' %}">О нас</a></li>
                                             </ul>
                                         </nav>
 
