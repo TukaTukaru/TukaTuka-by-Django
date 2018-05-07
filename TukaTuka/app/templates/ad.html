@@ -14,12 +14,15 @@
                         <header class="major">
                             <div class="row justify-content-between">
                                 <div class="col">
-                                    <h1>Куплю{{ ad.title }}</h1>
+                                    <h1>{% if ad.category == 1 or ad.category == 2 %}Куплю{% else %}
+                                    Продам{% endif %} {{ ad.title|lower }}</h1>
                                     <h6>{{ ad.company_adress }}</h6>
                                 </div>
                                 <div class="col-">
-                                    <h1>{{ ad.price }} руб за тонну</h1>
-                                    <h6>{{ ad.volume }} тонн</h6>
+                                    <h1>{% if ad.price_min == 0 %}
+                                            {% else %} {{ ad.price_min }} руб за тонну{% endif %}</h1>
+                                    <h6>{% if ad.volume == 0 %}
+                                            {% else %} {{ ad.volume }} тонн{% endif %}</h6>
                                 </div>
                             </div>
                         </header>
@@ -29,12 +32,14 @@
                         <!-- Block with number -->
                         <div class="row">
                             <div class="col-lg col-sm-auto btnup">
-                                <button class="button" type="button" id="button"><span class="button__text" id="button__text">Показать телефон </span><span id="telephone" hidden>{{ ad.phone_number }}</span><span id="phones__mask" >+7&nbsp;XXX XXX XX-XX</span></button>
+                                <button class="button" type="button" id="button"><span class="button__text" id="button__text">Показать телефон </span><span id="telephone" hidden>{{ ad.phone_number }}{% if ad.phone_another %}
+                                         {{ ad.phone_another }}{% endif %}</span><span id="phones__mask" >+7&nbsp;XXX XXX XX-XX</span></button>
                             </div>
                             <div class="w-100 d-sm-none"><br></div>
                             <div class="col-lg col-sm-auto btnup">
-                                <p><strong></strong>
-                                    <br></p>
+                                <p><strong>{{ ad.name }}</strong>
+                                    <br>{% if ad.position %}
+                                         {{ ad.position }}{% endif %}</p>
                             </div>
                             <div class="row justify-content-start">
                                 <div class="col-lg col-sm-auto  btnup" align="center">
@@ -62,7 +67,7 @@
                         <!-- Item description -->
                         <div class="row">
                             <div class="col-xl col-sm-auto">
-                                <span><img  src="/media/images/40.jpg" border="0" style="width:260px; height: 278px;" alt="Вторичные переработанные гранулы" /></span>
+                                <span><img class="butterfly adimg" src="" border="0"  alt="Вторичные переработанные гранулы" /></span>
                             </div>
                             <div class="w-100 d-sm-none"></div>
                             <div class="col-xl-9 col-sm-auto  ">

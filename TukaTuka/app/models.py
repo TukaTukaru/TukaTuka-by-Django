@@ -34,23 +34,24 @@ class Comment(models.Model):
 
 
 class Ad(models.Model):
-	name = models.CharField(blank=True, max_length=200)
-	price = models.PositiveIntegerField(blank=True, null=True)
+	name = models.CharField(max_length=200)
+	price_min = models.PositiveIntegerField(blank=True, null=True)
+	price_max = models.PositiveIntegerField(blank=True, null=True)
 	volume = models.PositiveIntegerField(blank=True, null=True)
 	position = models.CharField(blank=True, max_length=200, db_index=True)
-	photo = models.ImageField(upload_to='images/ad', blank=True, verbose_name='Фото продукции')
-	phone_number = PhoneNumberField(blank=True)
-	company_name = models.CharField(blank=True, null=True, max_length=200, db_index=True, unique=True)
-	company_type = models.CharField(blank=True, max_length=20)
-	company_adress = models.CharField(blank=True, max_length=200, db_index=True)
+	photo = models.ImageField(upload_to='prod_img', blank=True, verbose_name='Фото продукции')
+	phone_number = PhoneNumberField()
+	phone_another = PhoneNumberField(blank=True)
+	company_name = models.CharField(max_length=200, db_index=True)
+	company_adress = models.CharField( max_length=200, db_index=True)
 	category_choice = (
         (1, "Купить вторичное сырье на переработку"),
-        (2, "Купить переработанное вторичное сырье"),
+        (2, "Купить переработанное сырье"),
         (3, "Продать вторичное сырье на переработку"),
-        (4, "Продать переработанное вторичное сырье"),
+        (4, "Продать переработанное сырье"),
     )
 	title = models.CharField(max_length=255)
-	description = models.TextField(blank=True, null=True)
+	description = models.TextField()
 	author = models.ForeignKey(
 		on_delete=models.CASCADE, to=settings.AUTH_USER_MODEL,blank=True, null=True)
 	created_at = models.DateTimeField(auto_now_add=True)

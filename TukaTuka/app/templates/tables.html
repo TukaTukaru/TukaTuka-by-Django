@@ -55,13 +55,15 @@
                                     </thead>
                                     <tbody>
                                         {% for ad in ad_list %}
-                                        <tr class="row0" onclick="window.location.href='ad-all/ad-buy-80.html'; return false">
-                                            <td class="column5 style4 s">{{ ad.id }}</td>
-                                            <td class="column0 d-none d-md-table-cell style4 null"><a href="ad-all/ad-buy-80.html"><img src="{% get_media_prefix %}{{ ad.photo.url }}" border="0" style="height: 100px;width: 100px;" /></a></td>
-                                            <td class="column1 style1 s"><a href="ad-all/ad-buy-80.html">{{ ad.title }}</a></td>
-                                            <td class="column2 d-none d-md-table-cell style4 s"><a href="ad-all/ad-buy-80.html">{{ ad.company_adress }}</a></td>
-                                            <td class="column3 style4 null"><a href="ad-all/ad-buy-80.html">{{ ad.price }} за тонну</a></td>
-                                            <td class="column4 d-none d-md-table-cell style5 s"><a href="ad-all/ad-buy-80.html">{{ ad.volume }} тонн</a></td>
+                                        <tr class="row0" onclick="window.location.href='{% url 'ad' ad.id %}'; return false">
+                                            <td class="column5 style4 s">{{ forloop.counter }}</td>
+                                            <td class="column0 d-none d-md-table-cell style4 null"><a href="{% url 'ad' ad.id %}"><img src="" border="0" /></a></td>
+                                            <td class="column1 style1 s"><a href="{% url 'ad' ad.id %}">{{ ad.title }}</a></td>
+                                            <td class="column2 d-none d-md-table-cell style4 s"><a href="{% url 'ad' ad.id %}">{{ ad.company_adress }}</a></td>
+                                            <td class="column3 style4 null"><a href="{% url 'ad' ad.id %}">{% if ad.price_min == 0 %}
+                                            {% else %} {{ ad.price_min }} за тонну{% endif %}</a></td>
+                                            <td class="column4 d-none d-md-table-cell style5 s"><a href="{% url 'ad' ad.id %}">{% if ad.volume == 0 %}
+                                            {% else %}  {{ ad.volume }} тонн{% endif %}</a></td>
                                         </tr>
                                         {% endfor %}
                                                 </tbody>

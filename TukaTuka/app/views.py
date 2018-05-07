@@ -12,7 +12,8 @@ def about(request):
 
 def table(request, category):
     ad_list = Ad.objects.filter(category=category)
-    return render(request, 'tables.html', {'category': category,'ad_list': ad_list})
+    numirate=[i for i in range(len(ad_list))]
+    return render(request, 'tables.html', {'category': category,'ad_list': ad_list,'numer':numirate})
 
 def ad(request,ad_id):
 	ad_info = Ad.objects.filter(id=ad_id)
