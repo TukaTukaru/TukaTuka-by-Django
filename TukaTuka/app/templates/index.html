@@ -79,13 +79,13 @@
 												<!-- Excerpt -->
 												{% for new in news reversed %}
 													<article class="box excerpt">
-														<a class="image left" href="news/20.03.18.html#main-wrapper"><img src="{{ new.photo.url }}" class="d-none d-md-block" style="width:260px; height: 278px;" alt="Вторичные переработанные гранулы" /><img src="{{ new.photo.url }}" class="d-md-none" style="width:85px; height: 85px;" alt="Вторичные переработанные гранулы" /></a>
+														<a class="image left" href="{% url 'news' new_id=new.id %}#main-wrapper"><img src="{{ new.photo.url }}" class="d-none d-md-block" style="width:260px; height: 278px;" alt="Вторичные переработанные гранулы" /><img src="{{ new.photo.url }}" class="d-md-none" style="width:85px; height: 85px;" alt="Вторичные переработанные гранулы" /></a>
 														<div>
 															<header>
 																<span class="date">{{ new.date }}</span>
-                                                                <h3><a href="news/20.03.18.html#main-wrapper">{{new.title}}</a></h3>
+                                                                <h3><a href="{% url 'news' new_id=new.id %}#main-wrapper">{{new.title}}</a></h3>
 															</header>
-															<p>{{new.description|linebreaksbr|truncatewords:40}}<a href="news/20.03.18.html#main-wrapper">.</a>
+															<p>{{new.description|linebreaksbr|truncatewords:40}}<a href="{% url 'news' new_id=new.id %}#main-wrapper">.</a>
 															</p>
 														</div> 
 													</article>

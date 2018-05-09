@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 {% block title %}
-	<title>Новость  - TukaTuka</title>
+	<title>Новость {{ news.title|lower }}  - TukaTuka</title>
 {% endblock %}
 {% block header %}
 {% include "header_main.html" %}
@@ -16,16 +16,16 @@
 
 										<!-- Article list -->
 											<section class="box article-list">
-												<h2 class="icon fa-calendar-check-o">Март, 20</h2>
+												<h2 class="icon fa-calendar-check-o">{{ news.date }}</h2>
 
 												<!-- Excerpt -->
 													<article class="box excerpt">
-														<a class="image left"><img src="../images/22.jpg" class="d-none d-md-block" style="width:260px; height: 278px;" alt="Вторичные переработанные гранулы" /><img src="../images/22.jpg" class="d-md-none" style="width:85px; height: 85px;" alt="Вторичные переработанные гранулы" /></a>
+														<a class="image left"><img src="{{ news.photo.url }}" class="d-none d-md-block" style="width:260px; height: 278px;" alt="Вторичные переработанные гранулы" /><img src="{{ news.photo.url }}" class="d-md-none" style="width:85px; height: 85px;" alt="Вторичные переработанные гранулы" /></a>
 														<div>
 															<header>
-																<h3>Долгожданный запуск пилотного проекта!</h3>
+																<h1>{{ news.title }}</h1>
 															</header>
-															<p>На данный момент наш проект охватывает Москву и Московскую область и нацелен на рынок полимерных материалов. Мы стремимся сделать каждому пользователю подходящее именно для него предложение и всегда открыты для Ваших предложений. Для Вашего удобства на нашем ресурсе возможно оформление доставки Вашего товара надежной транспортной компанией.  
+															<p>{{ news.description }} 
 															</p>
 														</div>
                                                         <br>

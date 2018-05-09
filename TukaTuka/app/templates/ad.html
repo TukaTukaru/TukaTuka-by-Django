@@ -1,6 +1,12 @@
 {% extends "base.html" %}
 {% load static %}
-
+{% block title %}
+{% if ad.category == 1 or ad.category == 2  %} 
+   <title>Продам {{ ad.title|lower }} - TukaTuka</title>
+{% elif ad.category == 3 or ad.category == 4 %} 
+<title>Куплю {{ ad.title|lower }} - TukaTuka</title>
+{% endif %}
+{% endblock %}
 {% block content %}
 <!-- Main Wrapper -->
 <div id="main-wrapper">
@@ -8,20 +14,19 @@
         <div class="inner">
             <div class="container">
                 <div id="content">
-                    {% for ad in ad_info %}
                     <!-- Content -->
                     <article>
                         <header class="major">
                             <div class="row justify-content-between">
                                 <div class="col">
-                                    <h1>{% if ad.category == 1 or ad.category == 2 %}Куплю{% else %}
-                                    Продам{% endif %} {{ ad.title|lower }}</h1>
+                                    <h1>{% if ad.category == 1 or ad.category == 2 %}Продам{% else %}
+                                    Куплю{% endif %} {{ ad.title|lower }}</h1>
                                     <h6>{{ ad.company_adress }}</h6>
                                 </div>
                                 <div class="col-">
-                                    <h1>{% if ad.price_min == 0 %}
+                                    <h1>{% if ad.price_min == 0 or ad.price_min == None %}
                                             {% else %} {{ ad.price_min }} руб за тонну{% endif %}</h1>
-                                    <h6>{% if ad.volume == 0 %}
+                                    <h6>{% if ad.volume == 0 or ad.volume == None %}
                                             {% else %} {{ ad.volume }} тонн{% endif %}</h6>
                                 </div>
                             </div>
@@ -33,7 +38,7 @@
                         <div class="row">
                             <div class="col-lg col-sm-auto btnup">
                                 <button class="button" type="button" id="button"><span class="button__text" id="button__text">Показать телефон </span><span id="telephone" hidden>{{ ad.phone_number }}{% if ad.phone_another %}
-                                         {{ ad.phone_another }}{% endif %}</span><span id="phones__mask" >+7&nbsp;XXX XXX XX-XX</span></button>
+                                         ,{{ ad.phone_another }}{% endif %}</span><span id="phones__mask" >+7&nbsp;XXX XXX XX-XX</span></button>
                             </div>
                             <div class="w-100 d-sm-none"><br></div>
                             <div class="col-lg col-sm-auto btnup">
@@ -67,7 +72,8 @@
                         <!-- Item description -->
                         <div class="row">
                             <div class="col-xl col-sm-auto">
-                                <span><img class="butterfly adimg" src="" border="0"  alt="Вторичные переработанные гранулы" /></span>
+                                <span>{% if ad.photo %}<img class="butterfly adimg" src="
+                                         {{ ad.photo.url }}" border="0"  alt="Вторичные переработанные гранулы" />{% endif %}</span>
                             </div>
                             <div class="w-100 d-sm-none"></div>
                             <div class="col-xl-9 col-sm-auto  ">
@@ -82,7 +88,6 @@
                         <div class="d-none d-md-block">
                             <!-- Map -->
                         </div>
-                        {% endfor %}
                     </article>
                 </div>
             </div>
