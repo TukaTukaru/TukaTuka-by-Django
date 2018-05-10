@@ -2,6 +2,8 @@ from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponse
 from app.models import *
 import logging
+from django.urls import reverse
+from django.http import HttpResponseRedirect
 from django.contrib.auth import login as auth_login
 from django.contrib.auth import logout as auth_logout
 from django.contrib.auth import authenticate
@@ -12,23 +14,20 @@ from django.db.models import Count
 logger = logging.getLogger(__name__) 
 
 def login(request):
-    if request.method == "POST":
-        form = LoginForm(request.POST)
-        logger.warning("form :", form)
-        logger.warning("username: ", request.POST['username'])
-        logger.warning("password: ", request.POST['password'])
-        if form.is_valid():
-            username = form.cleaned_data.get('username')
-            password = form.cleaned_data.get('password')
-            user = User.objects.get(username=form.cleaned_data.get('username'),
-                                        password=form.cleaned_data.get('password'))
-            if user is not None:
-                if user.is_active:
-                    auth_login(request, user)
-                    return render(request, 'index.html')
-    form = LoginForm()
-    logger.warning("````````````````````````````````````````")
+    form = LoginForm(request.POST or None)
+    if form.is_valid():
+        username = request.POST['username']
+        password = request.POST['password']
+        user = authenticate(username=username, password=password)
+        if user is not None:
+            if user.is_active:
+                auth_login(request, user)
+                return HttpResponseRedirect(reverse('base'))
     return render(request, 'auth_form.html', {'form': form})
+
+def logout(request):
+    auth_logout(request)
+    return HttpResponseRedirect(reverse('base'))
 
 def base(request):
 	news = News.objects.all()
@@ -64,7 +63,7 @@ def registration_view(request):
         new_user.save()
         login_user = authenticate(username=username, password=password)
         if login_user:
-            login(request, login_user)
+            auth_login(request, login_user)
             return HttpResponseRedirect(reverse('base'))
     context = {
         'form': form
