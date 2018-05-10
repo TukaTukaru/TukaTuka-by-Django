@@ -10,14 +10,29 @@ class RegistrationForm(forms.ModelForm):
     class Meta:
         model = User
         fields = ['username', 'password', 'password_check', 'first_name', 'last_name']
+        widgets = {
+        'username' : forms.EmailInput(attrs={'placeholder' : 'Ваша почта'}),
+        'first_name' : forms.TextInput(attrs={'placeholder' : 'Имя', 'name' : 'Name'}),
+        'last_name' : forms.TextInput(attrs={'placeholder' : 'Фамилия', 'name' : 'Surname'}),
+        'password' : forms.PasswordInput(attrs={'placeholder' : 'Пароль', 'name' : 'pass'}),
+        'password_check' : forms.PasswordInput(attrs={'placeholder' : 'Повторите пароль', 'name' : 'pass'}),
+        }
+        help_texts = {
+            'username': (''),
+        }
+        error_messages = {
+            'username': {
+                'max_length': ("Превышена длинна"),
+            },
+        }
 
     def __init__(self, *args, **kwargs):
         super(RegistrationForm, self).__init__(*args, **kwargs)
-        self.fields['username'].label = 'Почта'
+        self.fields['username'].label = 'Обязательно'
         self.fields['password'].label = 'Пароль'
         self.fields['password_check'].label = 'Повторите пароль'
-        self.fields['first_name'].label = 'Ваше имя'
-        self.fields['last_name'].label = 'Ваша фамилия'
+        self.fields['first_name'].label = 'Введите'
+        self.fields['last_name'].label = "Введите"
 
     def clean(self):
         username = self.cleaned_data['username']

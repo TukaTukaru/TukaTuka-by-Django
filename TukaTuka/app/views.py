@@ -49,7 +49,7 @@ def news(request,new_id):
 	return render(request, 'news.html',{'news': new_info})
 
 def registration_view(request):
-    form = RegistrationForm(request.POST or None)
+    form = RegistrationForm(request.POST or None,auto_id=False)
     if form.is_valid():
         new_user = form.save(commit=False)
         username = form.cleaned_data['username']

@@ -19,9 +19,9 @@
 														<h1>Регистрация</h1>
 													</header>
                                                 <!-- Form section -->
-                                                <form name="registerForm" action="" method="post">
+                                                <form name="registerForm" action="" method="post"><div style="display:none">th</div>
                                                     {% csrf_token %}
-           											 {{ form }}
+           											 {{ form }}<br><br>
                                                     <input type="submit" value="Зарегистрироваться"><br><br>   
                                                 </form>
                                             </article>
