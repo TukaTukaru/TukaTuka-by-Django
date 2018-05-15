@@ -4,7 +4,7 @@ from django.contrib.auth.forms import AuthenticationForm
 
 class RegistrationForm(forms.ModelForm):
 
-    password = forms.CharField(widget=forms.PasswordInput)
+    password = forms.CharField(widget=forms.PasswordInput,label_suffix='')
     password_check = forms.CharField(widget=forms.PasswordInput)
 
     class Meta:
@@ -49,8 +49,18 @@ class SignupForm(forms.ModelForm):
         model = User
 
 
-class LoginForm(AuthenticationForm):
+class LoginForm(forms.Form):
+    username = forms.CharField(widget=forms.EmailInput(attrs={'name' : 'log', 'id' : 'user_login', 'class' : 'input'}))
+    password = forms.CharField(widget=forms.PasswordInput(attrs={'name' : 'pwd', 'id' : 'user_pass', 'class' : 'input'}))
 
-    class Meta:
-        fields = ("username", "password")
-        model = User
+    def clean(self):
+        username = self.cleaned_data['username']
+        password = self.cleaned_data['password']
+        if not User.objects.filter(username=username).exists():
+            raise forms.ValidationError('User with this login has not already registered')
+
+        user = User.objects.get(username=username)
+        if user and not user.check_password(password):
+            raise forms.ValidationError('Пароль неверный!')
+
+        

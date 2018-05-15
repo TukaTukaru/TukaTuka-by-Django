@@ -13,17 +13,19 @@ from django.db.models import Count
 
 logger = logging.getLogger(__name__) 
 
-def login(request):
-    form = LoginForm(request.POST or None)
+def login_view(request):
+    form = LoginForm(request.POST or None,auto_id=True)
     if form.is_valid():
-        username = request.POST['username']
-        password = request.POST['password']
-        user = authenticate(username=username, password=password)
-        if user is not None:
-            if user.is_active:
-                auth_login(request, user)
-                return HttpResponseRedirect(reverse('base'))
-    return render(request, 'auth_form.html', {'form': form})
+        username = form.cleaned_data['username']
+        password = form.cleaned_data['password']
+        login_user = authenticate(username=username, password=password)
+        if login_user:
+            auth_login(request, login_user)
+            return HttpResponseRedirect(reverse('base'))
+    context = {
+        'form': form
+    }
+    return render(request, 'auth_form.html', context)
 
 def logout(request):
     auth_logout(request)
