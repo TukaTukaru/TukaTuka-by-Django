@@ -8,6 +8,7 @@ from django.contrib.auth import login as auth_login
 from django.contrib.auth import logout as auth_logout
 from django.contrib.auth import authenticate
 from .forms import RegistrationForm, LoginForm
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.contrib.auth.models import User
 from django.db.models import Count
 
@@ -47,6 +48,7 @@ def ad(request,ad_id):
 def news(request,new_id):
 	new_info = get_object_or_404(News, id=new_id)
 	return render(request, 'news.html',{'news': new_info})
+
 
 def registration_view(request):
     form = RegistrationForm(request.POST or None,auto_id=False)

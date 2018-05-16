@@ -56,12 +56,34 @@ class Ad(models.Model):
         (3, "Продать вторичное сырье на переработку"),
         (4, "Продать переработанное сырье"),
     )
+
+	category_raw = (
+		(1, "ПП"),
+		(2, "ПНД"),
+		(3, "ПВД"),
+		(4, "Стрейч"),
+		(5, "ПЭТ"),
+		(6, "Другое"),
+
+	)
+
+	category_granule = (
+		(1, "Гранула ПП"),
+		(2, "Гранула ПНД"),
+		(3, "Гранула ПВД"),
+		(4, "Гранула стрейч"),
+		(5, "Другое"),
+
+	)
 	title = models.CharField(max_length=255)
 	description = models.TextField()
 	author = models.ForeignKey(
 		on_delete=models.CASCADE, to=settings.AUTH_USER_MODEL,blank=True, null=True)
 	created_at = models.DateTimeField(auto_now_add=True)
 	category = models.IntegerField(choices=category_choice, default=0)
+	category = models.IntegerField(choices=category_raw, default=0)
+	category = models.IntegerField(choices=category_granule, default=0)
+
 
 	def __str__(self):
 		return f"{self.title}, дата: {self.created_at}"
