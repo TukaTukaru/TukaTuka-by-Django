@@ -23,6 +23,6 @@ urlpatterns = [
  path('<int:ad_id>-predlozheniya', views.ad, name='ad'),
  path('news/novost-<int:new_id>', views.news, name='news'),
  path('regist', views.registration_view, name='regist'),
- path('login', views.login, name='login'),
+ path('login', views.login_view, name='login'),
  path('logout', views.logout, name='logout'),
 ]
