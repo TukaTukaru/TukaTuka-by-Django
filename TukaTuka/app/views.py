@@ -8,8 +8,10 @@ from django.contrib.auth import login as auth_login
 from django.contrib.auth import logout as auth_logout
 from django.contrib.auth import authenticate
 from .forms import RegistrationForm, LoginForm, MailForm
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.contrib.auth.models import User
 from django.db.models import Count
+from django.contrib.auth.decorators import login_required
 
 logger = logging.getLogger(__name__) 
 
@@ -31,6 +33,7 @@ def logout(request):
     auth_logout(request)
     return HttpResponseRedirect(reverse('base'))
 
+@login_required
 def base(request):
 	news = News.objects.all()
 	form = MailForm(request.POST or None)
@@ -63,6 +66,7 @@ def news(request,new_id):
 		new_mail.save()
 		return HttpResponseRedirect(reverse('news'))
 	return render(request, 'news.html',{'news': new_info,'form': form})
+
 
 def registration_view(request):
     form = RegistrationForm(request.POST or None,auto_id=False)

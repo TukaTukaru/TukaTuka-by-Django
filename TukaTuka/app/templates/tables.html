@@ -2,7 +2,7 @@
 {% load static %}
 {% block title %}
 {% if category == 1 %} 
-   <title>Купить вторсырье на переработку - TukaTuka</title>
+<title>Купить вторсырье на переработку - TukaTuka</title>
 {% elif category == 2 %} 
 <title>Купить переработанное сырье - TukaTuka</title>
 {% elif category == 3 %} 
@@ -11,6 +11,10 @@
 <title>Продать переработанное сырье - TukaTuka</title>
 {% endif %}
 {% endblock %}
+{% block script %}
+
+{% endblock %}
+
 
 {% block content %}
 <!-- Main Wrapper -->
@@ -51,7 +55,7 @@
                                             <th class="column3 style1 s d-none d-md-table-cell">Адрес</th>
                                             <th class="column4 style1 s">Цена</th>
                                             <th class="column5 style1 s d-none d-md-table-cell">Объем</th>
-                                            <th class="column5 style1 s d-none d-md-table-cell">Жалобы</th>
+
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -63,11 +67,10 @@
                                             <td class="column1 style1 s"><a href="{% url 'ad' ad.id %}">{{ ad.title }}</a></td>
                                             <td class="column2 d-none d-md-table-cell style4 s"><a href="{% url 'ad' ad.id %}">{{ ad.company_adress }}</a></td>
                                             <td class="column3 style4 null"><a href="{% url 'ad' ad.id %}">{% if ad.price_min == 0 %}
-                                            {% else %} {{ ad.price_min }} за тонну{% endif %}</a></td>
+                                            {% else %} {{ ad.price_min }} руб/тонна{% endif %}</a></td>
                                             <td class="column4 d-none d-md-table-cell style5 s"><a href="{% url 'ad' ad.id %}">{% if ad.volume == 0 %}
                                             {% else %}  {{ ad.volume }} тонн{% endif %}</a></td>
-                                            <td class="column4 d-none d-md-table-cell style5 s"><a href="{% url 'ad' ad.id %}">
-                                              {{ ad.complaint_count }} </a></td>
+
                                         </tr>
                                         {% endfor %}
                                                 </tbody>
@@ -80,4 +83,6 @@
                         </div>
                     </div>
                 </div>
+
+
 {% endblock %}
