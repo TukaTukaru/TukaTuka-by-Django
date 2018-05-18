@@ -6,11 +6,8 @@ from django.contrib.contenttypes.fields import GenericRelation
 from django.contrib.contenttypes.models import ContentType
 from phonenumber_field.modelfields import PhoneNumberField
 
-# class Merchant(models.Model):
-#     user = models.OneToOneField(User,on_delete=models.CASCADE)
-#     name = models.CharField(max_length=100)
-#     last_name = models.CharField(max_length=100)
-#     email = models.EmailField(unique=True,db_index=True)
+class Mail(models.Model):
+    email = models.EmailField(unique=True,db_index=True)
 
 class Comment(models.Model):
 	rating_choice = (

@@ -37,7 +37,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
            <p><label for="user_login">E-mail<br />{{ form.username }}</label>
             </p>
             <p><label for="user_pass">Пароль<br />
-                {{ form.password }} {{ form.errors }}</label>
+                {{ form.password }} {{ form.non_field_errors }}</label>
             </p>
         <p class="forgetmenot"><label for="rememberme"><input name="rememberme" type="checkbox" id="rememberme" value="forever"  /> Запомнить меня</label></p>
         <p class="submit">

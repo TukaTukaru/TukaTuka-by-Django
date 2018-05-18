@@ -7,14 +7,14 @@ from django.http import HttpResponseRedirect
 from django.contrib.auth import login as auth_login
 from django.contrib.auth import logout as auth_logout
 from django.contrib.auth import authenticate
-from .forms import RegistrationForm, LoginForm
+from .forms import RegistrationForm, LoginForm, MailForm
 from django.contrib.auth.models import User
 from django.db.models import Count
 
 logger = logging.getLogger(__name__) 
 
 def login_view(request):
-    form = LoginForm(request.POST or None,auto_id=True)
+    form = LoginForm(request.POST or None)
     if form.is_valid():
         username = form.cleaned_data['username']
         password = form.cleaned_data['password']
@@ -33,7 +33,14 @@ def logout(request):
 
 def base(request):
 	news = News.objects.all()
-	return render(request, 'index.html', {'news': news})
+	form = MailForm(request.POST or None)
+	if form.is_valid():
+		new_mail = form.save(commit=False)
+		email = form.cleaned_data['email']
+		new_mail.email = email
+		new_mail.save()
+		return HttpResponseRedirect(reverse('base'))
+	return render(request, 'index.html', {'news': news,'form': form})
 
 def about(request):
     return render(request, 'about.html')
@@ -48,7 +55,14 @@ def ad(request,ad_id):
 
 def news(request,new_id):
 	new_info = get_object_or_404(News, id=new_id)
-	return render(request, 'news.html',{'news': new_info})
+	form = MailForm(request.POST or None,auto_id=True)
+	if form.is_valid():
+		new_mail = form.save(commit=False)
+		email = form.cleaned_data['email']
+		new_mail.email = email
+		new_mail.save()
+		return HttpResponseRedirect(reverse('news'))
+	return render(request, 'news.html',{'news': new_info,'form': form})
 
 def registration_view(request):
     form = RegistrationForm(request.POST or None,auto_id=False)
