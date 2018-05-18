@@ -11,6 +11,7 @@ from .forms import RegistrationForm, LoginForm
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.contrib.auth.models import User
 from django.db.models import Count
+from django.contrib.auth.decorators import login_required
 
 logger = logging.getLogger(__name__) 
 
@@ -32,6 +33,7 @@ def logout(request):
     auth_logout(request)
     return HttpResponseRedirect(reverse('base'))
 
+@login_required
 def base(request):
 	news = News.objects.all()
 	return render(request, 'index.html', {'news': news})

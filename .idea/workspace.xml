@@ -2,15 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8ebd3aa8-6a15-4974-9eb7-3de9ab83ed32" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TukaTuka/TukaTuka/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/TukaTuka/TukaTuka/settings.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/TukaTuka/TukaTuka/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/TukaTuka/TukaTuka/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TukaTuka/app/management/commands/generate.py" beforeDir="false" afterPath="$PROJECT_DIR$/TukaTuka/app/management/commands/generate.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TukaTuka/app/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/TukaTuka/app/models.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/TukaTuka/app/templates/auth_form.html" beforeDir="false" afterPath="$PROJECT_DIR$/TukaTuka/app/templates/auth_form.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TukaTuka/app/templates/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/TukaTuka/app/templates/base.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TukaTuka/app/templates/tables.html" beforeDir="false" afterPath="$PROJECT_DIR$/TukaTuka/app/templates/tables.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/TukaTuka/app/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/TukaTuka/app/views.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -25,8 +19,8 @@
       <file leaf-file-name="settings.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/TukaTuka/TukaTuka/settings.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="331">
-              <caret line="132" column="22" lean-forward="true" selection-start-line="132" selection-start-column="22" selection-end-line="132" selection-end-column="22" />
+            <state relative-caret-position="159">
+              <caret line="115" column="26" lean-forward="true" selection-start-line="115" selection-start-column="26" selection-end-line="115" selection-end-column="39" />
             </state>
           </provider>
         </entry>
@@ -34,8 +28,13 @@
       <file leaf-file-name="auth_form.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/TukaTuka/app/templates/auth_form.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="267">
-              <caret line="24" column="95" selection-start-line="24" selection-start-column="95" selection-end-line="24" selection-end-column="95" />
+            <state relative-caret-position="548">
+              <caret line="49" column="64" selection-start-line="49" selection-start-column="64" selection-end-line="49" selection-end-column="64" />
+              <folding>
+                <element signature="e#2751#2757#0" expanded="true" />
+                <element signature="e#2772#2779#0" expanded="true" />
+                <element signature="e#2787#2794#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -52,11 +51,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="urls.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="urls.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/TukaTuka/TukaTuka/urls.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="315">
-              <caret line="24" column="1" lean-forward="true" selection-start-line="24" selection-start-column="1" selection-end-line="24" selection-end-column="1" />
+            <state relative-caret-position="285">
+              <caret line="22" column="6" lean-forward="true" selection-start-line="22" selection-start-column="6" selection-end-line="22" selection-end-column="6" />
             </state>
           </provider>
         </entry>
@@ -73,16 +72,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="generate.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/TukaTuka/app/management/commands/generate.py">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file leaf-file-name="views.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="views.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/TukaTuka/app/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="420">
-              <caret line="40" column="95" selection-start-line="40" selection-start-column="95" selection-end-line="40" selection-end-column="95" />
+            <state relative-caret-position="348">
+              <caret line="35" column="8" selection-start-line="35" selection-start-column="8" selection-end-line="35" selection-end-column="8" />
               <folding>
                 <element signature="e#0#54#0" expanded="true" />
               </folding>
@@ -135,11 +129,11 @@
         <option value="$PROJECT_DIR$/TukaTuka/app/templates/base.html" />
         <option value="$PROJECT_DIR$/TukaTuka/app/urls.py" />
         <option value="$PROJECT_DIR$/TukaTuka/app/templates/tables.html" />
-        <option value="$PROJECT_DIR$/TukaTuka/app/views.py" />
         <option value="$PROJECT_DIR$/TukaTuka/app/models.py" />
-        <option value="$PROJECT_DIR$/TukaTuka/TukaTuka/urls.py" />
         <option value="$PROJECT_DIR$/TukaTuka/TukaTuka/settings.py" />
+        <option value="$PROJECT_DIR$/TukaTuka/TukaTuka/urls.py" />
         <option value="$PROJECT_DIR$/TukaTuka/app/templates/auth_form.html" />
+        <option value="$PROJECT_DIR$/TukaTuka/app/views.py" />
       </list>
     </option>
   </component>
@@ -153,6 +147,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -207,7 +202,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -247,6 +241,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="807" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.18393235" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -255,7 +250,7 @@
       <window_info anchor="bottom" id="Python Console" order="7" />
       <window_info anchor="bottom" id="Run" order="2" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="7" visible="true" weight="0.19859155" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="7" visible="true" weight="0.054929577" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -271,6 +266,13 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/TukaTuka/TukaTuka/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="315">
+          <caret line="24" column="1" lean-forward="true" selection-start-line="24" selection-start-column="1" selection-end-line="24" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/TukaTuka/app/views.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="420">
@@ -563,16 +565,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/TukaTuka/app/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="420">
-          <caret line="40" column="95" selection-start-line="40" selection-start-column="95" selection-end-line="40" selection-end-column="95" />
-          <folding>
-            <element signature="e#0#54#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/TukaTuka/app/models.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1020">
@@ -583,8 +575,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/TukaTuka/app/management/commands/generate.py">
-      <provider selected="true" editor-type-id="text-editor" />
+    <entry file="file://$PROJECT_DIR$/TukaTuka/TukaTuka/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="22" column="6" lean-forward="true" selection-start-line="22" selection-start-column="6" selection-end-line="22" selection-end-column="6" />
+        </state>
+      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/TukaTuka/app/urls.py">
       <provider selected="true" editor-type-id="text-editor">
@@ -596,24 +592,32 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/TukaTuka/TukaTuka/settings.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="331">
-          <caret line="132" column="22" lean-forward="true" selection-start-line="132" selection-start-column="22" selection-end-line="132" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/TukaTuka/app/templates/auth_form.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="267">
-          <caret line="24" column="95" selection-start-line="24" selection-start-column="95" selection-end-line="24" selection-end-column="95" />
+        <state relative-caret-position="548">
+          <caret line="49" column="64" selection-start-line="49" selection-start-column="64" selection-end-line="49" selection-end-column="64" />
+          <folding>
+            <element signature="e#2751#2757#0" expanded="true" />
+            <element signature="e#2772#2779#0" expanded="true" />
+            <element signature="e#2787#2794#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/TukaTuka/TukaTuka/urls.py">
+    <entry file="file://$PROJECT_DIR$/TukaTuka/TukaTuka/settings.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="24" column="1" lean-forward="true" selection-start-line="24" selection-start-column="1" selection-end-line="24" selection-end-column="1" />
+        <state relative-caret-position="159">
+          <caret line="115" column="26" lean-forward="true" selection-start-line="115" selection-start-column="26" selection-end-line="115" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TukaTuka/app/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="348">
+          <caret line="35" column="8" selection-start-line="35" selection-start-column="8" selection-end-line="35" selection-end-column="8" />
+          <folding>
+            <element signature="e#0#54#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
