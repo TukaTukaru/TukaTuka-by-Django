@@ -41,7 +41,10 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'app',
     'phonenumber_field',
+
 ]
+
+
 
 MIDDLEWARE = [
     'social_django.middleware.SocialAuthExceptionMiddleware',
@@ -125,10 +128,8 @@ LOGIN_URL = 'login'
 LOGOUT_URL = 'logout'
 LOGIN_REDIRECT_URL = ''
 
-SOCIAL_AUTH_ODNOKLASSNIKI_OAUTH2_KEY = '1266671104'
-SOCIAL_AUTH_ODNOKLASSNIKI_OAUTH2_SECRET = 'CBAPNQHMEBABABABA'
-SOCIAL_AUTH_ODNOKLASSNIKI_OAUTH2_PUBLIC_NAME = '2E61D09942AD7B2A9A6AEA6D'
-
+SOCIAL_AUTH_FACEBOOK_KEY = '236232877125545'  # App ID
+SOCIAL_AUTH_FACEBOOK_SECRET = 'c96e19ff175edf99b1ece7d56b5d5e05'  # App Secret
 
 # Internationalization
 # https://docs.djangoproject.com/en/2.0/topics/i18n/
