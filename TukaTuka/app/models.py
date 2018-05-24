@@ -8,6 +8,11 @@ from phonenumber_field.modelfields import PhoneNumberField
 
 class Mail(models.Model):
     email = models.EmailField(unique=True,db_index=True)
+    def __str__(self):
+        return f"{self.email}"
+    class Meta:
+         verbose_name = 'email'
+         verbose_name_plural = 'emails'
 
 class Comment(models.Model):
 	rating_choice = (
