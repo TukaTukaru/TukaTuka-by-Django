@@ -2104,6 +2104,8 @@ table {
 				border-radius: 10px;
 				background: rgba(255, 255, 255, 0.1);
 				padding: 0.75em;
+				margin-left: -40px;
+		        margin-right: -40px;
 			}
 
 				#header .inner {
@@ -2127,6 +2129,9 @@ table {
 					margin-top: -0.65em;
 					font-size: 1.5em;
 					color: #fff;
+				}
+				#bluehref {
+					background-color: #4091bf;
 				}
 
 		/* Nav */
