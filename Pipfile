@@ -1,0 +1,19 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+requests = "*"
+django = "*"
+social-auth-app-django = "*"
+django-phonenumber-field = "*"
+django-debug-toolbar = "*"
+mysqlclient = "*"
+pillow = "*"
+gunicorn = "*"
+
+[dev-packages]
+
+[requires]
+python_version = "3.6"
