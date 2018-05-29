@@ -27,6 +27,7 @@
                         <div id="sidebar">
 
 											<!-- Sidebar -->
+{% if category == 2 or category == 4 %}
 
 												<section>
 													<header class="major">
@@ -50,6 +51,34 @@
                                                             <input name="category" type="checkbox"> Другое<br>
                                                     </form>
 												</section>
+                            {% else %}
+
+                            <section>
+													<header class="major">
+														<h1>Фильтр</h1>
+													</header>
+                                                    <form class="formstyle" name="buyForm" enctype="multipart/form-data" action="send_form_2.php" method="post">
+                                                        Цена:
+                                                            <input name="ot" type="text" placeholder="от"><br>
+                                                            <input name="do" type="text" placeholder="до"><br>
+                                                        Объем:
+                                                            <input name="ot" type="text" placeholder="от"><br>
+                                                            <input name="do" type="text" placeholder="до"><br>
+                                                        Наличие фотографии:<br>
+                                                            <input name="foto" type="radio"> Есть<br>
+                                                            <input name="foto" type="radio"> Отсутствует<br><br>
+                                                        Категория:<br>
+                                                            <input name="category" type="checkbox"> ПП<br>
+                                                            <input name="category" type="checkbox"> ПНД<br>
+                                                            <input name="category" type="checkbox"> ПВД<br>
+                                                            <input name="category" type="checkbox"> ПЭТ<br>
+                                                            <input name="category" type="checkbox"> Стрейч<br>
+                                                            <input name="category" type="checkbox"> Другое<br>
+                                                    </form>
+												</section>
+
+                            {% endif %}
+
 				            </div>
 				        </div>      
                     <div class="10u 12u(mobile) important(mobile)">
