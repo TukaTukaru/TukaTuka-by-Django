@@ -1,7 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
+<<<<<<< HEAD
     <list default="true" id="8ebd3aa8-6a15-4974-9eb7-3de9ab83ed32" name="Default" comment="" />
+=======
+    <list default="true" id="8ebd3aa8-6a15-4974-9eb7-3de9ab83ed32" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/TukaTuka/app/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/TukaTuka/app/forms.py" afterDir="false" />
+    </list>
+>>>>>>> fff4f5af52e1cf42dc4c54ba494ffd5131556d87
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -25,11 +31,25 @@
           <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
-      <file leaf-file-name="tables.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="tables.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/TukaTuka/app/templates/tables.html">
           <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
             <state relative-caret-position="783">
               <caret line="64" column="52" selection-start-line="64" selection-start-column="52" selection-end-line="64" selection-end-column="52" />
+=======
+            <state relative-caret-position="135">
+              <caret line="111" column="38" selection-start-line="111" selection-start-column="38" selection-end-line="113" selection-end-column="37" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="forms.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/TukaTuka/app/forms.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="193">
+              <caret line="42" column="15" lean-forward="true" selection-start-line="42" selection-start-column="14" selection-end-line="42" selection-end-column="15" />
+>>>>>>> fff4f5af52e1cf42dc4c54ba494ffd5131556d87
             </state>
           </provider>
         </entry>
@@ -80,6 +100,7 @@
         <option value="$PROJECT_DIR$/TukaTuka/app/templates/auth_form.html" />
         <option value="$PROJECT_DIR$/TukaTuka/app/views.py" />
         <option value="$PROJECT_DIR$/TukaTuka/app/templates/tables.html" />
+        <option value="$PROJECT_DIR$/TukaTuka/app/forms.py" />
       </list>
     </option>
   </component>
@@ -185,25 +206,26 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="0" width="1440" height="900" extended-state="0" />
+    <frame x="0" y="-30" width="1920" height="955" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.18393235" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.18344755" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
       <window_info anchor="bottom" id="Run" order="2" />
       <window_info anchor="bottom" id="Version Control" order="7" />
       <window_info anchor="bottom" id="Python Console" order="7" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info anchor="bottom" id="Terminal" order="7" visible="true" weight="0.07030303" />
+      <window_info anchor="bottom" id="Terminal" order="7" visible="true" weight="0.06965762" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32900944" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Message" order="0" />
     </layout>
   </component>
   <component name="VcsContentAnnotationSettings">
@@ -445,11 +467,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/TukaTuka/app/templates/news_1.html" />
-    <entry file="file://$PROJECT_DIR$/TukaTuka/app/forms.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-398" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/TukaTuka/app/templates/footer.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="14">
@@ -528,8 +545,20 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/TukaTuka/app/templates/tables.html">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
         <state relative-caret-position="783">
           <caret line="64" column="52" selection-start-line="64" selection-start-column="52" selection-end-line="64" selection-end-column="52" />
+=======
+        <state relative-caret-position="135">
+          <caret line="111" column="38" selection-start-line="111" selection-start-column="38" selection-end-line="113" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TukaTuka/app/forms.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="193">
+          <caret line="42" column="15" lean-forward="true" selection-start-line="42" selection-start-column="14" selection-end-line="42" selection-end-column="15" />
+>>>>>>> fff4f5af52e1cf42dc4c54ba494ffd5131556d87
         </state>
       </provider>
     </entry>

@@ -61,4 +61,17 @@ class LoginForm(forms.Form):
         if user and not user.check_password(password):
             raise forms.ValidationError('Пароль неверный!')
 
-        
+class FilterForm(forms.Form):
+    category = forms.CharField(widget=forms.EmailInput(attrs={'name' : 'log', 'id' : 'user_login', 'class' : 'input'}))
+    volume = forms.IntegerField()
+    price = forms.IntegerFieldFieldFieldFieldFieldFieldFieldFieldField()
+    
+    def clean(self):
+        username = self.cleaned_data['username']
+        password = self.cleaned_data['password']
+        if not User.objects.filter(username=username).exists():
+            raise forms.ValidationError('User with this login has not already registered')
+
+        user = User.objects.get(username=username)
+        if user and not user.check_password(password):
+            raise forms.ValidationError('Пароль неверный!')
