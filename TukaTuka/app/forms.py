@@ -61,10 +61,10 @@ class LoginForm(forms.Form):
         if user and not user.check_password(password):
             raise forms.ValidationError('Пароль неверный!')
 
-class FilterForm(forms.Form):
-    category = forms.ChoiceField(category_set = Category.objects.filter(category="Dave"))
-    volume = forms.IntegerField()
-    price = forms.IntegerField()
+# class FilterForm(forms.Form):
+   # category = forms.ChoiceField(category_set = Category.objects.filter(category="Dave"))
+   # volume = forms.IntegerField()
+   # price = forms.IntegerField()
     
     def clean(self):
         username = self.cleaned_data['username']
