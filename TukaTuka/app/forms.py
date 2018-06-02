@@ -25,6 +25,27 @@ class RegistrationForm(forms.ModelForm):
             },
         }
 
+    class AdForm(forms.ModelForm):
+
+        class Meta:
+            model = Ad
+            fields = ['username', 'password', 'first_name', 'last_name']
+            widgets = {
+                'username': forms.EmailInput(attrs={'placeholder': 'Ваша почта'}),
+                'first_name': forms.TextInput(attrs={'placeholder': 'Имя', 'name': 'Name'}),
+                'last_name': forms.TextInput(attrs={'placeholder': 'Фамилия', 'name': 'Surname'}),
+                'password': forms.PasswordInput(attrs={'placeholder': 'Пароль', 'name': 'pass'}),
+                'password_check': forms.PasswordInput(attrs={'placeholder': 'Повторите пароль', 'name': 'pass'}),
+            }
+            help_texts = {
+                'username': (''),
+            }
+            error_messages = {
+                'username': {
+                    'max_length': ("Превышена длинна"),
+                },
+            }
+
     def __init__(self, *args, **kwargs):
         super(RegistrationForm, self).__init__(*args, **kwargs)
         self.fields['username'].label = 'Обязательно'
