@@ -1,3 +1,5 @@
+{% extends "base.html" %}
+{% block content %}
 <div id="main-wrapper">
     <div class="wrapper style2">
         <div class="inner">
@@ -23,9 +25,12 @@
                     <div class="8u 12u(mobile) important(mobile)">
                         <div id="content">
                             <!-- Content -->
+                          {% block objava %}
+                            {% endblock %}
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+{% endblock %}

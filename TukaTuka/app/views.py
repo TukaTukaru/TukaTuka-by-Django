@@ -94,3 +94,14 @@ def registration_view(request):
         'form': form
     }
     return render(request, 'register_form.html', context)
+
+def lichniy_cabinet(request):
+    return render(request, 'lk.html')
+
+def lichniy_cabinet(request, author):
+    ad_list = Ad.objects.filter(author=author).annotate(author_count=Count('id'))
+    return render(request, 'lk.html', {'ad_list': ad_list, 'author': author})
+
+#def lichniy_cabinet_data(request, author):
+  #  ad_list = Ad.objects.filter(author=author).annotate(author_count=Count('Objavleniy:'))
+    #return render(request, 'lk_objavi.html', {'author': author})
