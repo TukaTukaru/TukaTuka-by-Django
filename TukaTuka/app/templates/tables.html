@@ -33,7 +33,7 @@
 													<header class="major">
 														<h1>Фильтр</h1>
 													</header>
-                                                    <form class="formstyle" name="buyForm" enctype="multipart/form-data" action="send_form_2.php" method="post">
+                                                    <form class="formstyle" name="buyForm" enctype="multipart/form-data" action="" method="post">
                                                         Цена:
                                                             <input name="ot" type="text" placeholder="от"><br>
                                                             <input name="do" type="text" placeholder="до"><br>
@@ -44,6 +44,8 @@
                                                             <input name="foto" type="radio"> Есть<br>
                                                             <input name="foto" type="radio"> Отсутствует<br><br>
                                                         Категория:<br>
+                                                        {% csrf_token %} {{ form.as_p }}
+                                                            <input type="submit" value="поиск">
                                                             <input name="category" type="checkbox"> Гранула ПП<br>
                                                             <input name="category" type="checkbox"> Гранула ПНД<br>
                                                             <input name="category" type="checkbox"> Гранула ПВД<br>
@@ -57,7 +59,7 @@
 													<header class="major">
 														<h1>Фильтр</h1>
 													</header>
-                                                    <form class="formstyle" name="buyForm" enctype="multipart/form-data" action="send_form_2.php" method="post">
+                                                    <form class="formstyle" name="buyForm" enctype="multipart/form-data" action="" method="post">
                                                         Цена:
                                                             <input name="ot" type="text" placeholder="от"><br>
                                                             <input name="do" type="text" placeholder="до"><br>
@@ -68,6 +70,8 @@
                                                             <input name="foto" type="radio"> Есть<br>
                                                             <input name="foto" type="radio"> Отсутствует<br><br>
                                                         Категория:<br>
+                                                            {% csrf_token %} {{ form.as_p }}
+                                                            <input type="submit" value="поиск">
                                                             <input name="category" type="checkbox"> ПП<br>
                                                             <input name="category" type="checkbox"> ПНД<br>
                                                             <input name="category" type="checkbox"> ПВД<br>
@@ -86,7 +90,7 @@
 
                             <!-- Content -->
 
-                            <article>
+                            <article>{% block filter %}
                                 <header class="major">{% if category == 1 %} 
                                    <h1>Купить вторсырье на переработку</h1>
                                 {% elif category == 2 %} 
@@ -130,7 +134,7 @@
                                             {% else %}  {{ ad.volume }} тонн{% endif %}</a></td>
 
                                         </tr>
-                                        {% endfor %}
+                                        {% endfor %}{% endblock %}
                                                 </tbody>
     </table>        
                                                 </article>

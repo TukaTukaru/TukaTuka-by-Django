@@ -62,16 +62,24 @@ class LoginForm(forms.Form):
             raise forms.ValidationError('Пароль неверный!')
 
 class FilterForm(forms.Form):
-    category = forms.ChoiceField(category_set = Category.objects.filter(category="Dave"))
-    volume = forms.IntegerField()
-    price = forms.IntegerField()
+    category1 = forms.TypedChoiceField(choices = (
+        (1, "ПП"),
+        (2, "ПНД"),
+        (3, "ПВД"),
+        (4, "Стрейч"),
+        (5, "ПЭТ"),
+        (6, "Другое"),),
+    coerce=int,empty_value=1
+    )
+    # volume = forms.IntegerField()
+    # price = forms.IntegerField()
     
-    def clean(self):
-        username = self.cleaned_data['username']
-        password = self.cleaned_data['password']
-        if not User.objects.filter(username=username).exists():
-            raise forms.ValidationError('User with this login has not already registered')
+    # def clean(self):
+    #     username = self.cleaned_data['username']
+    #     password = self.cleaned_data['password']
+    #     if not User.objects.filter(username=username).exists():
+    #         raise forms.ValidationError('User with this login has not already registered')
 
-        user = User.objects.get(username=username)
-        if user and not user.check_password(password):
-            raise forms.ValidationError('Пароль неверный!')
+    #     user = User.objects.get(username=username)
+    #     if user and not user.check_password(password):
+    #         raise forms.ValidationError('Пароль неверный!')

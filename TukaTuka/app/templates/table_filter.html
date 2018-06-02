@@ -1,0 +1,46 @@
+{% extends "tables.html" %}
+{% block filter %}
+                                <header class="major">{% if category == 1 %} 
+                                   <h1>Купить вторсырье на переработку</h1>
+                                {% elif category == 2 %} 
+                                <h1>Купить переработанное сырье</h1>
+                                {% elif category == 3 %} 
+                                <h1>Продать вторсырье на переработку</h1>
+                                {% elif category == 4 %} 
+                                <h1>Продать переработанное сырье</h1>
+                                {% endif %}   
+                                </header>
+
+                                <table border="0" cellpadding="0" cellspacing="0" id="sheet0" class="bordered">
+                                    <col class="col0">
+                                    <col class="col1">
+                                    <col class="col2">
+                                    <col class="col3">
+                                    <col class="col4">
+                                    <col class="col5">
+                                    <thead>
+                                        <tr class="row1">
+                                            <th class="column0 style1 s ">№</th>
+                                            <th class="column1 style1 s d-none d-md-table-cell">Фото</th>
+                                            <th class="column2 style1 s">Наименование продукции</th>
+                                            <th class="column3 style1 s d-none d-md-table-cell">Адрес</th>
+                                            <th class="column4 style1 s">Цена</th>
+                                            <th class="column5 style1 s d-none d-md-table-cell">Объем</th>
+
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {% for ad in ad_filter_list %}
+                                        <tr class="row0" onclick="window.location.href='{% url 'ad' ad.id %}'; return false">
+                                            <td class="column5 style4 s">{{ forloop.counter }}</td>
+                                            <td class="column0 d-none d-md-table-cell style4 null"><a href="{% url 'ad' ad.id %}">{% if ad.photo %}<img src="
+                                         {{ ad.photo.url }}" border="0" />{% endif %}</a></td>
+                                            <td class="column1 style1 s"><a href="{% url 'ad' ad.id %}">{{ ad.title }}</a></td>
+                                            <td class="column2 d-none d-md-table-cell style4 s"><a href="{% url 'ad' ad.id %}">{{ ad.company_adress }}</a></td>
+                                            <td class="column3 style4 null"><a href="{% url 'ad' ad.id %}">{% if ad.price_min == 0 %}
+                                            {% else %} {{ ad.price_min }} руб/тонна{% endif %}</a></td>
+                                            <td class="column4 d-none d-md-table-cell style5 s"><a href="{% url 'ad' ad.id %}">{% if ad.volume == 0 %}
+                                            {% else %}  {{ ad.volume }} тонн{% endif %}</a></td>
+
+                                        </tr>
+                                        {% endfor %}{% endblock %}

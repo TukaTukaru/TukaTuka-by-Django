@@ -83,8 +83,8 @@ class Ad(models.Model):
 		on_delete=models.CASCADE, to=settings.AUTH_USER_MODEL,blank=True, null=True)
 	created_at = models.DateTimeField(auto_now_add=True)
 	category = models.IntegerField(choices=category_choice, default=0)
-	category = models.IntegerField(choices=category_raw, default=0)
-	category = models.IntegerField(choices=category_granule, default=0)
+	category1 = models.IntegerField(choices=category_raw, default=0)
+	category2 = models.IntegerField(choices=category_granule, default=0)
 
 
 	def __str__(self):
