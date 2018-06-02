@@ -7,7 +7,7 @@ from django.http import HttpResponseRedirect
 from django.contrib.auth import login as auth_login
 from django.contrib.auth import logout as auth_logout
 from django.contrib.auth import authenticate
-from .forms import RegistrationForm, LoginForm, MailForm
+from .forms import RegistrationForm, LoginForm, MailForm,FilterForm
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.contrib.auth.models import User
 from django.db.models import Count
@@ -50,7 +50,12 @@ def about(request):
 
 def table(request, category):
     ad_list = Ad.objects.filter(category=category).annotate(complaint_count=Count('complaint'))
-    return render(request, 'tables.html', {'category': category,'ad_list': ad_list})
+    form = FilterForm(request.POST or None)
+    if form.is_valid():
+        categorys = form.cleaned_data['category1']
+        ad_filter_list = Ad.objects.filter(category=category,category1=categorys)
+        return render(request, 'table_filter.html', {'category': category,'ad_filter_list': ad_filter_list,'form': form})
+    return render(request, 'tables.html', {'category': category,'ad_list': ad_list,'form': form})
 
 def ad(request,ad_id):
 	ad_info = get_object_or_404(Ad, id=ad_id)
