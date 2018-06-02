@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% block content %}
+			<!-- Main Wrapper -->
+				<div id="main-wrapper">
+					<div class="wrapper style3">
+						<div class="inner">
+							<div class="container">
+								<div class="row">
+									<div class="12u(mobile)">
+                                        <div id="content">
+                                            <article>
+													<header class="major">
+														<h1>Форма добавления объявления</h1>
+													</header>
+                                                <!-- Form section -->
+                                                <form name="buyForm" enctype="multipart/form-data" action="send_form_2.php" method="post">
+                                                    {{ form.title }} <br>
+                                                    {{ form.description }} <br>
+                                                    <label>Я хочу</label>
+													{{ form.category }}<br>
+													{{ form.company_adress }} <br>
+													{{ form.company_name }} <br>
+													{{ form.name }} <br>
+													{{ form.position }} <br>
+													{{ form.phone_number }} <br>
+													{{ form.phone_another }} <br>
+													{{ form.price }} <br>
+													{{ form.volume }} <br>
+
+
+                                                    <label>Прикрепить фото продукции:</label>
+                                                    {{ form.photo }} <br><br>
+                                                    <input type="submit" value="Отправить"><br><br>
+                                                </form>
+                                            </article>
+                                        </div>
+								      </div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+{% endblock %}

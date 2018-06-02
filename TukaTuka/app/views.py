@@ -7,7 +7,7 @@ from django.http import HttpResponseRedirect
 from django.contrib.auth import login as auth_login
 from django.contrib.auth import logout as auth_logout
 from django.contrib.auth import authenticate
-from .forms import RegistrationForm, LoginForm, MailForm,FilterForm
+from .forms import RegistrationForm, LoginForm, MailForm, FilterForm, AdForm
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.contrib.auth.models import User
 from django.db.models import Count
@@ -94,6 +94,41 @@ def registration_view(request):
         'form': form
     }
     return render(request, 'register_form.html', context)
+
+def ad_form(request):
+    form = AdForm(request.POST or None,auto_id=False)
+    if form.is_valid():
+        new_Ad = form.save(commit=False)
+        title = form.cleaned_data['title']
+        description = form.cleaned_data['description']
+        category = form.cleaned_data['category']
+        company_adress = form.cleaned_data['company_adress']
+        company_name = form.cleaned_data['company_name']
+        name = form.cleaned_data['name']
+        position = form.cleaned_data['position']
+        phone_number = form.cleaned_data['phone_number']
+        phone_another = form.cleaned_data['phone_another']
+        price = form.cleaned_data['price']
+        volume = form.cleaned_data['volume']
+        photo = form.cleaned_data['photo']
+        new_Ad.title = title
+        new_Ad.description = description
+        new_Ad.category = category
+        new_Ad.company_adress= company_adress
+        new_Ad.company_name  = company_name
+        new_Ad.name = name
+        new_Ad.position = position
+        new_Ad.phone_number = phone_number
+        new_Ad.phone_another = phone_another
+        new_Ad.price = price
+        new_Ad.volume = volume
+        new_Ad.photo = photo
+        new_Ad.save()
+        return HttpResponseRedirect(reverse('base'))
+    context = {
+        'form': form
+    }
+    return render(request, 'ad_form.html', context)
 
 #def lichniy_cabinet(request):
    # return render(request, 'lk.html')

@@ -43,8 +43,7 @@ class Comment(models.Model):
 
 class Ad(models.Model):
 	name = models.CharField(max_length=200)
-	price_min = models.PositiveIntegerField(blank=True, null=True)
-	price_max = models.PositiveIntegerField(blank=True, null=True)
+	price = models.PositiveIntegerField(blank=True, null=True)
 	volume = models.PositiveIntegerField(blank=True, null=True)
 	position = models.CharField(blank=True, max_length=200, db_index=True)
 	photo = models.ImageField(upload_to='prod_img', blank=True, verbose_name='Фото продукции')
