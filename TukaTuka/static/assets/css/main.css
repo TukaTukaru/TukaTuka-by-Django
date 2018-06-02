@@ -2104,7 +2104,7 @@ table {
 				border-radius: 10px;
 				background: rgba(255, 255, 255, 0.1);
 				padding: 0.75em;
-				margin-left: -40px;
+                margin-left: -40px;
 		        margin-right: -40px;
 			}
 
@@ -2209,6 +2209,42 @@ table {
 				.dropotron li:hover > a, .dropotron li:hover > span {
 					color: #fff;
 				}
+
+        		/* Nav-vertical */
+
+			#nav_v {
+                line-height: 3.5em
+			}
+
+				#nav_v > ul > li {
+					float: left;
+					padding: 0 0.8em 0 0.8em;
+				}
+
+					#nav_v > ul > li > a, #nav_v > ul > li > span {
+						text-decoration: none;
+						text-transform: uppercase;
+						font-weight: 800;
+						font-size: 0.95em;
+						letter-spacing: 0.075em;
+						padding: 0.5em 0.8em 0.5em 0.8em;
+						border-radius: 6px;
+						outline: 0;
+					}
+
+					#nav_v > ul > li.active > a, #nav_v > ul > li.current_page_item > a, #nav_v > ul > li.active > span, #nav_v > ul > li.current_page_item > span {
+                        color: #fff;
+						background: rgba(0, 0, 0, 0.15);
+						box-shadow: inset 1px 1px 0px 0px rgba(0, 0, 0, 0.025), 1px 1px 0px 0px rgba(255, 255, 255, 0.025);
+					}
+
+					#nav_v > ul > li:last-child {
+						padding-right: 0;
+					}
+
+					#nav_v > ul > li > ul {
+						display: none;
+					}
 
 		/* Banner */
 
