@@ -62,9 +62,9 @@ class LoginForm(forms.Form):
             raise forms.ValidationError('Пароль неверный!')
 
 class FilterForm(forms.Form):
-    category = forms.CharField(widget=forms.EmailInput(attrs={'name' : 'log', 'id' : 'user_login', 'class' : 'input'}))
+    category = forms.ChoiceField(category_set = Category.objects.filter(category="Dave"))
     volume = forms.IntegerField()
-    price = forms.IntegerFieldFieldFieldFieldFieldFieldFieldFieldField()
+    price = forms.IntegerField()
     
     def clean(self):
         username = self.cleaned_data['username']
