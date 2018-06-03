@@ -22,85 +22,84 @@
     <div class="wrapper style2">
         <div class="inner">
             <div class="container">
-                <div class="row">
-                    <div class="2u 12u(mobile)">
-                        <div id="sidebar">
+                <div class="row">     
+                    <div class="12u(mobile) important(mobile)">
+                        <div id="content">
 
-											<!-- Sidebar -->
-{% if category == 2 or category == 4 %}
-
-												<section>
-													<header class="major">
-														<h1>Фильтр</h1>
-													</header>
-                                                    <form class="formstyle" name="buyForm" enctype="multipart/form-data" action="" method="post">
-                                                        Цена:
+                            <!-- Content -->
+												<article>{% block filter %}
+                                                    <header class="major">
+                                    <header class="major">
+                                    {% if category == 1 %} 
+                                    <h1>Купить вторсырье на переработку</h1>
+                                    {% elif category == 2 %} 
+                                    <h1>Купить переработанное сырье</h1>
+                                    {% elif category == 3 %} 
+                                    <h1>Продать вторсырье на переработку</h1>
+                                    {% elif category == 4 %} 
+                                    <h1>Продать переработанное сырье</h1>
+                                    {% endif %}   
+                                    </header>
+                                                        {% if category == 2 or category == 4 %}
+                                                    <form class="formstyle" name="buyForm" enctype="multipart/form-data" action="send_form_2.php" method="post">
+                                                      <div class="row justify-content-center">
+                                                          <div>
+                                                            Цена:
                                                             <input name="ot" type="text" placeholder="от"><br>
                                                             <input name="do" type="text" placeholder="до"><br>
-                                                        Объем:
+                                                        </div>
+                                                        <div>
+                                                            Объем:
                                                             <input name="ot" type="text" placeholder="от"><br>
                                                             <input name="do" type="text" placeholder="до"><br>
-                                                        Наличие фотографии:<br>
+                                                        </div>
+                                                        <div>
+                                                            Наличие фотографии:<br>
                                                             <input name="foto" type="radio"> Есть<br>
                                                             <input name="foto" type="radio"> Отсутствует<br><br>
-                                                        Категория:<br>
-                                                        {% csrf_token %} {{ form.as_p }}
-                                                            <input type="submit" value="поиск">
-                                                            <input name="category" type="checkbox"> Гранула ПП<br>
+                                                        </div>
+                                                        <div>
+                                                            Категория:<br>
+                                                            {% csrf_token %} {{ form.as_p }}
+                                                            <input name="en_foto" type="checkbox"> Гранула ПП<br>
                                                             <input name="category" type="checkbox"> Гранула ПНД<br>
                                                             <input name="category" type="checkbox"> Гранула ПВД<br>
                                                             <input name="category" type="checkbox"> Гранула Стрейч<br>
                                                             <input name="category" type="checkbox"> Другое<br>
+                                                        </div>
+                                                        </div>
                                                     </form>
-												</section>
-                            {% else %}
-
-                            <section>
-													<header class="major">
-														<h1>Фильтр</h1>
-													</header>
-                                                    <form class="formstyle" name="buyForm" enctype="multipart/form-data" action="" method="post">
-                                                        Цена:
+                                                    {% else %}
+                                                    <form class="formstyle" name="buyForm" enctype="multipart/form-data" action="send_form_2.php" method="post">
+                                                      <div class="row justify-content-center">
+                                                          <div>
+                                                            Цена:
                                                             <input name="ot" type="text" placeholder="от"><br>
                                                             <input name="do" type="text" placeholder="до"><br>
-                                                        Объем:
+                                                        </div>
+                                                        <div>
+                                                            Объем:
                                                             <input name="ot" type="text" placeholder="от"><br>
                                                             <input name="do" type="text" placeholder="до"><br>
-                                                        Наличие фотографии:<br>
+                                                        </div>
+                                                        <div>
+                                                            Наличие фотографии:<br>
                                                             <input name="foto" type="radio"> Есть<br>
                                                             <input name="foto" type="radio"> Отсутствует<br><br>
-                                                        Категория:<br>
+                                                        </div>
+                                                        <div>
+                                                            Категория:<br>
                                                             {% csrf_token %} {{ form.as_p }}
-                                                            <input type="submit" value="поиск">
-                                                            <input name="category" type="checkbox"> ПП<br>
+                                                            <input name="en_foto" type="checkbox"> ПП<br>
                                                             <input name="category" type="checkbox"> ПНД<br>
                                                             <input name="category" type="checkbox"> ПВД<br>
-                                                            <input name="category" type="checkbox"> ПЭТ<br>
                                                             <input name="category" type="checkbox"> Стрейч<br>
                                                             <input name="category" type="checkbox"> Другое<br>
-                                                    </form>
-												</section>
+                                                        </div>
+                                                        </div>
+                                                    </form>   
+													</header>
 
-                            {% endif %}
-
-				            </div>
-				        </div>      
-                    <div class="10u 12u(mobile) important(mobile)">
-                        <div id="content">
-
-                            <!-- Content -->
-
-                            <article>{% block filter %}
-                                <header class="major">{% if category == 1 %} 
-                                   <h1>Купить вторсырье на переработку</h1>
-                                {% elif category == 2 %} 
-                                <h1>Купить переработанное сырье</h1>
-                                {% elif category == 3 %} 
-                                <h1>Продать вторсырье на переработку</h1>
-                                {% elif category == 4 %} 
-                                <h1>Продать переработанное сырье</h1>
-                                {% endif %}   
-                                </header>
 
                                 <table border="0" cellpadding="0" cellspacing="0" id="sheet0" class="bordered">
                                     <col class="col0">
