@@ -1304,6 +1304,8 @@
 	form input[type="text"],
 	form input[type="email"],
 	form input[type="password"],
+	form input[type="number"],
+	form input[type="tel"],
 	form select,
 	form textarea {
 		-webkit-appearance: none;
@@ -1316,6 +1318,8 @@
 	form input[type="text"]:focus,
 	form input[type="email"]:focus,
 	form input[type="password"]:focus,
+	form input[type="number"]:focus,
+	form input[type="tel"]:focus,
 	form select:focus,
 	form textarea:focus {
 		box-shadow: 0 0 2px 1px #4091bf;
@@ -1323,7 +1327,9 @@
 
 	form input[type="text"],
 	form input[type="email"],
-	form input[type="password"] {
+	form input[type="password"],
+	form input[type="number"],
+	form input[type="tel"] {
 		line-height: 3.4em;
 		padding: 0 1em;
 	}

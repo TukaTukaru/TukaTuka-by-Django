@@ -28,5 +28,4 @@ urlpatterns = [
  path('logout', views.logout, name='logout'),
  path('lichniy-kabinet', views.lichniy_kabinet, name='lichniy-kabinet'),
  path('ad_form', views.ad_form, name='ad-form'),
- path('favicon\.ico', RedirectView.as_view(url='/static/images/favicon.ico'), name='favicon'),
 ]
