@@ -51,13 +51,14 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             </p>
         <br>
             <div class="row justify-content-center">
-                <div class="col-3"><a href="#"><i style="color: #555d66" class="fab fa-vk fa-3x"></i></a></div>
-                <div class="col-1"><a href="#"><i style="color: #555d66" class="fab fa-facebook-square fa-3x"></i></a></div>
+                <div class="col-2"><a href="#"><i style="color: #555d66" class="fab fa-vk fa-3x"></i></a></div>
+                <div class="col-2"><a href="#"><i style="color: #555d66" class="fab fa-facebook-square fa-3x"></i></a></div>
+                <div class="col-1"><a href="{% url 'social:begin' 'odnoklassniki-oauth2' %}"><i style="color: #555d66" class="fab fa-odnoklassniki-square fa-3x"></i></a></div>
             </div>
 
         <p id="nav">
             <a href="">Забыли пароль?</a>
-             <a href="{% url 'social:begin' 'odnoklassniki-oauth2' %}">Login with GitHub</a>
+             <a >Login with GitHub</a>
            <!-- <a href="{% url 'social:begin' 'facebook' %}">Login with Facebook</a><br>-->
         </p>
 
