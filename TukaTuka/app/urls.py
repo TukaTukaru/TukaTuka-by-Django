@@ -1,5 +1,6 @@
 from django.urls import path
 from . import views
+from django.views.generic import RedirectView
 from django.contrib.auth import views as auth_view
 from django.contrib.auth.views import LoginView
 import django.urls
@@ -27,4 +28,5 @@ urlpatterns = [
  path('logout', views.logout, name='logout'),
  path('lichniy-kabinet', views.lichniy_kabinet, name='lichniy-kabinet'),
  path('ad_form', views.ad_form, name='ad-form'),
+ path('favicon\.ico', RedirectView.as_view(url='/static/images/favicon.ico'), name='favicon'),
 ]
