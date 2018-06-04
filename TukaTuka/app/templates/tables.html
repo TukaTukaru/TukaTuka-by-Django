@@ -27,8 +27,9 @@
                         <div id="content">
 
                             <!-- Content -->
-												<article>{% block filter %}
+												<article>
                                                     <header class="major">
+                                                        
                                     <header class="major">
                                     {% if category == 1 %} 
                                     <h1>Купить вторсырье на переработку</h1>
@@ -40,6 +41,7 @@
                                     <h1>Продать переработанное сырье</h1>
                                     {% endif %}   
                                     </header>
+                                                        {% block filter %}
                                                         {% if category == 2 or category == 4 %}
                                                     <form class="formstyle" name="buyForm" enctype="multipart/form-data" action="send_form_2.php" method="post">
                                                       <div class="row justify-content-center">
