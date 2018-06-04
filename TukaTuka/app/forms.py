@@ -54,7 +54,7 @@ class AdForm(forms.ModelForm):
             fields = ['title', 'description', 'category', 'company_adress', 'company_name', 'name', 'position', 'phone_number', 'phone_another', 'price', 'volume', 'photo']
             widgets = {
                 'title': forms.TextInput(attrs={'placeholder': 'Название продукта'}),
-                'description': forms.Textarea(attrs={'placeholder': 'Описание продукта', 'rows' : '4'}),
+                'description': forms.Textarea(attrs={'placeholder': 'Описание продукта', 'rows' : '2'}),
                 'category': forms.RadioSelect(attrs={'placeholder': 'Я хочу'}),
                 'company_adress': forms.TextInput(attrs={'placeholder': 'Фактический адрес (город, улица, дом)'}),
                 'company_name': forms.TextInput(attrs={'placeholder': 'Название организации'}),

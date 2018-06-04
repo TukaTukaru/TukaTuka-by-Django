@@ -17,7 +17,12 @@
                                                     {{ form.title }} <br>
                                                     {{ form.description }} <br>
                                                     <label>Я хочу</label>
-													{{ form.category }}<br>
+													{% for radio in form.category %}
+														<ul>
+       														 <li class="radio">{{ radio.tag }} {{ radio.choice_label }}</li>
+														 </ul>
+													{% endfor %} <br>
+
 													{{ form.company_adress }} <br>
 													{{ form.company_name }} <br>
 													{{ form.name }} <br>

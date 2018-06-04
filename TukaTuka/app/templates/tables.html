@@ -41,69 +41,73 @@
                                     <h1>Продать переработанное сырье</h1>
                                     {% endif %}   
                                     </header>
-                                                        {% block filter %}
+
                                                         {% if category == 2 or category == 4 %}
                                                     <form class="formstyle" name="buyForm" enctype="multipart/form-data" action="send_form_2.php" method="post">
                                                       <div class="row justify-content-center">
+
                                                           <div>
-                                                            Цена:
-                                                            <input name="ot" type="text" placeholder="от"><br>
-                                                            <input name="do" type="text" placeholder="до"><br>
+                                                            Цена, руб/тонна:
+                                                            <input name="ot" type="number" placeholder="от"><br>
+                                                            <input name="do" type="number" placeholder="до"><br>
                                                         </div>
                                                         <div>
-                                                            Объем:
-                                                            <input name="ot" type="text" placeholder="от"><br>
-                                                            <input name="do" type="text" placeholder="до"><br>
+                                                            Объем, тонн:
+                                                            <input name="ot" type="number" placeholder="от"><br>
+                                                            <input name="do" type="number" placeholder="до"><br>
+                                                        </div>
+                                                          <div>
+                                                            Категория:<br>
+                                                            {% csrf_token %} <!--{{ form.as_p }}-->
+                                                            <input name="category" type="radio"> ПП<br>
+                                                            <input name="category" type="radio"> ПНД<br>
+                                                            <input name="category" type="radio"> ПВД<br>
+                                                            <input name="category" type="radio"> Стрейч<br>
+                                                            <input name="category" type="radio"> Другое<br>
                                                         </div>
                                                         <div>
                                                             Наличие фотографии:<br>
                                                             <input name="foto" type="radio"> Есть<br>
                                                             <input name="foto" type="radio"> Отсутствует<br><br>
                                                         </div>
-                                                        <div>
-                                                            Категория:<br>
-                                                            {% csrf_token %} {{ form.as_p }}
-                                                            <input name="en_foto" type="checkbox"> Гранула ПП<br>
-                                                            <input name="category" type="checkbox"> Гранула ПНД<br>
-                                                            <input name="category" type="checkbox"> Гранула ПВД<br>
-                                                            <input name="category" type="checkbox"> Гранула Стрейч<br>
-                                                            <input name="category" type="checkbox"> Другое<br>
-                                                        </div>
+
                                                         </div>
                                                     </form>
                                                     {% else %}
                                                     <form class="formstyle" name="buyForm" enctype="multipart/form-data" action="send_form_2.php" method="post">
                                                       <div class="row justify-content-center">
+                                                          
                                                           <div>
-                                                            Цена:
-                                                            <input name="ot" type="text" placeholder="от"><br>
-                                                            <input name="do" type="text" placeholder="до"><br>
+                                                            Цена, руб/тонна:
+                                                            <input name="ot" type="number" placeholder="от"><br>
+                                                            <input name="do" type="number" placeholder="до"><br>
                                                         </div>
                                                         <div>
-                                                            Объем:
-                                                            <input name="ot" type="text" placeholder="от"><br>
-                                                            <input name="do" type="text" placeholder="до"><br>
+                                                            Объем, тонн:
+                                                            <input name="ot" type="number" placeholder="от"><br>
+                                                            <input name="do" type="number" placeholder="до"><br>
+                                                        </div>
+                                                          <div>
+                                                            Категория:<br>
+                                                            {% csrf_token %} <!--{{ form.as_p }}-->
+                                                            <input name="category" type="radio"> ПП<br>
+                                                            <input name="category" type="radio"> ПНД<br>
+                                                            <input name="category" type="radio"> ПВД<br>
+                                                            <input name="category" type="radio"> Стрейч<br>
+                                                            <input name="category" type="radio"> Другое<br>
                                                         </div>
                                                         <div>
                                                             Наличие фотографии:<br>
                                                             <input name="foto" type="radio"> Есть<br>
                                                             <input name="foto" type="radio"> Отсутствует<br><br>
                                                         </div>
-                                                        <div>
-                                                            Категория:<br>
-                                                            {% csrf_token %} {{ form.as_p }}
-                                                            <input name="en_foto" type="checkbox"> ПП<br>
-                                                            <input name="category" type="checkbox"> ПНД<br>
-                                                            <input name="category" type="checkbox"> ПВД<br>
-                                                            <input name="category" type="checkbox"> Стрейч<br>
-                                                            <input name="category" type="checkbox"> Другое<br>
-                                                        </div>
+
                                                         </div>
                                                     </form>
                                                         {% endif %}
 													</header>
 
-                                    {% endblock %}
+
                                 <table border="0" cellpadding="0" cellspacing="0" id="sheet0" class="bordered">
                                     <col class="col0">
                                     <col class="col1">

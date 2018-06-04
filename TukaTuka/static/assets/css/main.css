@@ -1093,6 +1093,16 @@
 		color: #7b818c;
 		font-weight: 400;
 	}
+
+	form input[type='number'] {
+        -moz-appearance: textfield;
+    }
+	form input[type=number]::-webkit-inner-spin-button,
+    form input[type=number]::-webkit-outer-spin-button {
+        -webkit-appearance: none;
+        display: none;
+     }
+
 	#logo{
 		color: #ffffff;
 	}
