@@ -13,7 +13,8 @@
 														<h1>Форма добавления объявления</h1>
 													</header>
                                                 <!-- Form section -->
-                                                <form name="buyForm" enctype="multipart/form-data" action="send_form_2.php" method="post">
+                                                <form name="buyForm" enctype="multipart/form-data" action="" method="post">
+													{% csrf_token %}
                                                     {{ form.title }} <br>
                                                     {{ form.description }} <br>
                                                     <label>Я хочу</label>

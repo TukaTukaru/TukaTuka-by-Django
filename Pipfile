@@ -12,6 +12,7 @@ django-debug-toolbar = "*"
 mysqlclient = "*"
 pillow = "*"
 gunicorn = "*"
+Pipfile = "*"
 
 [dev-packages]
 
