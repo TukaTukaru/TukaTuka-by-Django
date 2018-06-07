@@ -105,12 +105,14 @@ def ad_form(request):
         company_adress = form.cleaned_data['company_adress']
         company_name = form.cleaned_data['company_name']
         name = form.cleaned_data['name']
+        author_id = User.objects.get(id = request.session['_auth_user_id'])
         position = form.cleaned_data['position']
         phone_number = form.cleaned_data['phone_number']
         phone_another = form.cleaned_data['phone_another']
         price = form.cleaned_data['price']
         volume = form.cleaned_data['volume']
         photo = form.cleaned_data['photo']
+        new_Ad.author = author_id
         new_Ad.title = title
         new_Ad.description = description
         new_Ad.category = category
@@ -130,12 +132,10 @@ def ad_form(request):
     }
     return render(request, 'ad_form.html', context)
 
-#def lichniy_cabinet(request):
-   # return render(request, 'lk.html')
-
-def lichniy_kabinet(request, author):
-    ad_list = Ad.objects.filter(author=author).annotate(author_count=Count('id'))
-    return render(request, 'lk.html', {'ad_list': ad_list, 'author': author})
+def lichniy_kabinet(request):
+    author_id = request.session['_auth_user_id']
+    ad_list = Ad.objects.filter(author=author_id).annotate(author_count=Count('id'))
+    return render(request, 'lk_objavi.html', {'ad_list': ad_list, 'author': author_id})
 
 #def lichniy_cabinet_data(request, author):
   #  ad_list = Ad.objects.filter(author=author).annotate(author_count=Count('Objavleniy:'))

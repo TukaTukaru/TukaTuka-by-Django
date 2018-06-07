@@ -26,6 +26,6 @@ urlpatterns = [
  path('regist', views.registration_view, name='regist'),
  path('login', views.login_view, name='login'),
  path('logout', views.logout, name='logout'),
- path('lichniy-kabinet', views.lichniy_kabinet, name='lichniy-kabinet'),
+path('lichniy-kabinet', views.lichniy_kabinet, name='lichniy-kabinet'),
  path('ad_form', views.ad_form, name='ad-form'),
 ]

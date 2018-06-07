@@ -134,8 +134,8 @@
                                          {{ ad.photo.url }}" border="0" />{% endif %}</a></td>
                                             <td class="column1 style1 s"><a href="{% url 'ad' ad.id %}">{{ ad.title }}</a></td>
                                             <td class="column2 d-none d-md-table-cell style4 s"><a href="{% url 'ad' ad.id %}">{{ ad.company_adress }}</a></td>
-                                            <td class="column3 style4 null"><a href="{% url 'ad' ad.id %}">{% if ad.price_min == 0 %}
-                                            {% else %} {{ ad.price_min }} руб/тонна{% endif %}</a></td>
+                                            <td class="column3 style4 null"><a href="{% url 'ad' ad.id %}">{% if ad.price == 0 or ad.price == None %}
+                                            {% else %} {{ ad.price }} руб/тонна{% endif %}</a></td>
                                             <td class="column4 d-none d-md-table-cell style5 s"><a href="{% url 'ad' ad.id %}">{% if ad.volume == 0 %}
                                             {% else %}  {{ ad.volume }} тонн{% endif %}</a></td>
 
