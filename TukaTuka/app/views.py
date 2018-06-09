@@ -1,4 +1,4 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, render_to_response
 from django.http import HttpResponse
 from app.models import *
 import logging
@@ -7,11 +7,12 @@ from django.http import HttpResponseRedirect
 from django.contrib.auth import login as auth_login
 from django.contrib.auth import logout as auth_logout
 from django.contrib.auth import authenticate
-from .forms import RegistrationForm, LoginForm, MailForm, FilterForm, AdForm
+from .forms import RegistrationForm, LoginForm, MailForm, FilterForm, AdForm, AdEditForm
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.contrib.auth.models import User
 from django.db.models import Count
 from django.contrib.auth.decorators import login_required
+from django.forms.models import model_to_dict
 
 logger = logging.getLogger(__name__) 
 
@@ -96,7 +97,7 @@ def registration_view(request):
     return render(request, 'register_form.html', context)
 
 def ad_form(request):
-    form = AdForm(request.POST or None,auto_id=False)
+    form = AdForm(request.POST or None, request.FILES or None, auto_id=False)
     if form.is_valid():
         new_Ad = form.save(commit=False)
         title = form.cleaned_data['title']
@@ -137,6 +138,64 @@ def lichniy_kabinet(request):
     ad_list = Ad.objects.filter(author=author_id).annotate(author_count=Count('id'))
     return render(request, 'lk_objavi.html', {'ad_list': ad_list, 'author': author_id})
 
+def lichnaya_objava(request, ad_id):
+    author_id = request.session['_auth_user_id']
+    ad = Ad.objects.get(author=author_id, id=ad_id)
+    form = AdEditForm(request.POST or None, request.FILES or None, initial=model_to_dict(ad), instance=ad, auto_id=False)
+    if form.is_valid():
+        new_Ad = form.save(commit=False)
+        title = form.cleaned_data['title']
+        description = form.cleaned_data['description']
+        category = form.cleaned_data['category']
+        company_adress = form.cleaned_data['company_adress']
+        company_name = form.cleaned_data['company_name']
+        name = form.cleaned_data['name']
+        author_id = User.objects.get(id = request.session['_auth_user_id'])
+        position = form.cleaned_data['position']
+        phone_number = form.cleaned_data['phone_number']
+        phone_another = form.cleaned_data['phone_another']
+        price = form.cleaned_data['price']
+        volume = form.cleaned_data['volume']
+        photo = form.cleaned_data['photo']
+        new_Ad.author = author_id
+        new_Ad.title = title
+        new_Ad.description = description
+        new_Ad.category = category
+        new_Ad.company_adress= company_adress
+        new_Ad.company_name  = company_name
+        new_Ad.name = name
+        new_Ad.position = position
+        new_Ad.phone_number = phone_number
+        new_Ad.phone_another = phone_another
+        new_Ad.price = price
+        new_Ad.volume = volume
+        new_Ad.photo = photo
+        new_Ad.save()
+        return HttpResponseRedirect(reverse('lichniy-kabinet'))
+    return render(request, 'ad_form.html', {'form': form})
+
+def delete_ad(request, ad_id):
+    author_id = request.session['_auth_user_id']
+    Ad.objects.get(author=author_id, id=ad_id).delete()
+    return HttpResponseRedirect(reverse('lichniy-kabinet'))
+
+def lk_data(request):
+    author_id = request.session['_auth_user_id']
+    user_data = User.objects.get(id=author_id)
+    form = RegistrationForm(request.POST or None, initial=model_to_dict(user_data), instance=user_data, auto_id=False)
+    if form.is_valid():
+        edit_user = form.save(commit=False)
+        username = form.cleaned_data['username']
+        password = form.cleaned_data['password']
+        first_name = form.cleaned_data['first_name']
+        last_name = form.cleaned_data['last_name']
+        edit_user.username = username
+        edit_user.set_password(password)
+        edit_user.first_name = first_name
+        edit_user.last_name = last_name
+        edit_user.save()
+        return HttpResponseRedirect(reverse('lk_data'))
+    return render(request, 'lk_data.html', {'form': form})
 #def lichniy_cabinet_data(request, author):
   #  ad_list = Ad.objects.filter(author=author).annotate(author_count=Count('Objavleniy:'))
     #return render(request, 'lk_objavi.html', {'author': author})

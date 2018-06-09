@@ -89,7 +89,7 @@
                                                         </div>
                                                           <div>
                                                             Категория:<br>
-                                                            {% csrf_token %} <!--{{ form.as_p }}-->
+                                                            {% csrf_token %} {{ form.as_p }}
                                                             <input name="category" type="radio"> ПП<br>
                                                             <input name="category" type="radio"> ПНД<br>
                                                             <input name="category" type="radio"> ПВД<br>
@@ -127,7 +127,7 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        {% for ad in ad_list %}
+                                        {% for ad in ad_list reversed %}
                                         <tr class="row0" onclick="window.location.href='{% url 'ad' ad.id %}'; return false">
                                             <td class="column5 style4 s">{{ forloop.counter }}</td>
                                             <td class="column0 d-none d-md-table-cell style4 null"><a href="{% url 'ad' ad.id %}">{% if ad.photo %}<img src="

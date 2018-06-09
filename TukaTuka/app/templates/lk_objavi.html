@@ -20,18 +20,19 @@
         </tr>
     </thead>
     <tbody>
+    {% csrf_token %}
         {% for ad in ad_list %}
-        <tr class="row0" onclick="window.location.href='{% url 'ad' ad.id %}'; return false">
+        <tr class="row0" onclick="window.location.href='{% url 'lichnaya_objava' ad.id %}'; return false">
             <td class="column5 style4 s">{{ forloop.counter }}</td>
-            <td class="column0 d-none d-md-table-cell style4 null"><a href="{% url 'ad' ad.id %}">{% if ad.photo %}<img src="
+            <td class="column0 d-none d-md-table-cell style4 null"><a href="{% url 'lichnaya_objava' ad.id %}">{% if ad.photo %}<img src="
                                          {{ ad.photo.url }}" border="0" />{% endif %}</a></td>
-            <td class="column1 style1 s"><a href="{% url 'ad' ad.id %}">{{ ad.title }}</a></td>
-            <td class="column2 d-none d-md-table-cell style4 s"><a href="{% url 'ad' ad.id %}">{{ ad.company_adress }}</a></td>
-            <td class="column3 style4 null"><a href="{% url 'ad' ad.id %}">{% if ad.price_min == 0 %}
+            <td class="column1 style1 s"><a href="{% url 'lichnaya_objava' ad.id %}">{{ ad.title }}</a></td>
+            <td class="column2 d-none d-md-table-cell style4 s"><a href="{% url 'lichnaya_objava' ad.id %}">{{ ad.company_adress }}</a></td>
+            <td class="column3 style4 null"><a href="{% url 'lichnaya_objava' ad.id %}">{% if ad.price_min == 0 %}
                                             {% else %} {{ ad.price_min }} руб/тонна{% endif %}</a></td>
-            <td class="column4 d-none d-md-table-cell style5 s"><a href="{% url 'ad' ad.id %}">{% if ad.volume == 0 %}
+            <td class="column4 d-none d-md-table-cell style5 s"><a href="{% url 'lichnaya_objava' ad.id %}">{% if ad.volume == 0 %}
                                             {% else %}  {{ ad.volume }} тонн{% endif %}</a></td>
-
+            <button><a href="{% url 'delete_ad' ad.id %}">Удалить</a></button>
         </tr>
         {% endfor %}
     </tbody>

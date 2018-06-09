@@ -65,15 +65,15 @@ class Command(BaseCommand):
         Ad.objects.all().delete()
         adss = [Ad(name=ad_2[7][i],position =ad_2[8][i],price =ad_2[2][i],phone_number =ad_2[6][i],
          title=ad_2[0][i],description =ad_2[4][i],volume =ad_2[3][i],company_name =ad_2[5][i],company_adress =ad_2[1][i],
-            category=2,photo=ad_2[9][i]) for i in range(43)]
+            category=2,photo=ad_2[9][i]) for i in range(42,-1,-1)]
         Ad.objects.bulk_create(adss, batch_size=BATCH_SIZE)
         adss2 = [Ad(name=ad_1[7][i],position =ad_1[8][i],price =ad_1[2][i],phone_number =ad_1[6][i],
          title=ad_1[0][i],description =ad_1[4][i],volume =ad_1[3][i],company_name =ad_1[5][i],company_adress =ad_1[1][i],
-            category=4) for i in range(28)]
+            category=4) for i in range(27,-1,-1)]
         Ad.objects.bulk_create(adss2, batch_size=BATCH_SIZE)
         adss3 = [Ad(name=ad_3[7][i],position =ad_3[8][i],price =ad_3[2][i],phone_number =ad_3[6][i],
          title=ad_3[0][i],description =ad_3[4][i],volume =ad_3[3][i],company_name =ad_3[5][i],company_adress =ad_3[1][i],
-            category=1,photo=ad_3[9][i]) for i in range(80)]
+            category=1,photo=ad_3[9][i]) for i in range(79,-1,-1)]
         Ad.objects.bulk_create(adss3, batch_size=BATCH_SIZE)
         # ad_ids=[Ad.objects.all()[_].id for _ in range(DEFAULT_AD)]
 

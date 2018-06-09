@@ -1,15 +1,13 @@
+{% extends "lk.html" %}
+{% block objava %}
 <div class="row justify-content-start" style="margin-top: 60px">
     <article>
         <!-- Form section -->
         <form name="dataForm" action="" method="post">
-            <input name="Surname" type="text" required placeholder="Фамилия"><br>
-            <input name="Name" type="text" required placeholder="Имя"><br>
-            <input name="org" type="text" required placeholder="Название организации"><br>
-            <input name="prof" type="text" required placeholder="Должность"><br>
-            <input name="contact" type="text" required placeholder="Контактный телефон"><br>
-            <input name="email" type="email" required placeholder="Ваш E-mail"><br>
-            <input name="pass" type="text" required placeholder="Пароль"><br>
+            {% csrf_token %}
+            {{ form }}
             <input type="submit" value="Сохранить"><br><br> 
         </form>
     </article>
 </div>
+{% endblock %}

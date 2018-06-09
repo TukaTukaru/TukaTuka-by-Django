@@ -51,7 +51,7 @@ class AdForm(forms.ModelForm):
 
     class Meta:
             model = Ad
-            fields = ['title', 'description', 'category', 'company_adress', 'company_name', 'name', 'position', 'phone_number', 'phone_another', 'price', 'volume', 'photo']
+            fields = ['title', 'description', 'category', 'company_adress', 'company_name', 'name', 'position', 'phone_number', 'phone_another', 'price', 'volume', 'photo',]
             widgets = {
                 'title': forms.TextInput(attrs={'placeholder': 'Название продукта'}),
                 'description': forms.Textarea(attrs={'placeholder': 'Описание продукта', 'rows' : '2'}),
@@ -64,7 +64,7 @@ class AdForm(forms.ModelForm):
                 'phone_another': forms.NumberInput(attrs={'placeholder': 'Дополнительный номер', 'type' : 'tel'}),
                 'price': forms.NumberInput(attrs={'placeholder': 'Цена, руб/тонна'}),
                 'volume': forms.NumberInput(attrs={'placeholder': 'Объем, тонн'}),
-                'photo': forms.FileInput(attrs={'placeholder': 'Фото продукции'}),
+                'photo': forms.ClearableFileInput(attrs={'placeholder': 'Фото продукции'}),
             }
 
 class LoginForm(forms.Form):
@@ -105,3 +105,23 @@ class FilterForm(forms.Form):
     #     user = User.objects.get(username=username)
     #     if user and not user.check_password(password):
     #         raise forms.ValidationError('Пароль неверный!')
+
+class AdEditForm(forms.ModelForm):
+
+    class Meta:
+        model = Ad
+        fields = ['title', 'description', 'category', 'company_adress', 'company_name', 'name', 'position', 'phone_number', 'phone_another', 'price', 'volume', 'photo',]
+        widgets = {
+                'title': forms.TextInput(),
+                'description': forms.Textarea(attrs={'rows' : '2'}),
+                'category': forms.RadioSelect(),
+                'company_adress': forms.TextInput(),
+                'company_name': forms.TextInput(),
+                'name': forms.TextInput(),
+                'position': forms.TextInput(),
+                'phone_number': forms.NumberInput({'type' : 'tel'}),
+                'phone_another': forms.NumberInput({'type' : 'tel'}),
+                'price': forms.NumberInput(),
+                'volume': forms.NumberInput(),
+                'photo': forms.ClearableFileInput(),
+                }

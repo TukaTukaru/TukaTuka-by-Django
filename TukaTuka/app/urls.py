@@ -26,6 +26,9 @@ urlpatterns = [
  path('regist', views.registration_view, name='regist'),
  path('login', views.login_view, name='login'),
  path('logout', views.logout, name='logout'),
-path('lichniy-kabinet', views.lichniy_kabinet, name='lichniy-kabinet'),
+ path('lichniy-kabinet', views.lichniy_kabinet, name='lichniy-kabinet'),
+ path('lichniy-kabinet/<int:ad_id>-objavlenie', views.lichnaya_objava, name='lichnaya_objava'),
  path('ad_form', views.ad_form, name='ad-form'),
+ path('delete-<int:ad_id>', views.delete_ad, name='delete_ad'),
+ path('lichniy-kabinet/data', views.lk_data, name='lk_data'),
 ]
