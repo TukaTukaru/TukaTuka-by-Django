@@ -59,9 +59,9 @@
                                                           <div>
                                                             Категория:<br>
                                                             {% csrf_token %} <!--{{ form.as_p }}-->
-                                                            <input name="category" type="radio"> ПП<br>
-                                                            <input name="category" type="radio"> ПНД<br>
-                                                            <input name="category" type="radio"> ПВД<br>
+                                                            <input name="category" type="radio"> Гранула ПП<br>
+                                                            <input name="category" type="radio"> Гранула ПНД<br>
+                                                            <input name="category" type="radio"> Гранула ПВД<br>
                                                             <input name="category" type="radio"> Стрейч<br>
                                                             <input name="category" type="radio"> Другое<br>
                                                         </div>
@@ -70,7 +70,10 @@
                                                             <input name="foto" type="radio"> Есть<br>
                                                             <input name="foto" type="radio"> Отсутствует<br><br>
                                                         </div>
-
+                                                        <div>
+                                                            <button>Применить</button><br><br>
+                                                            <button class="btn-secondary">Сброс</button>
+                                                        </div>
                                                         </div>
                                                     </form>
                                                     {% else %}
@@ -89,7 +92,7 @@
                                                         </div>
                                                           <div>
                                                             Категория:<br>
-                                                            {% csrf_token %} {{ form.as_p }}
+                                                            {% csrf_token %} <!--{{ form.as_p }}-->
                                                             <input name="category" type="radio"> ПП<br>
                                                             <input name="category" type="radio"> ПНД<br>
                                                             <input name="category" type="radio"> ПВД<br>
@@ -101,7 +104,10 @@
                                                             <input name="foto" type="radio"> Есть<br>
                                                             <input name="foto" type="radio"> Отсутствует<br><br>
                                                         </div>
-
+                                                        <div>
+                                                            <button>Применить</button><br><br>
+                                                            <button class="btn-secondary">Сброс</button>
+                                                        </div>
                                                         </div>
                                                     </form>
                                                         {% endif %}
