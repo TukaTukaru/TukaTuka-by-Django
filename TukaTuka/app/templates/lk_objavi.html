@@ -16,6 +16,7 @@
             <th class="column3 style1 s d-none d-md-table-cell">Адрес</th>
             <th class="column4 style1 s">Цена</th>
             <th class="column5 style1 s d-none d-md-table-cell">Объем</th>
+            <th class="column6 style1 s d-none d-md-table-cell">Действия</th>
 
         </tr>
     </thead>
@@ -32,8 +33,8 @@
                                             {% else %} {{ ad.price }} руб/тонна{% endif %}</a></td>
             <td class="column4 d-none d-md-table-cell style5 s" onclick="window.location.href='{% url 'lichnaya_objava' ad.id %}'; return false"><a href="{% url 'lichnaya_objava' ad.id %}">{% if ad.volume == 0 %}
                                             {% else %}  {{ ad.volume }} тонн{% endif %}</a></td>
-            <td><a href="{% url 'lichnaya_objava' ad.id %}"><i class="fa fa-pencil"></i></a></td>
-            <td><a href="{% url 'delete_ad' ad.id %}"><i class="fa fa-times"></i></a></td>
+            <td><a href="{% url 'lichnaya_objava' ad.id %}"><i class="fa fa-pencil"></i></a>&nbsp;
+            <a href="{% url 'delete_ad' ad.id %}"><i class="fa fa-times"></i></a></td>
         </tr>
         {% endfor %}
     </tbody>
