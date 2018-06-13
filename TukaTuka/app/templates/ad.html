@@ -37,8 +37,8 @@
                         <!-- Block with number -->
                         <div class="row">
                             <div class="col-lg col-sm-auto btnup">
-                                <button class="button" type="button" id="button"><span class="button__text" id="button__text">Показать телефон </span><span id="telephone" hidden>{{ ad.phone_number }}{% if ad.phone_another %}
-                                         ,{{ ad.phone_another }}{% endif %}</span><span id="phones__mask" >+7&nbsp;XXX XXX XX-XX</span></button>
+                                <button class="button" type="button" id="button"><span  id="button__text">Показать телефон +7&nbsp;XXX XXX XX-XX</span><span id="telephone" style="display: none">{{ ad.phone_number }}{% if ad.phone_another %}
+                                         ,{{ ad.phone_another }}{% endif %}</span></button>
                             </div>
                             <div class="w-100 d-sm-none"><br></div>
                             <div class="col-lg col-sm-auto btnup">
@@ -47,14 +47,14 @@
                                          {{ ad.position }}{% endif %}</p>
                             </div>
                             <div class="row justify-content-start">
-                                <div class="col-lg col-sm-auto  btnup" align="center">
+                                <div class="col-lg col-sm-auto btnup" align="center">
 
                                     <a href="http://to-group.ru/onlayn-kalkulyator-gruzoperevozki" class="buttongreen" style="color:#259433">Рассчитать доставку</a>  
                                 </div>
                             </div>
                         </div>
                         <br>
-                        <!-- Number script -->
+                        <!-- Number script
                         <script>
                             button.onclick = function(event) {
 
@@ -65,6 +65,14 @@
                                 document.getElementById("button__text").parentNode.removeChild(document.getElementById("button__text"));
 
                             };
+                        </script> -->
+                        <script>
+                            $( document ).ready(function(){
+                                $( "button" ).click(function() {
+                                    $( "#button__text" ).fadeOut(700);
+                                    $( "#telephone" ).fadeIn(1500);
+                                });
+                             });
                         </script>
 
 
