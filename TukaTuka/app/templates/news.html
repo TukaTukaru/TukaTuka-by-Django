@@ -16,11 +16,11 @@
 
 										<!-- Article list -->
 											<section class="box article-list">
-												<h2 class="icon fa-calendar-check-o">{{ news.date }}</h2>
+												<h2 class="icon fa-calendar">{{ news.date }}</h2>
 
 												<!-- Excerpt -->
 													<article class="box excerpt">
-														<a class="image left"><img src="{{ news.photo.url }}" class="d-none d-md-block" style="width:260px; height: 278px;" alt="Вторичные переработанные гранулы" /><img src="{{ news.photo.url }}" class="d-md-none" style="width:85px; height: 85px;" alt="Вторичные переработанные гранулы" /></a>
+														<a class="image left"><img src="{{ news.photo.url }}" class="d-none d-md-block" style="width:260px; height: 278px;" alt="{{ news.title }}" /><img src="{{ news.photo.url }}" class="d-md-none" style="width:85px; height: 85px;" alt="{{ news.title }}" /></a>
 														<div>
 															<header>
 																<h1>{{ news.title }}</h1>
