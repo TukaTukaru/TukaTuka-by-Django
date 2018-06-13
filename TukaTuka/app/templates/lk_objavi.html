@@ -42,7 +42,9 @@
 <!--<script>
 $( document ).ready(function() {
     $( ".delete" ).click(function() {
-        confirm("Eeee бонч");
+       if ((confirm("Eeee бонч")) == false) {
+          $(".delete").attr("href", "#")
+       }
 
     });
 });
