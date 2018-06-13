@@ -37,7 +37,8 @@
                         <!-- Block with number -->
                         <div class="row">
                             <div class="col-lg col-sm-auto btnup">
-                                <button class="button" type="button" id="button"><span  id="button__text">Показать телефон +7&nbsp;XXX XXX XX-XX</span><span id="telephone" style="display: none">{{ ad.phone_number }}{% if ad.phone_another %}
+                                <button class="button" type="button" id="button"><span  id="button__text">Показать телефон +7&nbsp;XXX XXX XX-XX</span></button>
+                                <button id="telephone" style="display: none"><span>{{ ad.phone_number }}{% if ad.phone_another %}
                                          ,{{ ad.phone_another }}{% endif %}</span></button>
                             </div>
                             <div class="w-100 d-sm-none"><br></div>
@@ -54,23 +55,13 @@
                             </div>
                         </div>
                         <br>
-                        <!-- Number script
-                        <script>
-                            button.onclick = function(event) {
+                        <!-- Number script -->
 
-                                var elem = document.getElementById("telephone");
-
-                                elem.hidden = !elem.hidden;
-                                document.getElementById("phones__mask").parentNode.removeChild(document.getElementById("phones__mask"));
-                                document.getElementById("button__text").parentNode.removeChild(document.getElementById("button__text"));
-
-                            };
-                        </script> -->
                         <script>
                             $( document ).ready(function(){
                                 $( "button" ).click(function() {
-                                    $( "#button__text" ).fadeOut(700);
-                                    $( "#telephone" ).fadeIn(1500);
+                                    $( "#button" ).slideUp();
+                                    $( "#telephone" ).slideDown();
                                 });
                              });
                         </script>
