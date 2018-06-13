@@ -34,9 +34,17 @@
             <td class="column4 d-none d-md-table-cell style5 s" onclick="window.location.href='{% url 'lichnaya_objava' ad.id %}'; return false"><a href="{% url 'lichnaya_objava' ad.id %}">{% if ad.volume == 0 %}
                                             {% else %}  {{ ad.volume }} тонн{% endif %}</a></td>
             <td><a href="{% url 'lichnaya_objava' ad.id %}"><i class="fa fa-pencil"></i></a>&nbsp;
-            <a href="{% url 'delete_ad' ad.id %}"><i class="fa fa-times"></i></a></td>
+            <a class="delete" href="{% url 'delete_ad' ad.id %}"><i class="fa fa-times"></i></a></td>
         </tr>
         {% endfor %}
     </tbody>
 </table>
+<!--<script>
+$( document ).ready(function() {
+    $( ".delete" ).click(function() {
+        confirm("Eeee бонч");
+
+    });
+});
+</script>-->
 {% endblock %}
