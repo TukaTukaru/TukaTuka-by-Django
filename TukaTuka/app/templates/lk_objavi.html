@@ -44,8 +44,10 @@ $( document ).ready(function() {
     $( ".delete" ).click(function() {
        if ((confirm("Eeee бонч")) == false) {
           $(".delete").attr("href", "#")
+          or
+          $(".delete").prop("disabled", true)
        }
-
+       
     });
 });
 </script>-->
