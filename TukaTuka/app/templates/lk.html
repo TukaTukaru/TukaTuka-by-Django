@@ -15,8 +15,9 @@
                                 </header>
                                 <nav id="nav_v">
                                     <ul>
-                                        <li class="current_page_item"><a href="#">Мои объявления</a></li>
-                                        <li><a href="{% url 'lk_data' %}">Мои данные</a></li>
+                                       {% if author %} <li  class="current_page_item"><a href="{% url 'lichniy-kabinet' %}">Мои объявления</a></li>
+                                       {% else %} <li ><a href="{% url 'lichniy-kabinet' %}">Мои объявления</a></li> {% endif %} 
+                                      {% if author %}  <li><a href="{% url 'lk_data' %}">Мои данные</a></li>{% else %}<li class="current_page_item"><a href="{% url 'lk_data' %}">Мои данные</a></li>{% endif %}
                                     </ul>
                                 </nav>
                             </section>

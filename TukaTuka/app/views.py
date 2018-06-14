@@ -34,17 +34,29 @@ def logout(request):
     auth_logout(request)
     return HttpResponseRedirect(reverse('base'))
 
-@login_required
+
 def base(request):
-	news = News.objects.all()
-	form = MailForm(request.POST or None)
-	if form.is_valid():
-		new_mail = form.save(commit=False)
-		email = form.cleaned_data['email']
-		new_mail.email = email
-		new_mail.save()
-		return HttpResponseRedirect(reverse('base'))
-	return render(request, 'index.html', {'news': news,'form': form})
+    try:
+        author_id=request.session['_auth_user_id']
+        news = News.objects.all()
+        form = MailForm(request.POST or None)
+        if form.is_valid():
+            new_mail = form.save(commit=False)
+            email = form.cleaned_data['email']
+            new_mail.email = email
+            new_mail.save()
+            return HttpResponseRedirect(reverse('base'))
+        return render(request, 'index.html', {'news': news,'form': form,'author': author_id})
+    except Exception as e:
+        news = News.objects.all()
+        form = MailForm(request.POST or None)
+        if form.is_valid():
+            new_mail = form.save(commit=False)
+            email = form.cleaned_data['email']
+            new_mail.email = email
+            new_mail.save()
+            return HttpResponseRedirect(reverse('base'))
+        return render(request, 'index.html', {'news': news,'form': form})
 
 def about(request):
     return render(request, 'about.html')
@@ -95,7 +107,7 @@ def registration_view(request):
         'form': form
     }
     return render(request, 'register_form.html', context)
-
+@login_required
 def ad_form(request):
     form = AdForm(request.POST or None, request.FILES or None, auto_id=False)
     if form.is_valid():
@@ -132,12 +144,12 @@ def ad_form(request):
         'form': form
     }
     return render(request, 'ad_form.html', context)
-
+@login_required
 def lichniy_kabinet(request):
     author_id = request.session['_auth_user_id']
     ad_list = Ad.objects.filter(author=author_id).annotate(author_count=Count('id'))
     return render(request, 'lk_objavi.html', {'ad_list': ad_list, 'author': author_id})
-
+@login_required
 def lichnaya_objava(request, ad_id):
     author_id = request.session['_auth_user_id']
     ad = Ad.objects.get(author=author_id, id=ad_id)
@@ -173,12 +185,12 @@ def lichnaya_objava(request, ad_id):
         new_Ad.save()
         return HttpResponseRedirect(reverse('lichniy-kabinet'))
     return render(request, 'ad_form.html', {'form': form})
-
+@login_required
 def delete_ad(request, ad_id):
     author_id = request.session['_auth_user_id']
     Ad.objects.get(author=author_id, id=ad_id).delete()
     return HttpResponseRedirect(reverse('lichniy-kabinet'))
-
+@login_required
 def lk_data(request):
     author_id = request.session['_auth_user_id']
     user_data = User.objects.get(id=author_id)
