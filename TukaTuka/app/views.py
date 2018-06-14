@@ -59,7 +59,11 @@ def base(request):
         return render(request, 'index.html', {'news': news,'form': form})
 
 def about(request):
-    return render(request, 'about.html')
+    try:
+        author_id=request.session['_auth_user_id']
+        return render(request, 'about.html', {'author': author_id})
+    except Exception as e:
+        return render(request, 'about.html')
 
 def table(request, category):
     ad_list = Ad.objects.filter(category=category).annotate(complaint_count=Count('complaint'))

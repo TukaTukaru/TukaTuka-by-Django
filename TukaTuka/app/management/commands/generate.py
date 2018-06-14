@@ -53,7 +53,14 @@ ad_4=[
 [],
 [],
 [],
-[],
+[r'images\sell\44.1.jpg',r'images\sell\84.1.jpg',r'images\sell\84.1.jpg',r'images\sell\87.1.jpg',r'images\sell\88.1.jpg',r'images\sell\88.1.jpg',r'images\sell\89.1.jpg',r'images\sell\89.1.jpg',r'images\sell\90.1.jpg',r'images\sell\90.1.jpg',r'images\sell\83.1.jpg',r'images\sell\10.1.jpeg',r'images\sell\11.1.jpg',r'images\sell\12.1.jpg',r'images\sell\12.1.jpg',r'images\sell\13.1.jpg',r'images\sell\13.1.jpg',r'images\sell\13.1.jpg',r'images\sell\13.1.jpg',r'images\sell\14.1.jpg',r'images\sell\15.1.jpeg',r'images\sell\22.1.jpeg',r'images\sell\23.1.jpg',r'images\sell\23.1.jpg',r'images\sell\23.1.jpg',r'images\sell\24.1.jpg',r'images\sell\24.1.jpg',r'images\sell\24.1.jpg',r'images\sell\25.1.jpg',r'images\sell\12.1.jpg',r'images\sell\12.1.jpg',r'images\sell\12.1.jpg',r'images\sell\28.1.jpg',r'images\sell\29.1.jpg',r'images\sell\30.1.jpg',r'images\sell\31.1.jpg',r'images\sell\32.1.png',r'images\sell\33.1.jpg',r'images\sell\34.1.jpg',r'images\sell\35.1.jpg',r'images\sell\35.1.jpg',r'images\sell\35.1.jpg',r'images\sell\35.1.jpg',r'images\sell\35.1.jpg',r'images\sell\36.1.jpg',r'images\sell\36.1.jpg',r'images\sell\37.1.jpg',r'images\sell\38.1.jpg',r'images\sell\39.1.jpg',r'images\sell\40.1.jpg',r'images\sell\41.1.jpeg',r'images\sell\42.1.jpg',r'images\sell\43.1.jpg'],
+]
+
+news_list=[
+['Долгожданный запуск пилотного проекта!','Что у нас нового?'],
+['На данный момент наш проект охватывает Москву и Московскую область и нацелен на рынок полимерных материалов. Мы стремимся сделать каждому пользователю подходящее именно для него предложение и всегда открыты для Ваших предложений. Для Вашего удобства на нашем ресурсе возможно оформление доставки Вашего товара надежной транспортной компанией.','Рады сообщить Вам, что форма внесения объявления стала удобнее! Теперь Вы без труда можете загружать сразу несколько фотографий продукции. Кроме того, у нас появился чат - мы постараемся оперативно ответить на все Ваши сообщения. Помимо этого, были добавлены новые объявления и убраны неактуальные. Мы стремимся контактировать со всеми нашими клиентами для публикации только проверенных объявлений.'],
+['Март, 20',' Апрель, 9'],
+[r'images\22.jpg',r'images\26.jpg'],
 ]
 
 
@@ -61,7 +68,9 @@ class Command(BaseCommand):
     help = 'Generates objects of my models'
 
     def handle(self, *args, **options):
-
+        news=[News(title=news_list[0][i], description=news_list[1][i], date=news_list[2][i], photo=news_list[3][i],)
+        for i in range(2)]
+        News.objects.bulk_create(news, batch_size=BATCH_SIZE)
         Ad.objects.all().delete()
         adss = [Ad(name=ad_2[7][i],position =ad_2[8][i],price =ad_2[2][i],phone_number =ad_2[6][i],
          title=ad_2[0][i],description =ad_2[4][i],volume =ad_2[3][i],company_name =ad_2[5][i],company_adress =ad_2[1][i],
