@@ -39,16 +39,14 @@
         {% endfor %}
     </tbody>
 </table>
-<!--<script>
+<script>
 $( document ).ready(function() {
     $( ".delete" ).click(function() {
-       if ((confirm("Eeee бонч")) == false) {
-          $(".delete").attr("href", "#")
-          or
-          $(".delete").prop("disabled", true)
-       }
-       
+       if ((confirm("Вы действительно хотите удалить объявление?")) == false) {
+          event.preventDefault();
+       };
     });
 });
-</script>-->
+</script>
+
 {% endblock %}
