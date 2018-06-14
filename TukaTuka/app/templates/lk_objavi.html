@@ -42,8 +42,12 @@
 <!--<script>
 $( document ).ready(function() {
     $( ".delete" ).click(function() {
-        confirm("Eeee бонч");
-
+       if ((confirm("Eeee бонч")) == false) {
+          $(".delete").attr("href", "#")
+          or
+          $(".delete").prop("disabled", true)
+       }
+       
     });
 });
 </script>-->
