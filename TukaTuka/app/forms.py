@@ -37,6 +37,15 @@ class RegistrationForm(forms.ModelForm):
         username = self.cleaned_data['username']
         if User.objects.filter(username=username).exists():
             raise forms.ValidationError('Пользователь с такой почтой уже зарегистрирован')
+        password_check = self.cleaned_data['password_check']
+        password = self.cleaned_data['password']
+        if password_check!=password:
+            raise forms.ValidationError('Пароль не совпадает!')                   
+
+
+
+
+
 
 class MailForm(forms.ModelForm):
 
