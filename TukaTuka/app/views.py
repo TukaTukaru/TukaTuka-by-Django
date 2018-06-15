@@ -65,6 +65,13 @@ def about(request):
     except Exception as e:
         return render(request, 'about.html')
 
+def donate(request):
+    try:
+        author_id=request.session['_auth_user_id']
+        return render(request, 'donate.html', {'author': author_id})
+    except Exception as e:
+        return render(request, 'donate.html')
+
 def table(request, category):
     try:
         author_id = request.session['_auth_user_id']
