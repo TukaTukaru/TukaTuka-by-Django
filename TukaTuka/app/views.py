@@ -66,29 +66,59 @@ def about(request):
         return render(request, 'about.html')
 
 def table(request, category):
-    ad_list = Ad.objects.filter(category=category).annotate(complaint_count=Count('complaint'))
-    form = FilterForm(request.POST or None)
-    if form.is_valid():
-        categorys = form.cleaned_data['category1']
-        ad_filter_list = Ad.objects.filter(category=category,category1=categorys)
-        return render(request, 'table_filter.html', {'category': category,'ad_filter_list': ad_filter_list,'form': form})
-    return render(request, 'tables.html', {'category': category,'ad_list': ad_list,'form': form})
+    try:
+        author_id = request.session['_auth_user_id']
+        ad_list = Ad.objects.filter(category=category).annotate(complaint_count=Count('complaint'))
+        form = FilterForm(request.POST or None)
+        if form.is_valid():
+            categorys = form.cleaned_data['category1']
+            ad_filter_list = Ad.objects.filter(category=category,category1=categorys)
+            return render(request, 'table_filter.html', {'category': category,'ad_filter_list': ad_filter_list,'form': form})
+        return render(request, 'tables.html', {'category': category,'ad_list': ad_list,'form': form, 'author': author_id})
+    except Exception as e:
+        ad_list = Ad.objects.filter(category=category).annotate(complaint_count=Count('complaint'))
+        form = FilterForm(request.POST or None)
+        if form.is_valid():
+            categorys = form.cleaned_data['category1']
+            ad_filter_list = Ad.objects.filter(category=category, category1=categorys)
+            return render(request, 'table_filter.html',
+                          {'category': category, 'ad_filter_list': ad_filter_list, 'form': form})
+        return render(request, 'tables.html',
+                      {'category': category, 'ad_list': ad_list, 'form': form})
+
 
 def ad(request,ad_id):
-	ad_info = get_object_or_404(Ad, id=ad_id)
-	return render(request, 'ad.html',{'ad': ad_info})
+    try:
+        author_id = request.session['_auth_user_id']
+        ad_info = get_object_or_404(Ad, id=ad_id)
+        return render(request, 'ad.html',{'ad': ad_info, 'author': author_id})
+    except Exception as e:
+        ad_info = get_object_or_404(Ad, id=ad_id)
+        return render(request, 'ad.html', {'ad': ad_info})
+
 
 def news(request,new_id):
-	new_info = get_object_or_404(News, id=new_id)
-	form = MailForm(request.POST or None,auto_id=True)
-	if form.is_valid():
-		new_mail = form.save(commit=False)
-		email = form.cleaned_data['email']
-		new_mail.email = email
-		new_mail.save()
-		return HttpResponseRedirect(reverse('news'))
-	return render(request, 'news.html',{'news': new_info,'form': form})
-
+    try:
+        author_id = request.session['_auth_user_id']
+        new_info = get_object_or_404(News, id=new_id)
+        form = MailForm(request.POST or None,auto_id=True)
+        if form.is_valid():
+            new_mail = form.save(commit=False)
+            email = form.cleaned_data['email']
+            new_mail.email = email
+            new_mail.save()
+            return HttpResponseRedirect(reverse('news'))
+        return render(request, 'news.html',{'news': new_info,'form': form, 'author': author_id})
+    except Exception as e:
+        new_info = get_object_or_404(News, id=new_id)
+        form = MailForm(request.POST or None, auto_id=True)
+        if form.is_valid():
+            new_mail = form.save(commit=False)
+            email = form.cleaned_data['email']
+            new_mail.email = email
+            new_mail.save()
+            return HttpResponseRedirect(reverse('news'))
+        return render(request, 'news.html', {'news': new_info, 'form': form})
 
 def registration_view(request):
     form = RegistrationForm(request.POST or None,auto_id=False)
