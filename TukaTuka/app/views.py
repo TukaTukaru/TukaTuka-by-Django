@@ -206,6 +206,8 @@ def lk_data(request):
         edit_user.first_name = first_name
         edit_user.last_name = last_name
         edit_user.save()
+        login_user = authenticate(username=username, password=password)
+        auth_login(request, login_user)
         return HttpResponseRedirect(reverse('lk_data'))
     return render(request, 'lk_data.html', {'form': form})
 #def lichniy_cabinet_data(request, author):
