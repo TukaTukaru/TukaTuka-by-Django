@@ -45,7 +45,7 @@ class Ad(models.Model):
 	name = models.CharField(max_length=200)
 	price = models.PositiveIntegerField(blank=True, null=True)
 	volume = models.PositiveIntegerField(blank=True, null=True)
-	position = models.CharField(blank=True, max_length=200, db_index=True)
+	position = models.CharField(blank=True,null=True, max_length=200, db_index=True)
 	photo = models.ImageField(upload_to='prod_img', blank=True, verbose_name='Фото продукции')
 	phone_number = PhoneNumberField()
 	phone_another = PhoneNumberField(blank=True)
@@ -82,8 +82,8 @@ class Ad(models.Model):
 		on_delete=models.CASCADE, to=settings.AUTH_USER_MODEL,blank=True, null=True)
 	created_at = models.DateTimeField(auto_now_add=True)
 	category = models.IntegerField(choices=category_choice, default=0)
-	category1 = models.IntegerField(choices=category_raw, default=0)
-	category2 = models.IntegerField(choices=category_granule, default=0)
+	category1 = models.IntegerField(choices=category_raw, default=0,blank=True, null=True)
+	category2 = models.IntegerField(choices=category_granule, default=0,blank=True, null=True)
 
 
 	def __str__(self):
