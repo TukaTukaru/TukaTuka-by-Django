@@ -17,6 +17,7 @@ from django.contrib.auth.views import(
 urlpatterns = [
  path('', views.base, name='base'),
  path('about', views.about, name='about'),
+ path('donate', views.donate, name='donate'),
  path('sell/<int:category>-prodat-vtorsyre-na-pererabotku', views.table, name='sell'),
  path('buy/<int:category>-kupit-vtorsyre-na-pererabotku', views.table, name='buy'),
  path('buy_rec/<int:category>-kupit-pererabotannoe-syre', views.table, name='buy-rec'),

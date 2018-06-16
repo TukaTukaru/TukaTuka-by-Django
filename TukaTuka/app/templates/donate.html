@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}
+	<title>О нас - TukaTuka</title>
+{% endblock %}
+	{% block content %}
+
+			<!-- Main Wrapper -->
+				<div id="main-wrapper">
+					<div class="wrapper style2">
+						<div class="inner">
+							<div class="container">
+								<div id="content">
+
+									<!-- Content -->
+
+										<article>
+											<header class="major">
+												<h1>Поддержите проект</h1>
+												
+											</header>
+
+											<span class="image featured"><img class="content__img d-none d-md-block" src="{% static "images/cash.jpg" %}" alt="Поддержите нас" style="height: 350px;" ><img class="d-md-none" src="{% static "images/cash.jpg" %}" style="height: 200px;" alt="Поддержите нас"  ></span>
+
+											
+											<h3></h3>
+											<p><strong>TukaTuka</strong> стремится объединить всех участников рынка вторичного сырья и рынка переработки. Начав с Москвы и Московской области, мы планируем дальнейшее расширение.
+											<br>Наша команда работает над созданием универсальной платформы для:
+											<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;• быстрой коммуникации между пользователями;
+											<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;• возможности заключения безопасных сделок(сервис безопасной сделки);
+											<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;• удобного поиска информации по отрасли и о конкретных компаниях(с помощью фильтров);
+											<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;• освещения важных новостей отрасли. Мы всегда открыты для Ваших предложений и пожеланий.
+											<br>Мы всегда открыты для Ваших предложений и пожеланий. Оставайтесь с нами в социальных сетях, следите за нашими новостями на сайте и Вы первыми узнаете о наших нововведениях и изменениях отраслевой политики. 
+                                         	</p>
+											<iframe src="https://money.yandex.ru/quickpay/shop-widget?writer=seller&targets=%D0%9D%D0%B0%20%D1%80%D0%B0%D0%B7%D0%B2%D0%B8%D1%82%D0%B8%D0%B5%20TukaTuka&targets-hint=&default-sum=100&button-text=11&hint=&successURL=&quickpay=shop&account=410016277106042" width="423" height="222" frameborder="0" allowtransparency="true" scrolling="no"></iframe>
+											<p id="right">Всегда Ваш, TukaTuka.</p>
+										</article>
+
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+            </div>
+{% endblock %}
