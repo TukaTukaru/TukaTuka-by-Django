@@ -3,7 +3,6 @@ from django.contrib.auth.models import User
 from app.models import Mail, Ad
 
 class RegistrationForm(forms.ModelForm):
-    password = forms.CharField(widget=forms.PasswordInput)
     password_check = forms.CharField(widget=forms.PasswordInput)
 
     class Meta:
@@ -42,6 +41,40 @@ class RegistrationForm(forms.ModelForm):
         if password_check!=password:
             raise forms.ValidationError('Пароль не совпадает!')                   
 
+class EditDataForm(forms.ModelForm):
+    password_check = forms.CharField(widget=forms.PasswordInput)
+
+    class Meta:
+        model = User
+        fields = ['username', 'password', 'first_name', 'last_name']
+        widgets = {
+        'username' : forms.EmailInput(attrs={'placeholder' : 'Ваша почта'}),
+        'first_name' : forms.TextInput(attrs={'placeholder' : 'Имя', 'name' : 'Name'}),
+        'last_name' : forms.TextInput(attrs={'placeholder' : 'Фамилия', 'name' : 'Surname'}),
+        'password' : forms.PasswordInput(attrs={'placeholder' : 'Пароль', 'name' : 'pass'}),
+        }
+        help_texts = {
+            'username': (''),
+        }
+        error_messages = {
+            'username': {
+                'max_length': ("Превышена длинна"),
+            },
+        }
+
+    def __init__(self, *args, **kwargs):
+        super(RegistrationForm, self).__init__(*args, **kwargs)
+        self.fields['username'].label = 'Обязательно'
+        self.fields['password'].label = 'Пароль'
+        self.fields['password_check'].label = 'Повторите пароль'
+        self.fields['first_name'].label = 'Введите'
+        self.fields['last_name'].label = "Введите"
+
+    def clean(self):
+        password_check = self.cleaned_data['password_check']
+        password = self.cleaned_data['password']
+        if password_check!=password:
+            raise forms.ValidationError('Пароль не совпадает!')                   
 
 
 
@@ -70,7 +103,7 @@ class AdForm(forms.ModelForm):
                 'name': forms.TextInput(attrs={'placeholder': 'Ф.И.О представителя'}),
                 'position': forms.TextInput(attrs={'placeholder': 'Должность'}),
                 'phone_number': forms.NumberInput(attrs={'placeholder': 'Ваш номер телефона', 'type' : 'tel'}),
-                'phone_another': forms.NumberInput(attrs={'placeholder': 'Дополнительный номер', 'type' : 'tel'}),
+                'phone_another': forms.NumberInput(attrs={'placeholder': 'Дополнительный номер(необязательно)', 'type' : 'tel'}),
                 'price': forms.NumberInput(attrs={'placeholder': 'Цена, руб/тонна'}),
                 'volume': forms.NumberInput(attrs={'placeholder': 'Объем, тонн'}),
                 'photo': forms.ClearableFileInput(attrs={'placeholder': 'Фото продукции'}),

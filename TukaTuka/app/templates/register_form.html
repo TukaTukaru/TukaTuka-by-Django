@@ -21,7 +21,11 @@
                                                 <!-- Form section -->
                                                 <form name="registerForm" action="" method="post">
                                                     {% csrf_token %}
-           											 {{ form }}<br><br>
+			           								 {{ form.username }}<br>
+										            {{ form.first_name }}<br>
+										            {{ form.last_name }}<br>
+										            {{ form.password }}<br>
+										            {{ form.password_check }}<br>
                                                     <input type="submit" value="Зарегистрироваться"><br><br>   
                                                 </form>
                                             </article>

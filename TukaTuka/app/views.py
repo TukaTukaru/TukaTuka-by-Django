@@ -7,7 +7,7 @@ from django.http import HttpResponseRedirect
 from django.contrib.auth import login as auth_login
 from django.contrib.auth import logout as auth_logout
 from django.contrib.auth import authenticate
-from .forms import RegistrationForm, LoginForm, MailForm, FilterForm, AdForm, AdEditForm
+from .forms import RegistrationForm, LoginForm, MailForm, FilterForm, AdForm, AdEditForm,EditDataForm,
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.contrib.auth.models import User
 from django.db.models import Count
@@ -235,7 +235,7 @@ def delete_ad(request, ad_id):
 def lk_data(request):
     author_id = request.session['_auth_user_id']
     user_data = User.objects.get(id=author_id)
-    form = RegistrationForm(request.POST or None, initial=model_to_dict(user_data), instance=user_data, auto_id=False)
+    form = EditDataForm(request.POST or None, initial=model_to_dict(user_data), instance=user_data, auto_id=False)
     if form.is_valid():
         edit_user = form.save(commit=False)
         username = form.cleaned_data['username']
