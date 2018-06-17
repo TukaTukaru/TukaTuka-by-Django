@@ -7,7 +7,7 @@ from django.http import HttpResponseRedirect
 from django.contrib.auth import login as auth_login
 from django.contrib.auth import logout as auth_logout
 from django.contrib.auth import authenticate
-from .forms import RegistrationForm, LoginForm, MailForm, FilterForm, AdForm, AdEditForm,EditDataForm,
+from .forms import RegistrationForm, LoginForm, MailForm, FilterForm, AdForm, AdEditForm,EditDataForm
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.contrib.auth.models import User
 from django.db.models import Count
