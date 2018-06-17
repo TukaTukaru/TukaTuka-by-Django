@@ -63,7 +63,7 @@ class EditDataForm(forms.ModelForm):
         }
 
     def __init__(self, *args, **kwargs):
-        super(RegistrationForm, self).__init__(*args, **kwargs)
+        super(EditDataForm, self).__init__(*args, **kwargs)
         self.fields['username'].label = 'Обязательно'
         self.fields['password'].label = 'Пароль'
         self.fields['password_check'].label = 'Повторите пароль'
