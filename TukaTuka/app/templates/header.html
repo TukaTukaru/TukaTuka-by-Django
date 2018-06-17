@@ -36,7 +36,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                                                     </ul>
                                                 <li><a href="{% url 'about' %}#main-wrapper">О нас</a></li>
                                     
-                                              {% if author %}  <li><a id="bluehref" href=""><i class="fa fa-user" aria-hidden="true"></i> Имя пользователя</a>
+                                              {% if request.user.is_authenticated %} <li><a id="bluehref" href=""><i class="fa fa-user" aria-hidden="true"></i> {{ request.user.last_name }} {{ request.user.first_name }}</a>
                                                     <ul>
 														<li><a href="{% url 'lichniy-kabinet' %}">Мой кабинет</a></li>
 														<!-- <li><a href="">Настройки</a></li> -->

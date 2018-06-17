@@ -36,96 +36,49 @@ def logout(request):
 
 
 def base(request):
-    try:
-        author_id=request.session['_auth_user_id']
-        news = News.objects.all()
-        form = MailForm(request.POST or None)
-        if form.is_valid():
-            new_mail = form.save(commit=False)
-            email = form.cleaned_data['email']
-            new_mail.email = email
-            new_mail.save()
-            return HttpResponseRedirect(reverse('base'))
-        return render(request, 'index.html', {'news': news,'form': form,'author': author_id})
-    except Exception as e:
-        news = News.objects.all()
-        form = MailForm(request.POST or None)
-        if form.is_valid():
-            new_mail = form.save(commit=False)
-            email = form.cleaned_data['email']
-            new_mail.email = email
-            new_mail.save()
-            return HttpResponseRedirect(reverse('base'))
-        return render(request, 'index.html', {'news': news,'form': form})
+    news = News.objects.all()
+    form = MailForm(request.POST or None)
+    if form.is_valid():
+        ew_mail = form.save(commit=False)
+        email = form.cleaned_data['email']
+        new_mail.email = email
+        new_mail.save()
+        return HttpResponseRedirect(reverse('base'))
+    return render(request, 'index.html', {'news': news,'form': form})
 
 def about(request):
-    try:
-        author_id=request.session['_auth_user_id']
-        return render(request, 'about.html', {'author': author_id})
-    except Exception as e:
-        return render(request, 'about.html')
+    return render(request, 'about.html')
 
 def donate(request):
-    try:
-        author_id=request.session['_auth_user_id']
-        return render(request, 'donate.html', {'author': author_id})
-    except Exception as e:
-        return render(request, 'donate.html')
+    return render(request, 'donate.html')
 
 def table(request, category):
-    try:
-        author_id = request.session['_auth_user_id']
-        ad_list = Ad.objects.filter(category=category).annotate(complaint_count=Count('complaint'))
-        form = FilterForm(request.POST or None)
-        if form.is_valid():
-            categorys = form.cleaned_data['category1']
-            ad_filter_list = Ad.objects.filter(category=category,category1=categorys)
-            return render(request, 'table_filter.html', {'category': category,'ad_filter_list': ad_filter_list,'form': form})
-        return render(request, 'tables.html', {'category': category,'ad_list': ad_list,'form': form, 'author': author_id})
-    except Exception as e:
-        ad_list = Ad.objects.filter(category=category).annotate(complaint_count=Count('complaint'))
-        form = FilterForm(request.POST or None)
-        if form.is_valid():
-            categorys = form.cleaned_data['category1']
-            ad_filter_list = Ad.objects.filter(category=category, category1=categorys)
-            return render(request, 'table_filter.html',
+    ad_list = Ad.objects.filter(category=category).annotate(complaint_count=Count('complaint'))
+    form = FilterForm(request.POST or None)
+    if form.is_valid():
+        categorys = form.cleaned_data['category1']
+        ad_filter_list = Ad.objects.filter(category=category, category1=categorys)
+        return render(request, 'table_filter.html',
                           {'category': category, 'ad_filter_list': ad_filter_list, 'form': form})
-        return render(request, 'tables.html',
+    return render(request, 'tables.html',
                       {'category': category, 'ad_list': ad_list, 'form': form})
 
 
 def ad(request,ad_id):
-    try:
-        author_id = request.session['_auth_user_id']
-        ad_info = get_object_or_404(Ad, id=ad_id)
-        return render(request, 'ad.html',{'ad': ad_info, 'author': author_id})
-    except Exception as e:
-        ad_info = get_object_or_404(Ad, id=ad_id)
-        return render(request, 'ad.html', {'ad': ad_info})
+    ad_info = get_object_or_404(Ad, id=ad_id)
+    return render(request, 'ad.html', {'ad': ad_info})
 
 
 def news(request,new_id):
-    try:
-        author_id = request.session['_auth_user_id']
-        new_info = get_object_or_404(News, id=new_id)
-        form = MailForm(request.POST or None,auto_id=True)
-        if form.is_valid():
-            new_mail = form.save(commit=False)
-            email = form.cleaned_data['email']
-            new_mail.email = email
-            new_mail.save()
-            return HttpResponseRedirect(reverse('news'))
-        return render(request, 'news.html',{'news': new_info,'form': form, 'author': author_id})
-    except Exception as e:
-        new_info = get_object_or_404(News, id=new_id)
-        form = MailForm(request.POST or None, auto_id=True)
-        if form.is_valid():
-            new_mail = form.save(commit=False)
-            email = form.cleaned_data['email']
-            new_mail.email = email
-            new_mail.save()
-            return HttpResponseRedirect(reverse('news'))
-        return render(request, 'news.html', {'news': new_info, 'form': form})
+    new_info = get_object_or_404(News, id=new_id)
+    form = MailForm(request.POST or None, auto_id=True)
+    if form.is_valid():
+        new_mail = form.save(commit=False)
+        email = form.cleaned_data['email']
+        new_mail.email = email
+        new_mail.save()
+        return HttpResponseRedirect(reverse('news'))
+    return render(request, 'news.html', {'news': new_info, 'form': form})
 
 def registration_view(request):
     form = RegistrationForm(request.POST or None,auto_id=False)
