@@ -56,10 +56,20 @@ def table(request, category):
     ad_list = Ad.objects.filter(category=category).annotate(complaint_count=Count('complaint'))
     form = FilterForm(request.POST or None)
     if form.is_valid():
-        categorys = form.cleaned_data['category1']
-        ad_filter_list = Ad.objects.filter(category=category, category1=categorys)
-        return render(request, 'table_filter.html',
-                          {'category': category, 'ad_filter_list': ad_filter_list, 'form': form})
+        try:
+            categorys = form.cleaned_data['category1']
+            ad_filter_list = Ad.objects.filter(category=category, category1=categorys)
+            return render(request, 'table_filter.html',
+                          {'category': category, 'ad_filter_list': ad_filter_list_1, 'form': form})
+        except Exception as e:
+            pass 
+        try:
+            categorys = form.cleaned_data['category2']
+            ad_filter_list = Ad.objects.filter(category=category, category2=categorys)
+            return render(request, 'table_filter.html',
+                          {'category': category, 'ad_filter_list': ad_filter_list_2, 'form': form})
+        except Exception as e:
+            pass
     return render(request, 'tables.html',
                       {'category': category, 'ad_list': ad_list, 'form': form})
 
@@ -141,7 +151,7 @@ def ad_form(request):
 @login_required
 def lichniy_kabinet(request):
     author_id = request.session['_auth_user_id']
-    ad_list = Ad.objects.filter(author=author_id).annotate(author_count=Count('id'))
+    ad_list = Ad.objects.filter(author=author_id).annotate(ad_count=Count('id'))
     return render(request, 'lk_objavi.html', {'ad_list': ad_list, 'author': author_id})
 @login_required
 def lichnaya_objava(request, ad_id):

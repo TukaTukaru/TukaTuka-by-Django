@@ -1,5 +1,5 @@
-<!--{% extends "tables.html" %}
-{% block %}
+{% extends "tables.html" %}
+{% block filter %}
                                 <header class="major">{% if category == 1 %} 
                                    <h1>Купить вторсырье на переработку</h1>
                                 {% elif category == 2 %} 
@@ -10,6 +10,74 @@
                                 <h1>Продать переработанное сырье</h1>
                                 {% endif %}   
                                 </header>
+                                {% if category == 2 or category == 4 %}
+                                                    <form class="formstyle" name="buyForm" enctype="multipart/form-data" action="" method="post">
+                                                      <div class="row justify-content-center">
+
+                                                          <div>
+                                                            Цена, руб/тонна:
+                                                            <input name="ot" type="number" placeholder="от"><br>
+                                                            <input name="do" type="number" placeholder="до"><br>
+                                                        </div>
+                                                        <div>
+                                                            Объем, тонн:
+                                                            <input name="ot" type="number" placeholder="от"><br>
+                                                            <input name="do" type="number" placeholder="до"><br>
+                                                        </div>
+                                                          <div>
+                                                            Категория:<br>
+                                                            {% csrf_token %} <!--{{ form.as_p }}-->
+                                                            <input name="category" type="radio"> Гранула ПП<br>
+                                                            <input name="category" type="radio"> Гранула ПНД<br>
+                                                            <input name="category" type="radio"> Гранула ПВД<br>
+                                                            <input name="category" type="radio"> Стрейч<br>
+                                                            <input name="category" type="radio"> Другое<br>
+                                                        </div>
+                                                        <div>
+                                                            Наличие фотографии:<br>
+                                                            <input name="foto" type="radio"> Есть<br>
+                                                            <input name="foto" type="radio"> Отсутствует<br><br>
+                                                        </div>
+                                                        <div>
+                                                            <input type="submit" value="Применить"><br><br>
+                                                        </div>
+                                                        </div>
+                                                    </form>
+                                                    {% else %}
+                                                    <form class="formstyle" name="buyForm" enctype="multipart/form-data" action="" method="post">
+                                                      <div class="row justify-content-center">
+                                                          
+                                                          <div>
+                                                            Цена, руб/тонна:
+                                                            <input name="ot" type="number" placeholder="от"><br>
+                                                            <input name="do" type="number" placeholder="до"><br>
+                                                        </div>
+                                                        <div>
+                                                            Объем, тонн:
+                                                            <input name="ot" type="number" placeholder="от"><br>
+                                                            <input name="do" type="number" placeholder="до"><br>
+                                                        </div>
+                                                          <div>
+                                                            Категория:<br>
+                                                            {% csrf_token %} <!--{{ form.as_p }}-->
+                                                            <input name="category" type="radio"> ПП<br>
+                                                            <input name="category" type="radio"> ПНД<br>
+                                                            <input name="category" type="radio"> ПВД<br>
+                                                            <input name="category" type="radio"> Стрейч<br>
+                                                            <input name="category" type="radio"> Другое<br>
+                                                        </div>
+                                                        <div>
+                                                            Наличие фотографии:<br>
+                                                            <input name="foto" type="radio"> Есть<br>
+                                                            <input name="foto" type="radio"> Отсутствует<br><br>
+                                                        </div>
+                                                        <div>
+                                                            <input type="submit" value="Применить"><br><br>
+                                                        </div>
+                                                        </div>
+                                                    </form>
+                                                        {% endif %}
+                                                    </header>
 
         x                      <table border="0" cellpadding="0" cellspacing="0" id="sheet0" class="bordered">
                                     <col class="col0">
@@ -43,4 +111,4 @@
                                             {% else %}  {{ ad.volume }} тонн{% endif %}</a></td>
 
                                         </tr>
-                                        {% endfor %}{% endblock %}-->
+                                        {% endfor %}{% endblock %}

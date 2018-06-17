@@ -97,16 +97,22 @@ class LoginForm(forms.Form):
             raise forms.ValidationError('Пароль неверный!')
 
 
-class FilterForm(forms.Form):
-    category1 = forms.TypedChoiceField(choices = (
-        (1, "ПП"),
-        (2, "ПНД"),
-        (3, "ПВД"),
-        (4, "Стрейч"),
-        (5, "ПЭТ"),
-        (6, "Другое"),),
-    coerce=int,empty_value=1
-    )
+class FilterForm(forms.ModelForm):
+    # category1 = forms.TypedChoiceField(choices = (
+    #     (1, "ПП"),
+    #     (2, "ПНД"),
+    #     (3, "ПВД"),
+    #     (4, "Стрейч"),
+    #     (5, "ПЭТ"),
+    #     (6, "Другое"),),
+    # coerce=int,empty_value=1
+    # )
+    class Meta:
+            model = Ad
+            fields = ['category1','category2']
+            widgets = {'category1': forms.RadioSelect(),
+            'category2': forms.RadioSelect(),
+            }
     # volume = forms.IntegerField()
     # price = forms.IntegerField()
 

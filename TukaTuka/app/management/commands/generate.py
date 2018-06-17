@@ -79,19 +79,19 @@ class Command(BaseCommand):
         Ad.objects.all().delete()
         adss = [Ad(name=ad_2[7][i],position =ad_2[8][i],price =ad_2[2][i],phone_number =ad_2[6][i],
          title=ad_2[0][i],description =ad_2[4][i],volume =ad_2[3][i],company_name =ad_2[5][i],company_adress =ad_2[1][i],
-            category=2,photo=ad_2[9][i]) for i in range(42,-1,-1)]
+            category=2,photo=ad_2[9][i],category2=ad_2[10][i]) for i in range(42,-1,-1)]
         Ad.objects.bulk_create(adss, batch_size=BATCH_SIZE)
         adss2 = [Ad(name=ad_1[7][i],position =ad_1[8][i],price =ad_1[2][i],phone_number =ad_1[6][i],
          title=ad_1[0][i],description =ad_1[4][i],volume =ad_1[3][i],company_name =ad_1[5][i],company_adress =ad_1[1][i],
-            category=4) for i in range(27,-1,-1)]
+            category=4,category2=ad_1[9][i]) for i in range(27,-1,-1)]
         Ad.objects.bulk_create(adss2, batch_size=BATCH_SIZE)
         adss3 = [Ad(name=ad_3[7][i],position =ad_3[8][i],price =ad_3[2][i],phone_number =ad_3[6][i],
          title=ad_3[0][i],description =ad_3[4][i],volume =ad_3[3][i],company_name =ad_3[5][i],company_adress =ad_3[1][i],
-            category=1,photo=ad_3[9][i]) for i in range(79,-1,-1)]
+            category=1,photo=ad_3[9][i],category1=ad_3[10][i]) for i in range(79,-1,-1)]
         Ad.objects.bulk_create(adss3, batch_size=BATCH_SIZE)
         adss4 = [Ad(name=ad_4[7][i],position =ad_4[8][i],price =ad_4[2][i],phone_number =ad_4[6][i],
          title=ad_4[0][i],description =ad_4[4][i],volume =ad_4[3][i],company_name =ad_4[5][i],company_adress =ad_4[1][i],
-            category=3,photo=ad_4[9][i]) for i in range(98,-1,-1)]
+            category=3,photo=ad_4[9][i],category1=ad_4[10][i]) for i in range(98,-1,-1)]
         Ad.objects.bulk_create(adss4, batch_size=BATCH_SIZE)
         # ad_ids=[Ad.objects.all()[_].id for _ in range(DEFAULT_AD)]
 

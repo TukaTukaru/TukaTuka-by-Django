@@ -26,7 +26,7 @@
                     <div class="12u(mobile) important(mobile)">
                         <div id="content">
 
-                            <!-- Content -->
+                            <!-- Content -->{% block filter %}
 												<article>
                                                     <header class="major">
                                                         
@@ -58,12 +58,7 @@
                                                         </div>
                                                           <div>
                                                             Категория:<br>
-                                                            {% csrf_token %} <!--{{ form.as_p }}-->
-                                                            <input name="category" type="radio"> Гранула ПП<br>
-                                                            <input name="category" type="radio"> Гранула ПНД<br>
-                                                            <input name="category" type="radio"> Гранула ПВД<br>
-                                                            <input name="category" type="radio"> Стрейч<br>
-                                                            <input name="category" type="radio"> Другое<br>
+                                                            {% csrf_token %} {{ form.category2 }}<br>
                                                         </div>
                                                         <div>
                                                             Наличие фотографии:<br>
@@ -91,12 +86,7 @@
                                                         </div>
                                                           <div>
                                                             Категория:<br>
-                                                            {% csrf_token %} <!--{{ form.as_p }}-->
-                                                            <input name="category" type="radio"> ПП<br>
-                                                            <input name="category" type="radio"> ПНД<br>
-                                                            <input name="category" type="radio"> ПВД<br>
-                                                            <input name="category" type="radio"> Стрейч<br>
-                                                            <input name="category" type="radio"> Другое<br>
+                                                            {% csrf_token %} {{ form.category1 }}<br>
                                                         </div>
                                                         <div>
                                                             Наличие фотографии:<br>
@@ -144,7 +134,7 @@
                                             {% else %}  {{ ad.volume }} тонн{% endif %}</a></td>
 
                                         </tr>
-                                        {% endfor %}
+                                        {% endfor %}{% endblock %}
                                                 </tbody>
     </table>        
                                                 </article>
