@@ -16,7 +16,8 @@
                                 <nav id="nav_v">
                                     <ul>
                                        {% if author %} <li  class="current_page_item"><a href="{% url 'lichniy-kabinet' %}">Мои объявления</a></li>
-                                       {% else %} <li ><a href="{% url 'lichniy-kabinet' %}">Мои объявления</a></li> {% endif %} 
+                                       {% else %} <li ><a href="{% url 'lichniy-kabinet' %}">Мои объявления</a></li> {% endif %}
+                                        <li><a href="{% url 'ad-form' %}">Добавить объявление</a></li>
                                       {% if author %}  <li><a href="{% url 'lk_data' %}">Мои данные</a></li>{% else %}<li class="current_page_item"><a href="{% url 'lk_data' %}">Мои данные</a></li>{% endif %}
                                     </ul>
                                 </nav>
