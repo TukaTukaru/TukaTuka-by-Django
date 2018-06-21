@@ -134,7 +134,7 @@ def ad_form(request):
         new_Ad.volume = volume
         new_Ad.photo = photo
         new_Ad.save()
-        return HttpResponseRedirect(reverse('base'))
+        return HttpResponseRedirect(reverse('lichniy-kabinet'))
     context = {
         'form': form
     }
