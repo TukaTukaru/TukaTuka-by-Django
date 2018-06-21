@@ -4,6 +4,7 @@ from django.views.generic import RedirectView
 from django.contrib.auth import views as auth_view
 from django.contrib.auth.views import LoginView
 import django.urls
+from .decorators import check_recaptcha
 from django.contrib.auth.views import(
     LoginView,
     LogoutView,
@@ -24,7 +25,7 @@ urlpatterns = [
  path('sell_rec/<int:category>-prodat-pererabotannoe-syre', views.table, name='sell-rec'),
  path('<int:ad_id>-predlozheniya', views.ad, name='ad'),
  path('news/novost-<int:new_id>', views.news, name='news'),
- path('regist', views.registration_view, name='regist'),
+ path('regist', check_recaptcha(views.registration_view), name='regist'),
  path('login', views.login_view, name='login'),
  path('logout', views.logout, name='logout'),
  path('lichniy-kabinet', views.lichniy_kabinet, name='lichniy-kabinet'),
