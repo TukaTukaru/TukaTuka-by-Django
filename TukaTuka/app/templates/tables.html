@@ -43,7 +43,7 @@
                                     </header>
 
                                                         {% if category == 2 or category == 4 %}
-                                                    <form class="formstyle" name="buyForm" enctype="multipart/form-data" action="" method="post">
+                                                    <form class="formstyle" name="buyForm" enctype="multipart/form-data" action="" method="get">
                                                       <div class="row justify-content-center">
 
                                                           <div>
@@ -58,7 +58,7 @@
                                                         </div>
                                                           <div>
                                                             Категория:<br>
-                                                            {% csrf_token %} {{ form.category2 }}<br>
+                                                             {{ form.category2 }}<br>
                                                         </div>
                                                         <div>
                                                             Наличие фотографии:<br>
@@ -71,22 +71,23 @@
                                                         </div>
                                                     </form>
                                                     {% else %}
-                                                    <form class="formstyle" name="buyForm" enctype="multipart/form-data" action="" method="post">
+                                                    <form class="formstyle" name="buyForm" enctype="multipart/form-data" action="" method="get">
                                                       <div class="row justify-content-center">
                                                           
                                                           <div>
                                                             Цена, руб/тонна:
-                                                            <input name="ot" type="number" placeholder="от"><br>
-                                                            <input name="do" type="number" placeholder="до"><br>
+                                                            {{ form.price_min }}<br>
+                                                             {{ form.price_max }}<br>
                                                         </div>
                                                         <div>
                                                             Объем, тонн:
-                                                            <input name="ot" type="number" placeholder="от"><br>
-                                                            <input name="do" type="number" placeholder="до"><br>
+                                                             {{ form.volume_min }}<br>
+                                                             {{ form.volume_max }}<br>
                                                         </div>
                                                           <div>
                                                             Категория:<br>
-                                                            {% csrf_token %} {{ form.category1 }}<br>
+                                                            <!-- {{ form.category1 }}<br>
+                                                            {{ form.category2 }}<br> -->
                                                         </div>
                                                         <div>
                                                             Наличие фотографии:<br>

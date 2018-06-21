@@ -84,7 +84,7 @@ class Command(BaseCommand):
         Ad.objects.bulk_create(adss, batch_size=BATCH_SIZE)
         adss2 = [Ad(name=ad_1[7][i],position =ad_1[8][i],price =ad_1[2][i],phone_number =ad_1[6][i],
          title=ad_1[0][i],description =ad_1[4][i],volume =ad_1[3][i],company_name =ad_1[5][i],company_adress =ad_1[1][i],
-            category=4,category2=ad_1[9][i]) for i in range(27,-1,-1)]
+            category=4,category2=ad_1[9][i]) for i in range(19,-1,-1)]
         Ad.objects.bulk_create(adss2, batch_size=BATCH_SIZE)
         adss3 = [Ad(name=ad_3[7][i],position =ad_3[8][i],price =ad_3[2][i],phone_number =ad_3[6][i],
          title=ad_3[0][i],description =ad_3[4][i],volume =ad_3[3][i],company_name =ad_3[5][i],company_adress =ad_3[1][i],

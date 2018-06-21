@@ -97,7 +97,7 @@ class LoginForm(forms.Form):
             raise forms.ValidationError('Пароль неверный!')
 
 
-class FilterForm(forms.ModelForm):
+class FilterForm(forms.Form):
     # category1 = forms.TypedChoiceField(choices = (
     #     (1, "ПП"),
     #     (2, "ПНД"),
@@ -107,12 +107,16 @@ class FilterForm(forms.ModelForm):
     #     (6, "Другое"),),
     # coerce=int,empty_value=1
     # )
-    class Meta:
-            model = Ad
-            fields = ['category1','category2']
-            widgets = {'category1': forms.RadioSelect(),
-            'category2': forms.RadioSelect(),
-            }
+    price_min= forms.IntegerField(required=False, widget=forms.NumberInput(attrs={'placeholder': 'От'}))
+    price_max= forms.IntegerField(required=False,widget=forms.NumberInput(attrs={'placeholder': 'До'}))
+    volume_min= forms.IntegerField(required=False, widget=forms.NumberInput(attrs={'placeholder': 'От'}))
+    volume_max= forms.IntegerField(required=False,widget=forms.NumberInput(attrs={'placeholder': 'До'}))
+    # class Meta:
+    #         model = Ad
+    #         fields = ['category1','category2']
+    #         widgets = {'category1': forms.RadioSelect(),
+    #         'category2': forms.RadioSelect(),
+    #         }
     # volume = forms.IntegerField()
     # price = forms.IntegerField()
 
