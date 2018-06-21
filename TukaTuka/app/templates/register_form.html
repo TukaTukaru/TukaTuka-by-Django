@@ -19,13 +19,21 @@
 														<h1>Регистрация</h1>
 													</header>
                                                 <!-- Form section -->
-                                                <form name="registerForm" action="" method="post">
+                                                <form name="registerForm" action="{% url 'regist' %}" method="post">
                                                     {% csrf_token %}
 			           								 {{ form.username }}<br>
 										            {{ form.first_name }}<br>
 										            {{ form.last_name }}<br>
 										            {{ form.password }}<br>
 										            {{ form.password_check }}<br>
+													{{ form.errors }}<br>
+													<script src='https://www.google.com/recaptcha/api.js'></script>
+													<div class="g-recaptcha" data-sitekey="6Lch9l8UAAAAAI1ttE1ol51PBiMnwvwdwqVXnGqO"></div> <br>
+													{% if messages %}
+            											{% for message in messages %}
+                										{{ message }}
+            											{% endfor %}
+														{% endif %} <br>
                                                     <input type="submit" value="Зарегистрироваться"><br><br>   
                                                 </form>
                                             </article>

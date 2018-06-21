@@ -89,20 +89,21 @@ def news(request,new_id):
 def registration_view(request):
     form = RegistrationForm(request.POST or None,auto_id=False)
     if form.is_valid():
-        new_user = form.save(commit=False)
-        username = form.cleaned_data['username']
-        password = form.cleaned_data['password']
-        first_name = form.cleaned_data['first_name']
-        last_name = form.cleaned_data['last_name']
-        new_user.username = username
-        new_user.set_password(password)
-        new_user.first_name = first_name
-        new_user.last_name = last_name
-        new_user.save()
-        login_user = authenticate(username=username, password=password)
-        if login_user:
-            auth_login(request, login_user)
-            return HttpResponseRedirect(reverse('base'))
+        if request.recaptcha_is_valid:
+            new_user = form.save(commit=False)
+            username = form.cleaned_data['username']
+            password = form.cleaned_data['password']
+            first_name = form.cleaned_data['first_name']
+            last_name = form.cleaned_data['last_name']
+            new_user.username = username
+            new_user.set_password(password)
+            new_user.first_name = first_name
+            new_user.last_name = last_name
+            new_user.save()
+            login_user = authenticate(username=username, password=password)
+            if login_user:
+                auth_login(request, login_user)
+                return HttpResponseRedirect(reverse('base'))
     context = {
         'form': form
     }
@@ -139,7 +140,7 @@ def ad_form(request):
         new_Ad.volume = volume
         new_Ad.photo = photo
         new_Ad.save()
-        return HttpResponseRedirect(reverse('base'))
+        return HttpResponseRedirect(reverse('lichniy-kabinet'))
     context = {
         'form': form
     }
@@ -210,6 +211,7 @@ def lk_data(request):
         auth_login(request, login_user)
         return HttpResponseRedirect(reverse('lk_data'))
     return render(request, 'lk_data.html', {'form': form})
+
 #def lichniy_cabinet_data(request, author):
   #  ad_list = Ad.objects.filter(author=author).annotate(author_count=Count('Objavleniy:'))
     #return render(request, 'lk_objavi.html', {'author': author})

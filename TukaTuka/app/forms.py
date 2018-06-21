@@ -4,7 +4,6 @@ from app.models import Mail, Ad
 
 class RegistrationForm(forms.ModelForm):
     password_check = forms.CharField(widget=forms.PasswordInput(attrs={'placeholder' : 'Повторите пароль', 'name' : 'password_check'}))
-
     class Meta:
         model = User
         fields = ['username', 'password', 'first_name', 'last_name']
@@ -39,7 +38,7 @@ class RegistrationForm(forms.ModelForm):
         password_check = self.cleaned_data['password_check']
         password = self.cleaned_data['password']
         if password_check!=password:
-            raise forms.ValidationError('Пароль не совпадает!')                   
+            raise forms.ValidationError('Пароль не совпадает!')
 
 class EditDataForm(RegistrationForm):
 
@@ -47,11 +46,7 @@ class EditDataForm(RegistrationForm):
         password_check = self.cleaned_data['password_check']
         password = self.cleaned_data['password']
         if password_check!=password:
-            raise forms.ValidationError('Пароль не совпадает!')                   
-
-
-
-
+            raise forms.ValidationError('Пароль не совпадает!')
 
 class MailForm(forms.ModelForm):
 
