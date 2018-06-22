@@ -32,12 +32,13 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
 <body class="login login-action-login wp-core-ui  locale-ru-ru">
     <div id="login">
-        <h1><img src="{% static "images/icons8-t-50.png" alt="TukaTuka" %}"></h1>
+        <!--<h1><img src="{% static "images/icons8-t-50.png" alt="TukaTuka" %}"></h1>-->
+        <h1>Вход в личный кабинет</h1>
         <form name="loginform" id="loginform" method="post">
             {% csrf_token %}
            <p><label for="user_login">E-mail<br />{{ form.username }}</label>
             </p>
-            <p><label for="user_pass">Пароль<br />
+            <p><label for="user_pass">Пароль <a href="#" style="color: rgb(95, 100, 105);">(Забыли пароль?)</a><br />
                 {{ form.password }} {{ form.non_field_errors }}</label>
             </p>
         <p class="forgetmenot"><label for="rememberme"><input name="rememberme" type="checkbox" id="rememberme" value="forever"  /> Запомнить меня</label></p>
@@ -51,14 +52,13 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             </p>
         <br>
             <div class="row justify-content-center">
-                <div class="col-2"><a href="#"><i style="color: #555d66" class="fab fa-vk fa-3x"></i></a></div>
-                <div class="col-2"><a href="#"><i style="color: #555d66" class="fab fa-facebook-square fa-3x"></i></a></div>
+               <!--  <div class="col-2"><a href="#"><i style="color: #555d66" class="fab fa-vk fa-3x"></i></a></div>-->
+               <!--  <div class="col-2"><a href="#"><i style="color: #555d66" class="fab fa-facebook-square fa-3x"></i></a></div>-->
                 <div class="col-1"><a href="{% url 'social:begin' 'odnoklassniki-oauth2' %}"><i style="color: #555d66" class="fab fa-odnoklassniki-square fa-3x"></i></a></div>
             </div>
 
         <p id="nav">
-            <a href="">Забыли пароль?</a>
-             <a >Login with GitHub</a>
+            <a href="{% url 'regist' %}">Нет аккаунта? Зарегестрируйтесь!</a>
            <!-- <a href="{% url 'social:begin' 'facebook' %}">Login with Facebook</a><br>-->
         </p>
 
