@@ -13,6 +13,7 @@ mysqlclient = "*"
 pillow = "*"
 gunicorn = "*"
 Pipfile = "*"
+django-filter = "*"
 
 [dev-packages]
 
