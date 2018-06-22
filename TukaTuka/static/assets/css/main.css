@@ -1368,6 +1368,9 @@
     form input[type="file"] {
     
     }
+    .formstyle{
+      /*box-shadow: 0 10px 0px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);*/
+    }
 
 /* Tables */
 table {

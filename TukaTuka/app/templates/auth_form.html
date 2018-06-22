@@ -37,7 +37,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             {% csrf_token %}
            <p><label for="user_login">E-mail<br />{{ form.username }}</label>
             </p>
-            <p><label for="user_pass">Пароль<br />
+            <p><label for="user_pass">Пароль <a href="#" style="color: rgb(95, 100, 105);">(Забыли пароль?)</a><br />
                 {{ form.password }} {{ form.non_field_errors }}</label>
             </p>
         <p class="forgetmenot"><label for="rememberme"><input name="rememberme" type="checkbox" id="rememberme" value="forever"  /> Запомнить меня</label></p>
@@ -57,7 +57,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             </div>
 
         <p id="nav">
-            <a href="">Забыли пароль?</a>
+            <a href="{% url 'regist' %}">Нет аккаунта? Зарегестрируйтесь</a>
            <!-- <a href="{% url 'social:begin' 'facebook' %}">Login with Facebook</a><br>-->
         </p>
 
