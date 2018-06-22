@@ -32,7 +32,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
 <body class="login login-action-login wp-core-ui  locale-ru-ru">
     <div id="login">
-        <h1><img src="{% static "images/icons8-t-50.png" alt="TukaTuka" %}"></h1>
+        <!--<h1><img src="{% static "images/icons8-t-50.png" alt="TukaTuka" %}"></h1>-->
+        <h1>Вход в личный кабинет</h1>
         <form name="loginform" id="loginform" method="post">
             {% csrf_token %}
            <p><label for="user_login">E-mail<br />{{ form.username }}</label>
@@ -57,7 +58,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             </div>
 
         <p id="nav">
-            <a href="{% url 'regist' %}">Нет аккаунта? Зарегестрируйтесь</a>
+            <a href="{% url 'regist' %}">Нет аккаунта? Зарегестрируйтесь!</a>
            <!-- <a href="{% url 'social:begin' 'facebook' %}">Login with Facebook</a><br>-->
         </p>
 
