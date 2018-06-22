@@ -51,14 +51,14 @@ class Ad(models.Model):
 	phone_another = PhoneNumberField(blank=True)
 	company_name = models.CharField(max_length=200, db_index=True)
 	company_adress = models.CharField( max_length=200, db_index=True)
-	category_choice = (
+	CATEGORY_CHOICE = (
         (1, "Купить вторичное сырье на переработку"),
         (2, "Купить переработанное сырье"),
         (3, "Продать вторичное сырье на переработку"),
         (4, "Продать переработанное сырье"),
     )
 
-	category_raw = (
+	CATEGORY_RAW = (
 		(1, "ПП"),
 		(2, "ПНД"),
 		(3, "ПВД"),
@@ -68,7 +68,7 @@ class Ad(models.Model):
 
 	)
 
-	category_granule = (
+	CATEGORY_GRANULE = (
 		(1, "Гранула ПП"),
 		(2, "Гранула ПНД"),
 		(3, "Гранула ПВД"),
@@ -81,9 +81,9 @@ class Ad(models.Model):
 	author = models.ForeignKey(
 		on_delete=models.CASCADE, to=settings.AUTH_USER_MODEL,blank=True, null=True)
 	created_at = models.DateTimeField(auto_now_add=True)
-	category = models.IntegerField(choices=category_choice, default=0)
-	category1 = models.IntegerField(choices=category_raw, default=0,blank=True, null=True)
-	category2 = models.IntegerField(choices=category_granule, default=0,blank=True, null=True)
+	category = models.IntegerField(choices=CATEGORY_CHOICE, default=0)
+	category1 = models.IntegerField(choices=CATEGORY_RAW, default=0,blank=True, null=True)
+	category2 = models.IntegerField(choices=CATEGORY_GRANULE, default=0,blank=True, null=True)
 
 
 	def __str__(self):

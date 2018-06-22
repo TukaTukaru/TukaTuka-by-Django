@@ -48,23 +48,23 @@
 
                                                           <div>
                                                             Цена, руб/тонна:
-                                                            <input name="ot" type="number" placeholder="от"><br>
-                                                            <input name="do" type="number" placeholder="до"><br>
+                                                             {{ filtr.form.price_min }}<br>
+                                                             {{ filtr.form.price_max }}<br>
                                                         </div>
                                                         <div>
                                                             Объем, тонн:
-                                                            <input name="ot" type="number" placeholder="от"><br>
-                                                            <input name="do" type="number" placeholder="до"><br>
+                                                            {{ filtr.form.volume_min }}<br>
+                                                             {{ filtr.form.volume_max }}<br>
                                                         </div>
                                                           <div>
                                                             Категория:<br>
-                                                             {{ form.category2 }}<br>
+                                                             {{ filtr.form.category2 }}<br> 
                                                         </div>
-                                                        <div>
+                                                        <!-- <div>
                                                             Наличие фотографии:<br>
                                                             <input name="foto" type="radio"> Есть<br>
                                                             <input name="foto" type="radio"> Отсутствует<br><br>
-                                                        </div>
+                                                        </div> -->
                                                         <div>
                                                             <input type="submit" value="Применить"><br><br>
                                                         </div>
@@ -76,24 +76,24 @@
                                                           
                                                           <div>
                                                             Цена, руб/тонна:
-                                                            {{ form.price_min }}<br>
-                                                             {{ form.price_max }}<br>
+                                                            {{ filtr.form.price_min }}<br>
+                                                             {{ filtr.form.price_max }}<br>
                                                         </div>
                                                         <div>
                                                             Объем, тонн:
-                                                             {{ form.volume_min }}<br>
-                                                             {{ form.volume_max }}<br>
+                                                             {{ filtr.form.volume_min }}<br>
+                                                             {{ filtr.form.volume_max }}<br>
                                                         </div>
                                                           <div>
                                                             Категория:<br>
-                                                            <!-- {{ form.category1 }}<br>
-                                                            {{ form.category2 }}<br> -->
+                                                            {{ filtr.form.category1 }}<br>
+                                                           
                                                         </div>
-                                                        <div>
+                                                       <!--  <div>
                                                             Наличие фотографии:<br>
                                                             <input name="foto" type="radio"> Есть<br>
                                                             <input name="foto" type="radio"> Отсутствует<br><br>
-                                                        </div>
+                                                        </div> -->
                                                         <div>
                                                             <input type="submit" value="Применить"><br><br>
                                                         </div>
@@ -122,7 +122,7 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        {% for ad in ad_list reversed %}
+                                        {% for ad in filtr.qs reversed %}
                                         <tr class="row0" onclick="window.location.href='{% url 'ad' ad.id %}'; return false">
                                             <td class="column5 style4 s">{{ forloop.counter }}</td>
                                             <td class="column0 d-none d-md-table-cell style4 null"><a href="{% url 'ad' ad.id %}">{% if ad.photo %}<img src="
