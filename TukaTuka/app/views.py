@@ -54,20 +54,20 @@ def donate(request):
 
 def table(request, category):
     ad_list = Ad.objects.filter(category=category)
-    form = FilterForm(request.GET)
-    if form.is_valid():
-        if form.cleaned_data['price_max']:    
-            ad_list = Ad.objects.filter(category=category,price__lte=form.cleaned_data['price_max'])
-        if form.cleaned_data['volume_min']:
-            ad_list = Ad.objects.filter(category=category,volume__gte=form.cleaned_data['volume_min'])
-        if form.cleaned_data['volume_max']:    
-            ad_list = Ad.objects.filter(category=category,volume__lte=form.cleaned_data['volume_max'])
-        if form.cleaned_data['price_min'] or form.cleaned_data['price_max'] or form.cleaned_data['volume_min'] or form.cleaned_data['volume_max']:
-            ad_list = Ad.objects.filter(category=category,price__gte=form.cleaned_data['price_min'],price__lte=form.cleaned_data['price_max']
-,volume__gte=form.cleaned_data['volume_min']
-,volume__lte=form.cleaned_data['volume_max'])
+    filtr = FilterForm(request.GET, queryset=ad_list)
+#     if form.is_valid():
+#         if form.cleaned_data['price_max']:    
+#             ad_list = Ad.objects.filter(category=category,price__lte=form.cleaned_data['price_max'])
+#         if form.cleaned_data['volume_min']:
+#             ad_list = Ad.objects.filter(category=category,volume__gte=form.cleaned_data['volume_min'])
+#         if form.cleaned_data['volume_max']:    
+#             ad_list = Ad.objects.filter(category=category,volume__lte=form.cleaned_data['volume_max'])
+#         if form.cleaned_data['price_min'] or form.cleaned_data['price_max'] or form.cleaned_data['volume_min'] or form.cleaned_data['volume_max']:
+#             ad_list = Ad.objects.filter(category=category,price__gte=form.cleaned_data['price_min'],price__lte=form.cleaned_data['price_max']
+# ,volume__gte=form.cleaned_data['volume_min']
+# ,volume__lte=form.cleaned_data['volume_max'])
     return render(request, 'tables.html',
-                      {'category': category, 'ad_list': ad_list, 'form': form})
+                      {'category': category, 'ad_list': ad_list, 'filtr': filtr})
 
 
 def ad(request,ad_id):

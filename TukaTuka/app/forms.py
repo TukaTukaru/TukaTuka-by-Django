@@ -1,6 +1,9 @@
 from django import forms
 from django.contrib.auth.models import User
 from app.models import Mail, Ad
+from django_filters.filters import CharFilter, ChoiceFilter
+import django_filters
+from django.db import models
 
 class RegistrationForm(forms.ModelForm):
     password_check = forms.CharField(widget=forms.PasswordInput(attrs={'placeholder' : 'Повторите пароль', 'name' : 'password_check'}))
@@ -92,39 +95,41 @@ class LoginForm(forms.Form):
             raise forms.ValidationError('Пароль неверный!')
 
 
-class FilterForm(forms.Form):
-    # category1 = forms.TypedChoiceField(choices = (
-    #     (1, "ПП"),
-    #     (2, "ПНД"),
-    #     (3, "ПВД"),
-    #     (4, "Стрейч"),
-    #     (5, "ПЭТ"),
-    #     (6, "Другое"),),
-    # coerce=int,empty_value=1
-    # )
-    price_min= forms.IntegerField(required=False, widget=forms.NumberInput(attrs={'placeholder': 'От'}))
-    price_max= forms.IntegerField(required=False,widget=forms.NumberInput(attrs={'placeholder': 'До'}))
-    volume_min= forms.IntegerField(required=False, widget=forms.NumberInput(attrs={'placeholder': 'От'}))
-    volume_max= forms.IntegerField(required=False,widget=forms.NumberInput(attrs={'placeholder': 'До'}))
-    # class Meta:
-    #         model = Ad
-    #         fields = ['category1','category2']
-    #         widgets = {'category1': forms.RadioSelect(),
-    #         'category2': forms.RadioSelect(),
-    #         }
-    # volume = forms.IntegerField()
-    # price = forms.IntegerField()
+class FilterForm(django_filters.FilterSet):
+    CATEGORY_CHOICES=  ((1, "ПП"),
+        (2, "ПНД"),
+        (3, "ПВД"),
+        (4, "Стрейч"),
+        (5, "ПЭТ"),
+        (6, "Другое"),)
+    CATEGORY_GRANULE = (
+        (1, "Гранула ПП"),
+        (2, "Гранула ПНД"),
+        (3, "Гранула ПВД"),
+        (4, "Гранула стрейч"),
+        (5, "Другое"),
+    )
+    category1 = ChoiceFilter(widget=forms.RadioSelect,
+                                  choices=CATEGORY_CHOICES,
+empty_label=None)
+    category2 = ChoiceFilter(widget=forms.RadioSelect,
+                                  choices=CATEGORY_GRANULE,
+empty_label=None)
+    price = django_filters.NumberFilter()
+    price_min = django_filters.NumberFilter(name='price', lookup_expr='gte',widget=forms.NumberInput(attrs={'placeholder': 'От'}))
+    price_max = django_filters.NumberFilter(name='price', lookup_expr='lte',widget=forms.NumberInput(attrs={'placeholder': 'До'}))
+    volume = django_filters.NumberFilter()
+    volume_min = django_filters.NumberFilter(name='volume', lookup_expr='gte',widget=forms.NumberInput(attrs={'placeholder': 'От'}))
+    volume_max = django_filters.NumberFilter(name='volume', lookup_expr='lte',widget=forms.NumberInput(attrs={'placeholder': 'До'}))
+    class Meta:
+            model = Ad
+            fields = ['price','volume','category1','category2']
+            
 
     
-    # def clean(self):
-    #     username = self.cleaned_data['username']
-    #     password = self.cleaned_data['password']
-    #     if not User.objects.filter(username=username).exists():
-    #         raise forms.ValidationError('User with this login has not already registered')
 
-    #     user = User.objects.get(username=username)
-    #     if user and not user.check_password(password):
-    #         raise forms.ValidationError('Пароль неверный!')
+    
+   
 
 class AdEditForm(forms.ModelForm):
 
