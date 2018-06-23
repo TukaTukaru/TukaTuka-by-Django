@@ -49,7 +49,7 @@ class Ad(models.Model):
 	photo = models.ImageField(upload_to='prod_img', blank=True, verbose_name='Фото продукции')
 	phone_number = PhoneNumberField()
 	phone_another = PhoneNumberField(blank=True)
-	company_name = models.CharField(max_length=200, db_index=True)
+	company_name = models.CharField(max_length=200, db_index=True, null=True)
 	company_adress = models.CharField( max_length=200, db_index=True)
 	CATEGORY_CHOICE = (
         (1, "Купить вторичное сырье на переработку"),
