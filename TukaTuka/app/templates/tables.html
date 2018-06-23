@@ -58,7 +58,10 @@
                                                         </div>
                                                           <div>
                                                             Категория:<br>
-                                                             {{ filtr.form.category2 }}<br> 
+                                                             {% for radio in filtr.form.category2 %}
+                                                             {{ radio.tag }} {{ radio.choice_label }}<br>
+
+{% endfor %}
                                                         </div>
                                                         <!-- <div>
                                                             Наличие фотографии:<br>
@@ -86,7 +89,10 @@
                                                         </div>
                                                           <div>
                                                             Категория:<br>
-                                                            {{ filtr.form.category1 }}<br>
+                                                              {% for radio in filtr.form.category1 %}
+                                                             {{ radio.tag }} {{ radio.choice_label }}<br>
+
+{% endfor %}
                                                            
                                                         </div>
                                                        <!--  <div>
