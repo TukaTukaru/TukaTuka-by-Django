@@ -1533,9 +1533,9 @@ table {
 /* Image */
 .content__img {
 			
-			height:400px;
+			height: 400px;
 		}
-		
+
 	.image {
 		position: relative;
 		display: inline-block;
@@ -1545,7 +1545,7 @@ table {
 			display: block;
 			width: 100%;
 			border-radius: 8px;
-			height:270px;
+			height: 270px;
 		}
 
 		.image:before {

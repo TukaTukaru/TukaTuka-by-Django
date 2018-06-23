@@ -79,7 +79,7 @@
 												<!-- Excerpt -->
 												{% for new in news reversed %}
 													<article class="box excerpt">
-														<a class="image left" href="{% url 'news' new_id=new.id %}#main-wrapper"><img src="{{ new.photo.url }}" class="d-none d-md-block" style="width:260px; height: 278px;" alt="Вторичные переработанные гранулы" /><img src="{{ new.photo.url }}" class="d-md-none" style="width:85px; height: 85px;" alt="Вторичные переработанные гранулы" /></a>
+														<a class="image left" href="{% url 'news' new_id=new.id %}#main-wrapper"><img src="{{ new.photo.url }}" class="d-none d-md-block" style="width: 300; heigth: 166;" alt="Вторичные переработанные гранулы" /><img src="{{ new.photo.url }}" class="d-md-none" style="width:85px; height: 85px;" alt="Вторичные переработанные гранулы" /></a>
 														<div>
 															<header>
 																<span class="date">{{ new.date }}</span>
