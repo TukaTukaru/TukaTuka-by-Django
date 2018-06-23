@@ -77,15 +77,15 @@
 												<h2 class="icon fa-file-text-o">Наши новости</h2>
 
 												<!-- Excerpt -->
-												{% for new in news reversed %}
+												{% for new in news %}
 													<article class="box excerpt">
-														<a class="image left" href="{% url 'news' new_id=new.id %}#main-wrapper"><img src="{{ new.photo.url }}" class="d-none d-md-block" style="width: 300; heigth: 166;" alt="Вторичные переработанные гранулы" /><img src="{{ new.photo.url }}" class="d-md-none" style="width:85px; height: 85px;" alt="Вторичные переработанные гранулы" /></a>
+														<a class="image left" href="{% url 'news' new_id=new.id %}#main-wrapper"><img src="{{ new.photo.url }}" class="d-none d-md-block" style="width: 333; heigth: 120;" alt="Вторичные переработанные гранулы" /><img src="{{ new.photo.url }}" class="d-md-none" style="width:85px; height: 85px;" alt="Вторичные переработанные гранулы" /></a>
 														<div>
 															<header>
 																<span class="date">{{ new.date }}</span>
                                                                 <h3><a href="{% url 'news' new_id=new.id %}#main-wrapper">{{new.title}}</a></h3>
 															</header>
-															<p>{{new.description|linebreaksbr|truncatewords:40}}<a href="{% url 'news' new_id=new.id %}#main-wrapper">.</a>
+															<p>{{new.description|linebreaksbr|truncatewords:30}}<a href="{% url 'news' new_id=new.id %}#main-wrapper">.</a>
 															</p>
 														</div> 
 													</article>
