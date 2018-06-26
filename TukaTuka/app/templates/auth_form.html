@@ -9,6 +9,7 @@
         <!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+        <script src="https://code.jquery.com/jquery-1.8.3.js"></script>
         <link rel="stylesheet" href="{% static "assets/css/auth.css" %}" />
         <link rel="shortcut icon" href="{% static "images/icons8-t-50.png" type="image/x-icon" %}" />
         <!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
@@ -38,7 +39,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             {% csrf_token %}
            <p><label for="user_login">E-mail<br />{{ form.username }}</label>
             </p>
-            <p><label for="user_pass">Пароль <a href="#" style="color: rgb(95, 100, 105);">(Забыли пароль?)</a><br />
+            <p><label for="user_pass">Пароль <a href="#" id="pwdrec" style="color: rgb(95, 100, 105);">(Забыли пароль?)</a><br />
                 {{ form.password }} {{ form.non_field_errors }}</label>
             </p>
         <p class="forgetmenot"><label for="rememberme"><input name="rememberme" type="checkbox" id="rememberme" value="forever"  /> Запомнить меня</label></p>
@@ -66,7 +67,16 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         <p id="backtoblog"><a href="https://tukatuka.ru/">&larr; Назад к сайту &laquo;Tukatuka&raquo;</a></p>
 
     </div>
-
+<script>
+$( document ).ready(function() {
+    $( "#pwdrec" ).click(function() {
+        result = prompt('Введите ваш e-mail:', '');
+            if (result !== null) {
+                alert("Новый пароль отправлен на ваш почтовый ящик!");
+            };
+       });
+    });
+</script>
 
     <div class="clear"></div>
 </body>
