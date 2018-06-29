@@ -24,8 +24,8 @@
                                     <h6>{{ ad.company_adress }}</h6>
                                 </div>
                                 <div class="col-">
-                                    <h1>{% if ad.price_min == 0 or ad.price_min == None %}
-                                            {% else %} {{ ad.price_min }} руб за тонну{% endif %}</h1>
+                                    <h1>{% if ad.price == 0 or ad.price == None %}
+                                            {% else %} {{ ad.price }} руб за тонну{% endif %}</h1>
                                     <h6>{% if ad.volume == 0 or ad.volume == None %}
                                             {% else %} {{ ad.volume }} тонн{% endif %}</h6>
                                 </div>
