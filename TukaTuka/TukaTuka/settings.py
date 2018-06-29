@@ -154,11 +154,13 @@ SOCIAL_AUTH_PIPELINE = (
 
 LOGIN_URL = 'login'
 LOGOUT_URL = 'logout'
-LOGIN_REDIRECT_URL = 'about'
+LOGIN_REDIRECT_URL = 'lichniy-kabinet'
 
 SOCIAL_AUTH_FACEBOOK_KEY = '236232877125545'  # App ID
 SOCIAL_AUTH_FACEBOOK_SECRET = 'c96e19ff175edf99b1ece7d56b5d5e05'  # App Secret
 
+
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 # Internationalization
 # https://docs.djangoproject.com/en/2.0/topics/i18n/
 
