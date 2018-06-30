@@ -23,8 +23,9 @@ urlpatterns = [
  path('ad_form', views.ad_form, name='ad-form'),
  path('delete-<int:ad_id>', views.delete_ad, name='delete_ad'),
  path('lichniy-kabinet/data', views.lk_data, name='lk_data'),
- path('password-reset/',auth_view.PasswordResetView.as_view(), name='password_reset'),
- path('password-reset/done/', auth_view.PasswordResetDoneView.as_view(), name='password_reset_done'),
- path('password-reset//reset/<uidb64>/<token>/', auth_view.PasswordResetConfirmView.as_view(), name='password_reset_confirm'),
- path('password-reset/complete/', auth_view.PasswordResetCompleteView.as_view(), name='password_reset_complete'),
+ path('password-reset/',auth_view.PasswordResetView.as_view(template_name='password_reset_form.html'), name='password_reset'),
+ path('password-reset/done/', auth_view.PasswordResetDoneView.as_view(template_name='password_reset_done.html'), name='password_reset_done'),
+ path('password-reset//reset/<uidb64>/<token>/', auth_view.PasswordResetConfirmView.as_view(template_name='password_reset_confirm.html'), name='password_reset_confirm'),
+ path('password-reset/complete/', auth_view.PasswordResetCompleteView.as_view(template_name='password_reset_complete.html'), name='password_reset_complete'),
+ 
 ]

@@ -95,6 +95,8 @@ def registration_view(request):
             password = form.cleaned_data['password']
             first_name = form.cleaned_data['first_name']
             last_name = form.cleaned_data['last_name']
+            email=form.cleaned_data['username']
+            new_user.email = email
             new_user.username = username
             new_user.set_password(password)
             new_user.first_name = first_name

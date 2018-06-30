@@ -28,6 +28,17 @@ DEBUG = True
 ALLOWED_HOSTS = ['0.0.0.0',
 '*',]
 
+EMAIL_HOST = 'smtp.yandex.ru'
+EMAIL_HOST_USER = 'sultanovelutingol@yandex.ru'
+EMAIL_HOST_PASSWORD = 'EluTingol'
+EMAIL_PORT = 465
+EMAIL_USE_SSL = True
+
+DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
+
+
+
+
 
 # Application definition
 
@@ -160,7 +171,7 @@ SOCIAL_AUTH_FACEBOOK_KEY = '236232877125545'  # App ID
 SOCIAL_AUTH_FACEBOOK_SECRET = 'c96e19ff175edf99b1ece7d56b5d5e05'  # App Secret
 
 
-EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
 # Internationalization
 # https://docs.djangoproject.com/en/2.0/topics/i18n/
 
