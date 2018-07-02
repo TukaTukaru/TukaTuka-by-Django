@@ -39,7 +39,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             {% csrf_token %}
            <p><label for="user_login">E-mail<br />{{ form.username }}</label>
             </p>
-            <p><label for="user_pass">Пароль <a href="{% url "password_reset" %}" id="pwdrec" style="color: rgb(95, 100, 105);">(Забыли пароль?)</a><br />
+            <p><label for="user_pass">Пароль <a href="{% url "password_reset" %}" style="color: rgb(95, 100, 105);">(Забыли пароль?)</a><br />
                 {{ form.password }} {{ form.non_field_errors }}</label>
             </p>
         <p class="forgetmenot"><label for="rememberme"><input name="rememberme" type="checkbox" id="rememberme" value="forever"  /> Запомнить меня</label></p>
@@ -68,16 +68,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         {% endblock %}
 
     </div>
-<script>
-$( document ).ready(function() {
-    $( "#pwdrec" ).click(function() {
-        result = prompt('Введите ваш e-mail:', '');
-            if (result !== null) {
-                alert("Новый пароль отправлен на ваш почтовый ящик!");
-            };
-       });
-    });
-</script>
 
     <div class="clear"></div>
 </body>
