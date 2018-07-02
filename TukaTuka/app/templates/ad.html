@@ -101,7 +101,7 @@ function init() {
     });
 
     // Введи наш адрес.
-    ymaps.geocode('МО, г. Электросталь, ул. Карла Маркса, 18', {
+    ymaps.geocode('{{ ad.company_adress }}', {
         /**
          * Опции запроса
          * @see https://api.yandex.ru/maps/doc/jsapi/2.1/ref/reference/geocode.xml
@@ -120,7 +120,7 @@ function init() {
                 // Область видимости геообъекта.
                 bounds = firstGeoObject.properties.get('boundedBy');
 
-            firstGeoObject.options.set('preset', 'islands#darkBlueDotIconWithCaption');
+            firstGeoObject.options.set('preset', 'islands#darkGreenFactoryIcon');
             // Получаем строку с адресом и выводим в иконке геообъекта.
             firstGeoObject.properties.set('iconCaption', firstGeoObject.getAddressLine());
 
