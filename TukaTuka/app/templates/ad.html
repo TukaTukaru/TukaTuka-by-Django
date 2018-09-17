@@ -70,10 +70,10 @@
 
                         <!-- Item description -->
                         <div class="row">
-                            <div class="col-xl col-sm-auto">
-                                {% if ad.photo %}<span><img class="butterfly adimg" src="
-                                         {{ ad.photo.url }}" border="0"  alt="Вторичные переработанные гранулы" /></span>{% endif %}
-                            </div>
+                            {% if ad.photo %}<div class="col-xl col-sm-auto">
+                                <span><img class="butterfly adimg" src="
+                                         {{ ad.photo.url }}" border="0"  alt="Вторичные переработанные гранулы" /></span>
+                            </div>{% endif %}
                             <div class="w-100 d-sm-none"></div>
                             <div class="col-xl-9 col-sm-auto  ">
                                 <h3>Описание:</h3>
