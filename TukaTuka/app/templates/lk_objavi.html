@@ -1,0 +1,52 @@
+<!-- Content -->
+{% extends "lk.html" %}
+{% block objava %}
+<table border="0" cellpadding="0" cellspacing="0" id="sheet0" class="bordered" style="margin-top: 90px">
+    <col class="col0">
+    <col class="col1">
+    <col class="col2">
+    <col class="col3">
+    <col class="col4">
+    <col class="col5">
+    <thead>
+        <tr class="row1">
+            <th class="column0 style1 s ">№</th>
+            <th class="column1 style1 s d-none d-md-table-cell">Фото</th>
+            <th class="column2 style1 s">Наименование продукции</th>
+            <th class="column3 style1 s d-none d-md-table-cell">Адрес</th>
+            <th class="column4 style1 s">Цена</th>
+            <th class="column5 style1 s d-none d-md-table-cell">Объем</th>
+            <th class="column6 style1 s">Действия</th>
+
+        </tr>
+    </thead>
+    <tbody>
+    {% csrf_token %}
+        {% for ad in ad_list %}
+        <tr class="row0">
+            <td class="column5 style4 s" onclick="window.location.href='{% url 'lichnaya_objava' ad.id %}'; return false">{{ forloop.counter }}</td>
+            <td class="column0 d-none d-md-table-cell style4 null" onclick="window.location.href='{% url 'lichnaya_objava' ad.id %}'; return false"><a href="{% url 'lichnaya_objava' ad.id %}">{% if ad.photo %}<img src="
+                                         {{ ad.photo.url }}" border="0" />{% endif %}</a></td>
+            <td class="column1 style1 s" onclick="window.location.href='{% url 'lichnaya_objava' ad.id %}'; return false"><a href="{% url 'lichnaya_objava' ad.id %}">{{ ad.title }}</a></td>
+            <td class="column2 d-none d-md-table-cell style4 s" onclick="window.location.href='{% url 'lichnaya_objava' ad.id %}'; return false"><a href="{% url 'lichnaya_objava' ad.id %}">{{ ad.company_adress }}</a></td>
+            <td class="column3 style4 null" onclick="window.location.href='{% url 'lichnaya_objava' ad.id %}'; return false"><a href="{% url 'lichnaya_objava' ad.id %}">{% if ad.price_min == 0 %}
+                                            {% else %} {{ ad.price }} руб/тонна{% endif %}</a></td>
+            <td class="column4 d-none d-md-table-cell style5 s" onclick="window.location.href='{% url 'lichnaya_objava' ad.id %}'; return false"><a href="{% url 'lichnaya_objava' ad.id %}">{% if ad.volume == 0 %}
+                                            {% else %}  {{ ad.volume }} тонн{% endif %}</a></td>
+            <td><a href="{% url 'lichnaya_objava' ad.id %}"><i class="fa fa-pencil"></i></a>&nbsp;
+            <a class="delete" href="{% url 'delete_ad' ad.id %}"><i class="fa fa-times"></i></a></td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+<script>
+$( document ).ready(function() {
+    $( ".delete" ).click(function() {
+       if ((confirm("Вы действительно хотите удалить объявление?")) == false) {
+          event.preventDefault();
+       };
+    });
+});
+</script>
+
+{% endblock %}

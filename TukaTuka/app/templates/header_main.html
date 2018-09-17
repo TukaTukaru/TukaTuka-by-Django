@@ -1,0 +1,22 @@
+{% extends "header.html" %}
+{% block banner %}
+<!-- Banner -->
+							<div id="banner">
+                                {% block moto %}{% endblock %} 
+                                <h3>Хотите узнавать о наших новостях первыми?</h3>{{ form.non_field_errors }}
+                                
+                                <!-- Subscribe block -->
+                                    <form action="" method="post">
+                                      <div class="row">
+                                        <div class="col offset-md-2">
+                                           {% csrf_token %} {{ form.email }} 
+                                        </div>
+                                        <div class="col" align="left">
+                                            <button class="icon fa-envelope" type="submit" >Да, хочу!</button>
+                                        </div>
+                                      </div>  
+                                    </form>
+								
+								
+							</div>
+{% endblock %}                 

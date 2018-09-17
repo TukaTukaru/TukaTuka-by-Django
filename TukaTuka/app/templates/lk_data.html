@@ -1,0 +1,17 @@
+{% extends "lk.html" %}
+{% block objava %}
+<div class="row justify-content-start" style="margin-top: 60px">
+    <article>
+        <!-- Form section -->
+        <form name="dataForm" action="" method="post">
+            {% csrf_token %}
+            {{ form.username }}<br>
+            {{ form.first_name }}<br>
+            {{ form.last_name }}<br>
+            {{ form.password }}<br>
+            {{ form.password_check }}<br>
+            <input type="submit" value="Сохранить"><br><br> 
+        </form>
+    </article>
+</div>
+{% endblock %}
