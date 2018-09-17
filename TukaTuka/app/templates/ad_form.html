@@ -10,33 +10,17 @@
                                         <div id="content">
                                             <article>
 													<header class="major">
-														<h1>Форма добавления объявления</h1>
+														<h1>Форма добавления отзыва</h1>
 													</header>
                                                 <!-- Form section -->
                                                 <form name="buyForm" enctype="multipart/form-data" action="" method="post">
 													{% csrf_token %}
-                                                    {{ form.title }} <br>
-                                                    {{ form.description }} <br>
-                                                    <label>Я хочу</label>
-													{% for radio in form.category %}
-														<ul>
-       														 <li class="radio">{{ radio.tag }} {{ radio.choice_label }}</li>
-														 </ul>
-													{% endfor %} <br>
-
-													{{ form.company_adress }} <br>
-													{{ form.company_name }} <br>
-													{{ form.name }} <br>
-													{{ form.position }} <br>
-													{{ form.phone_number }} <br>
-													{{ form.phone_another }} <br>
-													{{ form.price }} <br>
-													{{ form.volume }} <br>
+                                                    <label> Содержание отзыва {{ form.comment_text }}</label> <br>
+													 <label> Компания\сотрудник{{ form.recipient_user }}</label> <br>
 
 
-                                                    <label>Прикрепить фото продукции:</label>
-                                                    {{ form.photo }} <br><br>
-                                                    <input type="submit" value="Добавить"><br><br>
+                                                   
+                                                    <input type="submit" value="Отправить"><br><br>
                                                 </form>
                                             </article>
                                         </div>
