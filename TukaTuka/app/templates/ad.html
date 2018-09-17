@@ -71,8 +71,8 @@
                         <!-- Item description -->
                         <div class="row">
                             <div class="col-xl col-sm-auto">
-                                <span>{% if ad.photo %}<img class="butterfly adimg" src="
-                                         {{ ad.photo.url }}" border="0"  alt="Вторичные переработанные гранулы" />{% endif %}</span>
+                                {% if ad.photo %}<span><img class="butterfly adimg" src="
+                                         {{ ad.photo.url }}" border="0"  alt="Вторичные переработанные гранулы" /></span>{% endif %}
                             </div>
                             <div class="w-100 d-sm-none"></div>
                             <div class="col-xl-9 col-sm-auto  ">
