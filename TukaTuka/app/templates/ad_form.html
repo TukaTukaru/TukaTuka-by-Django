@@ -21,8 +21,16 @@
 													{% for radio in form.category %}
 														<ul>
        														 <li class="radio">{{ radio.tag }} {{ radio.choice_label }}</li>
-														 </ul>
+														</ul>
 													{% endfor %} <br>
+
+													<select required >
+														<option disabled>Выберите категорию сырья</option>
+													<!-- Вот тут нужна помощь -->
+													{% for option in form.category %}
+       														 <option value="{{ option.choice_label }}">{{ option.choice_label }}</option>
+													{% endfor %}
+													</select><br>
 
 													{{ form.company_adress }} <br>
 													{{ form.company_name }} <br>
