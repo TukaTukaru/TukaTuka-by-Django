@@ -64,7 +64,7 @@ class AdForm(forms.ModelForm):
 
     class Meta:
             model = Ad
-            fields = ['title', 'description', 'category', 'company_adress', 'company_name', 'name', 'position', 'phone_number', 'phone_another', 'price', 'volume', 'photo',]
+            fields = ['title', 'description', 'category', 'category1', 'category2', 'company_adress', 'company_name', 'name', 'position', 'phone_number', 'phone_another', 'price', 'volume', 'photo',]
             widgets = {
                 'title': forms.TextInput(attrs={'placeholder': 'Название продукта'}),
                 'description': forms.Textarea(attrs={'placeholder': 'Описание продукта', 'rows' : '2'}),
