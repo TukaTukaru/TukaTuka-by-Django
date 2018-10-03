@@ -48,6 +48,27 @@
 								</div>
 							</div>
 						</div>
+					<script>
+						$( document ).ready(function() {
+                            $( "[name = category1]" ).hide();
+                            $( "[value = 1]" ).click(function() {
+                                $( "[name = category1]" ).css("display", "inline");
+                                $( "[name = category2]" ).hide();
+                            });
+                            $( "[value = 2]" ).click(function() {
+                                $( "[name = category1]" ).hide();
+                                $( "[name = category2]" ).show();
+                            });
+                            $( "[value = 3]" ).click(function() {
+                                $( "[name = category1]" ).css("display", "inline");
+                                $( "[name = category2]" ).hide();
+                            });
+                            $( "[value = 4]" ).click(function() {
+                                $( "[name = category1]" ).hide();
+                                $( "[name = category2]" ).show();
+                            });
+                        });
+					</script>
 					</div>
 
 {% endblock %}
