@@ -1,9 +1,9 @@
 {% extends "base.html" %}
 {% load static %}
 {% block title %}
-{% if ad.category == 1 or ad.category == 2  %} 
-   <title>Продам {{ ad.title|lower }} - TukaTuka</title>
-{% elif ad.category == 3 or ad.category == 4 %} 
+{% if ad.category == 1 or ad.category == 2  %}
+<title>Продам {{ ad.title|lower }} - TukaTuka</title>
+{% elif ad.category == 3 or ad.category == 4 %}
 <title>Куплю {{ ad.title|lower }} - TukaTuka</title>
 {% endif %}
 {% endblock %}
@@ -20,24 +20,24 @@
                             <div class="row justify-content-between">
                                 <div class="col">
                                     <h1>{% if ad.category == 1 or ad.category == 2 %}Продам{% else %}
-                                    Куплю{% endif %} {{ ad.title|lower }}</h1>
+                                        Куплю{% endif %} {{ ad.title|lower }}</h1>
                                     <h6>{{ ad.company_adress }}</h6>
                                 </div>
                                 <div class="col-">
                                     <h1>{% if ad.price == 0 or ad.price == None %}
-                                            {% else %} {{ ad.price }} руб за тонну{% endif %}</h1>
+                                        {% else %} {{ ad.price }} руб за тонну{% endif %}</h1>
                                     <h6>{% if ad.volume == 0 or ad.volume == None %}
-                                            {% else %} {{ ad.volume }} тонн{% endif %}</h6>
+                                        {% else %} {{ ad.volume }} тонн{% endif %}</h6>
                                 </div>
                             </div>
                         </header>
 
 
-
                         <!-- Block with number -->
                         <div class="row">
                             <div class="col-lg col-sm-auto btnup">
-                                <button class="button" type="button" id="button"><span  id="button__text">Показать телефон +7&nbsp;XXX XXX XX-XX</span></button>
+                                <button class="button" type="button" id="button"><span id="button__text">Показать телефон +7&nbsp;XXX XXX XX-XX</span>
+                                </button>
                                 <button id="telephone" style="display: none"><span>{{ ad.phone_number }}{% if ad.phone_another %}
                                          ,{{ ad.phone_another }}{% endif %}</span></button>
                             </div>
@@ -45,12 +45,13 @@
                             <div class="col-lg col-sm-auto btnup">
                                 <p><strong>{{ ad.name }}</strong>
                                     <br>{% if ad.position %}
-                                         {{ ad.position }}{% endif %}</p>
+                                    {{ ad.position }}{% endif %}</p>
                             </div>
                             <div class="row justify-content-start">
                                 <div class="col-lg col-sm-auto btnup" align="center">
 
-                                    <a href="http://to-group.ru/onlayn-kalkulyator-gruzoperevozki" class="buttongreen" style="color:#259433">Рассчитать доставку</a>  
+                                    <a href="http://to-group.ru/onlayn-kalkulyator-gruzoperevozki" class="buttongreen"
+                                       style="color:#259433">Рассчитать доставку</a>
                                 </div>
                             </div>
                         </div>
@@ -64,16 +65,18 @@
                                     $( "#telephone" ).slideDown();
                                 });
                              });
-                        </script>
 
+                        </script>
 
 
                         <!-- Item description -->
                         <div class="row">
-                            {% if ad.photo %}<div class="col-xl col-sm-auto">
+                            {% if ad.photo %}
+                            <div class="col-xl col-sm-auto">
                                 <span><img class="butterfly adimg" src="
-                                         {{ ad.photo.url }}" border="0"  alt="Вторичные переработанные гранулы" /></span>
-                            </div>{% endif %}
+                                         {{ ad.photo.url }}" border="0" alt="Вторичные переработанные гранулы"/></span>
+                            </div>
+                            {% endif %}
                             <div class="w-100 d-sm-none"></div>
                             <div class="col-xl-9 col-sm-auto  ">
                                 <h3>Описание:</h3>
@@ -133,5 +136,6 @@ function init() {
             });
     });
 }
+
 </script>
 {% endblock %}
