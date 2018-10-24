@@ -1,35 +1,3 @@
-{% extends "base.html" %}
-{% load static %}
-{% block title %}
-<title>О нас - TukaTuka</title>
-{% endblock %}
-{% block content %}
-
-<!-- Main Wrapper -->
-<div id="main-wrapper">
-    <div class="wrapper style2">
-        <div class="inner">
-            <div class="container">
-                <div id="content">
-
-                    <!-- Content -->
-
-                    <article>
-                        <header class="major">
-                            <h1>Карта загруженности</h1>
-                        </header>
-                        <!-- Yandex maps -->
-                        <div class="d-none d-md-block" id="map" style="width:800px; height:450px"></div>
-
-                    </article>
-
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-<script>
 ymaps.ready(init);
 
 function init () {
@@ -54,11 +22,9 @@ function init () {
     myMap.geoObjects.add(objectManager);
 
     $.ajax({
-        url: "{% static "assets/list.json" %}"
+        url: "data.json"
     }).done(function(data) {
         objectManager.add(data);
     });
 
 }
-</script>
-{% endblock %}

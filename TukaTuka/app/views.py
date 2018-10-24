@@ -2,6 +2,7 @@ from django.shortcuts import render, get_object_or_404, render_to_response
 from django.http import HttpResponse
 from app.models import *
 import logging
+import json
 from django.urls import reverse
 from django.http import HttpResponseRedirect
 from django.contrib.auth import login as auth_login
@@ -50,7 +51,12 @@ def about(request):
     return render(request, 'about.html')
 
 def map(request):
-    return render(request, 'map.html')
+    adresses = Ad.objects.all()
+    lists_adress = [i.company_adress for i in adresses]
+    filepath = 'static/assets/list.json'
+    with open(filepath, 'w') as block_file:
+        json.dump(lists_adress, block_file, ensure_ascii = False)
+    return render(request, 'map.html', {'adresses': adresses, 'lists_adress': lists_adress})
 
 def donate(request):
     return render(request, 'donate.html')
