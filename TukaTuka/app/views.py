@@ -56,7 +56,7 @@ def map(request):
     filepath = 'static/assets/list.json'
     with open(filepath, 'w') as block_file:
         json.dump(lists_adress, block_file, ensure_ascii = False)
-    return render(request, 'map.html', {'adresses': adresses, 'lists_adress': lists_adress})
+    return render(request, 'map.html')
 
 def donate(request):
     return render(request, 'donate.html')
