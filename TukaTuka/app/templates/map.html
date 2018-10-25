@@ -45,12 +45,12 @@ function init () {
             clusterDisableClickZoom: true
         });
 
-    $.ajax({
+    /*$.ajax({
         url: "{% static "assets/list.json" %}"
     }).done(function(data) {
         let uniq = [...new Set(data)];
         let objects = [];
-
+        a = 1
         for (let i = 0; i < uniq.length; i++) {
             ymaps.geocode(uniq[i], {
             results: 1
@@ -66,7 +66,19 @@ function init () {
 
         });
     }
-   });
+   });*/
+
+
 }
+let a = $.ajax({
+        dataType: 'json',
+        url: "{% static "assets/list.json" %}",
+        async: false,
+        success: function (data) {
+            x = data
+            return x;
+        }
+    });
+console.log(a.responseText);
 </script>
 {% endblock %}
