@@ -19,7 +19,7 @@
                             <h1>Карта загруженности</h1>
                         </header>
                         <!-- Yandex maps -->
-                        <div class="d-none d-md-block" id="map" style="width:800px; height:450px"></div>
+                        <div class="d-none d-md-block" id="map" style="height:600px"></div>
 
                     </article>
 
@@ -36,13 +36,6 @@ function init () {
     var myMap = new ymaps.Map('map', {
             center: [55.76, 37.64],
             zoom: 8
-        }),
-        objectManager = new ymaps.ObjectManager({
-            // Чтобы метки начали кластеризоваться, выставляем опцию.
-            clusterize: true,
-            // ObjectManager принимает те же опции, что и кластеризатор.
-            gridSize: 32,
-            clusterDisableClickZoom: true
         });
 
     $.ajax({
@@ -53,24 +46,23 @@ function init () {
            a = data;
         }
     });
-let uniq = [...new Set(a)];
+    let uniq = [...new Set(a)];
 
-let clusterer = new ymaps.Clusterer({ clusterDisableClickZoom: true,
-                                      preset: 'islands#inverteddarkGreenClusterIcons',
-                                      clusterDisableClickZoom: true,
-                                      clusterHideIconOnBalloonOpen: false,
-                                      geoObjectHideIconOnBalloonOpen: false});
-for (let i = 0; i < uniq.length; i++) {
-    let geo = ymaps.geocode(uniq[i], {results: 1});
-    geo.then(function (res) {
-              res.geoObjects.get(0).options.set('preset', 'islands#darkGreenFactoryIcon');
-              clusterer.add(res.geoObjects.get(0));
+    let clusterer = new ymaps.Clusterer({ clusterDisableClickZoom: true,
+                                          preset: 'islands#darkGreenClusterIcons',
+                                          clusterDisableClickZoom: false,
+                                          clusterHideIconOnBalloonOpen: false,
+                                          geoObjectHideIconOnBalloonOpen: false});
+    for (let i = 0; i < uniq.length; i++) {
+        let geo = ymaps.geocode(uniq[i], {results: 1});
+        geo.then(function (res) {
+                res.geoObjects.get(0).options.set('preset', 'islands#darkGreenFactoryIcon');
+                clusterer.add(res.geoObjects.get(0));
 
-        });
-              myMap.geoObjects.add(clusterer);
+            });
+                myMap.geoObjects.add(clusterer);
+    }
+
 }
-
-}
-
 </script>
 {% endblock %}
