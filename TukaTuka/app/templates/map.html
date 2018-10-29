@@ -35,7 +35,7 @@ ymaps.ready(init);
 function init () {
     var myMap = new ymaps.Map('map', {
             center: [55.76, 37.64],
-            zoom: 10
+            zoom: 8
         }),
         objectManager = new ymaps.ObjectManager({
             // Чтобы метки начали кластеризоваться, выставляем опцию.
@@ -45,40 +45,27 @@ function init () {
             clusterDisableClickZoom: true
         });
 
-    /*$.ajax({
-        url: "{% static "assets/list.json" %}"
-    }).done(function(data) {
-        let uniq = [...new Set(data)];
-        let objects = [];
-        a = 1
-        for (let i = 0; i < uniq.length; i++) {
-            ymaps.geocode(uniq[i], {
-            results: 1
-            }).then(function (res) {
-            var firstGeoObject = res.geoObjects.get(0),
-
-                coords = firstGeoObject.geometry.getCoordinates(),
-                bounds = firstGeoObject.properties.get('boundedBy');
-
-            firstGeoObject.options.set('preset', 'islands#darkGreenFactoryIcon');
-
-            myMap.geoObjects.add(firstGeoObject);
-
-        });
-    }
-   });*/
-
-
-}
-let a = $.ajax({
+    $.ajax({
         dataType: 'json',
         url: "{% static "assets/list.json" %}",
         async: false,
         success: function (data) {
-            x = data
-            return x;
+           a = data;
         }
     });
-console.log(a.responseText);
+let uniq = [...new Set(a)];
+
+
+for (let i = 0; i < uniq.length; i++) {
+    let geo = ymaps.geocode(uniq[i]);
+    geo.then(function (res) {
+            res.geoObjects.get(0).options.set('preset', 'islands#darkGreenFactoryIcon');
+            myMap.geoObjects.add(res.geoObjects.get(0));
+        });
+
+}
+
+}
+
 </script>
 {% endblock %}
