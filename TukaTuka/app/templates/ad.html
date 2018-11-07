@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% load static %}
+
 {% block title %}
 {% if ad.category == 1 or ad.category == 2  %}
 <title>Продам {{ ad.title|lower }} - TukaTuka</title>
@@ -94,6 +95,7 @@
         </div>
     </div>
 </div>
+<script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU" type="text/javascript"></script>
 <script>
 ymaps.ready(init);
 

@@ -93,13 +93,14 @@
 
 
 <!-- Scripts -->
-
+<script src="https://code.jquery.com/jquery-1.8.3.js"></script>
 <script src="{% static "assets/js/jquery.dropotron.min.js" %}"></script>
 <script src="{% static "assets/js/skel.min.js" %}"></script>
 <script src="{% static "assets/js/skel-viewport.min.js" %}"></script>
 <script src="{% static "assets/js/util.js" %}"></script>
 <!--[if lte IE 8]><script src="{% static "assets/js/ie/respond.min.js" %}"></script><![endif]-->
 <script src="{% static "assets/js/main.js" %}"></script>
+
 <script type="text/javascript">
     if (!navigator.cookieEnabled) {
         alert('Включите cookie для комфортной работы с этим сайтом');
@@ -135,6 +136,7 @@
     })(document, window, "yandex_metrika_callbacks2");
 </script> <noscript><div><img src="https://mc.yandex.ru/watch/47510467" style="position:absolute; left:-9999px;" alt="counter" /></div></noscript>
 <!-- /Yandex.Metrika counter -->
+
 <!--Start of Tawk.to Script-->
 <script type="text/javascript">
     var Tawk_API = Tawk_API || {},
@@ -150,7 +152,9 @@
     })();
 </script>
 <!--End of Tawk.to Script-->
-<!-- Top100 (Kraken) Counter -->
+
+<!--
+ Top100 (Kraken) Counter
 <script>
     (function(w, d, c) {
         (w[c] = w[c] || []).push(function() {
@@ -182,8 +186,9 @@
 <noscript>
   <img src="//counter.rambler.ru/top100.cnt?pid=5932305" alt="Топ-100" />
 </noscript>
-<!-- END Top100 (Kraken) Counter -->
-<!--Openstat-->
+ END Top100 (Kraken) Counter
+
+Openstat
 <span id="openstat1"></span>
 <script type="text/javascript">
     var openstat = {
@@ -199,11 +204,12 @@
         s.parentNode.insertBefore(j, s);
     })(document, "script", document.location.protocol);
 </script>
-<!--/Openstat-->
-<!--LiveInternet counter--><script type="text/javascript">
+/Openstat
+
+LiveInternet counter<script type="text/javascript">
 new Image().src = "//counter.yadro.ru/hit?r"+
 escape(document.referrer)+((typeof(screen)=="undefined")?"":
 ";s"+screen.width+"*"+screen.height+"*"+(screen.colorDepth?
 screen.colorDepth:screen.pixelDepth))+";u"+escape(document.URL)+
 ";h"+escape(document.title.substring(0,150))+
-";"+Math.random();</script><!--/LiveInternet-->
+";"+Math.random();</script>/LiveInternet-->
