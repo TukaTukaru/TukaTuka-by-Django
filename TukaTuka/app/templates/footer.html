@@ -94,12 +94,12 @@
 
 <!-- Scripts -->
 <script src="https://code.jquery.com/jquery-1.8.3.js"></script>
-<script src="{% static "assets/js/jquery.dropotron.min.js" %}"></script>
-<script src="{% static "assets/js/skel.min.js" %}"></script>
-<script src="{% static "assets/js/skel-viewport.min.js" %}"></script>
-<script src="{% static "assets/js/util.js" %}"></script>
+<script defer src="{% static "assets/js/jquery.dropotron.min.js" %}"></script>
+<script defer src="{% static "assets/js/skel.min.js" %}"></script>
+<script defer src="{% static "assets/js/skel-viewport.min.js" %}"></script>
+<script defer src="{% static "assets/js/util.js" %}"></script>
 <!--[if lte IE 8]><script src="{% static "assets/js/ie/respond.min.js" %}"></script><![endif]-->
-<script src="{% static "assets/js/main.js" %}"></script>
+<script defer src="{% static "assets/js/main.js" %}"></script>
 
 <script type="text/javascript">
     if (!navigator.cookieEnabled) {
@@ -107,7 +107,7 @@
     }
 </script>
 <!-- Yandex.Metrika counter -->
-<script type="text/javascript">
+<script defer type="text/javascript">
     (function(d, w, c) {
         (w[c] = w[c] || []).push(function() {
             try {
@@ -134,11 +134,12 @@
             f();
         }
     })(document, window, "yandex_metrika_callbacks2");
-</script> <noscript><div><img src="https://mc.yandex.ru/watch/47510467" style="position:absolute; left:-9999px;" alt="counter" /></div></noscript>
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/47510467" style="position:absolute; left:-9999px;" alt="counter" /></div></noscript>
 <!-- /Yandex.Metrika counter -->
 
 <!--Start of Tawk.to Script-->
-<script type="text/javascript">
+<script defer type="text/javascript">
     var Tawk_API = Tawk_API || {},
         Tawk_LoadStart = new Date();
     (function() {
