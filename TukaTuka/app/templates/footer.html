@@ -56,7 +56,8 @@
                     <h2><strong>О нас</strong></h2>
                     <p>Привет это <strong>TukaTuka</strong>, бесплатная платформа для купли-продажи вторичного сырья</p>
                     <a href="{% url 'donate' %}#main-wrapper" class="button icon fa-money">Поддержать проект</a><br><br>
-                    <a href="{% url 'about' %}#main-wrapper" class="button alt icon fa-arrow-circle-right">Узнать больше</a>
+                    <a href="{% url 'about' %}#main-wrapper" class="button alt icon fa-arrow-circle-right">Узнать
+                        больше</a>
                 </section>
 
                 <!-- Contact -->
@@ -66,8 +67,8 @@
                         <dl class="contact">
                             <dt>Адрес</dt>
                             <dd>
-                                Москва,<br /> Россия
-                                <br />
+                                Москва,<br/> Россия
+                                <br/>
 
                             </dd>
                             <dt>Телефон</dt>
@@ -93,12 +94,12 @@
 
 
 <!-- Scripts -->
-<script src="https://code.jquery.com/jquery-1.8.3.js"></script>
 <script defer src="{% static "assets/js/jquery.dropotron.min.js" %}"></script>
 <script defer src="{% static "assets/js/skel.min.js" %}"></script>
 <script defer src="{% static "assets/js/skel-viewport.min.js" %}"></script>
 <script defer src="{% static "assets/js/util.js" %}"></script>
-<!--[if lte IE 8]><script src="{% static "assets/js/ie/respond.min.js" %}"></script><![endif]-->
+<!--[if lte IE 8]>
+<script src="{% static "assets/js/ie/respond.min.js" %}"></script><![endif]-->
 <script defer src="{% static "assets/js/main.js" %}"></script>
 
 <script type="text/javascript">
@@ -134,8 +135,11 @@
             f();
         }
     })(document, window, "yandex_metrika_callbacks2");
+
 </script>
-<noscript><div><img src="https://mc.yandex.ru/watch/47510467" style="position:absolute; left:-9999px;" alt="counter" /></div></noscript>
+<noscript>
+    <div><img src="https://mc.yandex.ru/watch/47510467" style="position:absolute; left:-9999px;" alt="counter"/></div>
+</noscript>
 <!-- /Yandex.Metrika counter -->
 
 <!--Start of Tawk.to Script-->
@@ -151,6 +155,7 @@
         s1.setAttribute('crossorigin', '*');
         s0.parentNode.insertBefore(s1, s0);
     })();
+
 </script>
 <!--End of Tawk.to Script-->
 
