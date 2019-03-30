@@ -3,20 +3,13 @@
 <!-- Banner -->
 							<div id="banner">
                                 {% block moto %}{% endblock %} 
-                                <h3>Хотите узнавать о наших новостях первыми?</h3>{{ form.non_field_errors }}
+                                <h3>Тяжело найти поставщиков качественного сырья по адекватным ценам?</h3>
                                 
                                 <!-- Subscribe block -->
-                                    <form action="" method="post">
-                                      <div class="row">
-                                        <div class="col offset-md-2">
-                                           {% csrf_token %} {{ form.email }} 
+                                        <div class="col" align="center">
+                                            <button type="submit" >Оставить заявку на поиск сырья</button>
                                         </div>
-                                        <div class="col" align="left">
-                                            <button class="icon fa-envelope" type="submit" >Да, хочу!</button>
-                                        </div>
-                                      </div>  
-                                    </form>
-								
-								
+
+
 							</div>
 {% endblock %}                 
