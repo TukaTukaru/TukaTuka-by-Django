@@ -14,6 +14,9 @@ from django.contrib.auth.models import User
 from django.db.models import Count
 from django.contrib.auth.decorators import login_required
 from django.forms.models import model_to_dict
+from django.core.mail import send_mail
+
+
 
 logger = logging.getLogger(__name__) 
 
@@ -41,6 +44,13 @@ def base(request):
     if form.is_valid():
         new_mail = form.save()
         new_mail.save()
+        send_mail(
+    'Новый клиент',
+    f'{new_mail.name} {new_mail.phone_number} {new_mail.description} {new_mail.price}.',
+    'sultanovelutingol@yandex.ru',
+    ['ponomarevgeorge@yandex.ru'],
+    fail_silently=False,
+)
         return HttpResponseRedirect(reverse('base'))
     return render(request, 'index.html', {'form': form})
 
