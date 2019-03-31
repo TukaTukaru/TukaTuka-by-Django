@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Company,Ad,Comment,RatingAd,Complaint,News,Mail
+from .models import Company,Ad,Comment,RatingAd,Complaint,News,Mail,Proposal
 # from django.contrib.auth.admin import UserAdmin
 from django.contrib.auth.models import User
 
@@ -22,5 +22,6 @@ admin.site.register(RatingAd)
 admin.site.register(Comment)
 admin.site.register(Company)
 admin.site.register(Ad)
+admin.site.register(Proposal)
 
 
