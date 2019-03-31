@@ -92,6 +92,19 @@ class Ad(models.Model):
 		verbose_name = 'Объявление'
 		verbose_name_plural = 'Объявления'
 
+class Proposal(models.Model):
+	email = models.EmailField(blank=True)
+	name = models.CharField(max_length=200)
+	price = models.PositiveIntegerField(blank=True, null=True)
+	phone_number = PhoneNumberField()
+	description = models.TextField()
+	created_at = models.DateTimeField(auto_now_add=True)
+
+	def __str__(self):
+		return f"{self.name}, дата: {self.created_at}"
+	class Meta:
+		verbose_name = 'Заявка'
+		verbose_name_plural = 'Зявки'
 
 class Company(models.Model):
 	first_name = models.CharField(max_length=35)

@@ -4,6 +4,7 @@ from app.models import Mail, Ad
 from django_filters.filters import CharFilter, ChoiceFilter
 import django_filters
 from django.db import models
+from phonenumber_field.widgets import PhoneNumberInternationalFallbackWidget
 
 class RegistrationForm(forms.ModelForm):
     password_check = forms.CharField(widget=forms.PasswordInput(attrs={'placeholder' : 'Повторите пароль', 'name' : 'password_check'}))
@@ -150,3 +151,16 @@ class AdEditForm(forms.ModelForm):
                 'volume': forms.NumberInput(),
                 'photo': forms.ClearableFileInput(),
                 }
+class ProposalForm(forms.ModelForm):
+
+    class Meta:
+            model = Proposal
+            fields = [ 'description',  'name', 'phone_number', 'price','email']
+            widgets = {
+                'email' : forms.EmailInput(attrs={'placeholder' : 'mycompany@co.com'}),
+                'description': forms.Textarea(attrs={'placeholder': 'Требуется стрейч пленка с загрязнением не более 3%. Прессованная в тюки.', 'rows' : '1'}),
+                'name': forms.TextInput(attrs={'placeholder': 'Сегрей Иванов'}),
+                'phone_number': PhoneNumberInternationalFallbackWidget(attrs={'placeholder': '+7 (925) 115 32 83'}),
+                'price': forms.NumberInput(attrs={'placeholder': '27 рублей/кг'}),
+                
+            }

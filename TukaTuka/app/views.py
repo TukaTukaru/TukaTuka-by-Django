@@ -8,7 +8,7 @@ from django.http import HttpResponseRedirect
 from django.contrib.auth import login as auth_login
 from django.contrib.auth import logout as auth_logout
 from django.contrib.auth import authenticate
-from .forms import RegistrationForm, LoginForm, MailForm, FilterForm, AdForm, AdEditForm,EditDataForm
+from .forms import RegistrationForm, LoginForm, MailForm, FilterForm, AdForm, AdEditForm,EditDataForm,ProposalForm
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.contrib.auth.models import User
 from django.db.models import Count
@@ -37,15 +37,12 @@ def logout(request):
 
 
 def base(request):
-    news = News.objects.all()
-    form = MailForm(request.POST or None)
+    form = ProposalForm(request.POST or None)
     if form.is_valid():
-        ew_mail = form.save(commit=False)
-        email = form.cleaned_data['email']
-        new_mail.email = email
+        new_mail = form.save()
         new_mail.save()
         return HttpResponseRedirect(reverse('base'))
-    return render(request, 'index.html', {'news': news,'form': form})
+    return render(request, 'index.html', {'form': form})
 
 def about(request):
     return render(request, 'about.html')
