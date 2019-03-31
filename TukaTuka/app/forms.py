@@ -1,6 +1,6 @@
 from django import forms
 from django.contrib.auth.models import User
-from app.models import Mail, Ad
+from app.models import Mail, Ad,Proposal
 from django_filters.filters import CharFilter, ChoiceFilter
 import django_filters
 from django.db import models
