@@ -76,10 +76,10 @@
 									<div class="8u 12u(mobile)">
 									
 										<!-- Article list -->
-											<section class="container box feature1">
+											<section id="formaz" class="container box feature1">
 												<h2 class="icon fa-pencil-square-o">Заявка на поиск вторичного сырья</h2>
-
-											<form action="" method="post">
+											<div class="col" align="center">
+												<form class="5u" action="" method="post">
 													{% csrf_token %}
 													<label align="left">E-mail</label>
 													{{ form.email }}<br>
@@ -97,6 +97,8 @@
 													{{ form.price }}<br>
 													<button type="submit" >Оставить заявку</button>
 												</form>
+											</div>
+
 
 												
 												
