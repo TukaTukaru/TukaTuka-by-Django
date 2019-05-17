@@ -57,6 +57,9 @@ def base(request):
 def about(request):
     return render(request, 'about.html')
 
+def test(request):
+    return render(request, 'test.html')
+
 def map(request):
     adresses = Ad.objects.all()
     lists_adress = [i.company_adress for i in adresses]

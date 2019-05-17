@@ -1,0 +1,1794 @@
+/* -------------------------------- 
+
+Primary style
+
+-------------------------------- */
+::-moz-selection { /* Code for Firefox */
+    color: red;
+    background: yellow;
+}
+
+::selection {
+    color: white; 
+    background: #DADFE1;
+}
+
+*, *:after, *:before {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+body {
+  font-size: 100%;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 300;
+  color: rgba(2, 23, 37, 0.7);
+  background-color: white;
+}
+body.overflow-hidden {
+  /* when primary navigation is visible, the content in the background won't scroll */
+  overflow: hidden;
+}
+
+a {
+  text-decoration: none;
+}
+
+i {
+    font-style: italic;
+}
+
+b {
+	font-style: bold;
+}
+p {
+	font-size: 100%;
+}
+h1 {
+	font-size: 3rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+}
+
+h3 {
+	font-size: 1rem;
+}
+
+h4 {
+	font-size: 0.9rem;
+}
+
+h5 {
+	font-size: 0.8rem;
+}
+
+h6 {
+	font-size: 0.7rem;
+}
+
+
+/* -------------------------------- 
+
+Modules - reusable parts of our design
+
+-------------------------------- */
+.cd-container {
+  /* this class is used to give a max-width to the element it is applied to, and center it horizontally when it reaches that max-width */
+  width: 90%;
+  max-width: 768px;
+  margin: 0 auto;
+  margin-top: 5rem;
+  margin-bottom: 5rem;
+}
+.cd-container:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* -------------------------------- 
+
+Main components 
+
+-------------------------------- */
+html, body {
+  height: 100%;
+}
+
+.cd-header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: rgba(2, 23, 37, 0.7);
+  height: 60px;
+  width: 100%;
+  z-index: 3;
+ 
+}
+@media only screen and (min-width: 768px) {
+  .cd-header {
+    height: 80px;
+    background: transparent;
+    box-shadow: none;
+  }
+}
+@media only screen and (min-width: 1170px) {
+  .cd-header {
+    -webkit-transition: background-color 0.3s;
+    -moz-transition: background-color 0.3s;
+    transition: background-color 0.3s;
+    /* Force Hardware Acceleration in WebKit */
+    -webkit-transform: translate3d(0, 0, 0);
+    -moz-transform: translate3d(0, 0, 0);
+    -ms-transform: translate3d(0, 0, 0);
+    -o-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+  }
+  .cd-header.is-fixed {
+    /* when the user scrolls down, we hide the header right above the viewport */
+    position: fixed;
+    top: -80px;
+    background-color: rgba(2, 23, 37, 0.7);
+    -webkit-transition: -webkit-transform 0.3s;
+    -moz-transition: -moz-transform 0.3s;
+    transition: transform 0.3s;
+    opacity: 0.8;
+  }
+  .cd-header.is-visible {
+    /* if the user changes the scrolling direction, we show the header */
+    -webkit-transform: translate3d(0, 100%, 0);
+    -moz-transform: translate3d(0, 100%, 0);
+    -ms-transform: translate3d(0, 100%, 0);
+    -o-transform: translate3d(0, 100%, 0);
+    transform: translate3d(0, 100%, 0);
+  }
+  .cd-header.menu-is-open {
+    /* add a background color to the header when the navigation is open */
+    background-color: rgb(45, 48, 53);
+  }
+}
+
+.cd-logo {
+  display: block;
+  position: absolute;
+  top: 50%;
+  bottom: auto;
+  -webkit-transform: translateY(-50%);
+  -moz-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  -o-transform: translateY(-50%);
+  transform: translateY(-50%);
+  left: .875em;
+}
+.cd-logo img {
+  display: block;
+}
+@media only screen and (min-width: 768px) {
+  .cd-logo {
+    left: 2.6em;
+  }
+}
+
+.cd-secondary-nav {
+  position: absolute;
+  top: 50%;
+  bottom: auto;
+  -webkit-transform: translateY(-50%);
+  -moz-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  -o-transform: translateY(-50%);
+  transform: translateY(-50%);
+  right: 10em;
+  /* hidden on small devices */
+  display: none;
+}
+.cd-secondary-nav li {
+  display: inline-block;
+  margin-left: 2.2em;
+}
+.cd-secondary-nav a {
+  display: inline-block;
+  color: white;
+  text-transform: uppercase;
+  font-weight: 700;
+}
+@media only screen and (min-width: 768px) {
+  .cd-secondary-nav {
+    display: block;
+  }
+}
+
+.cd-primary-nav-trigger {
+  position: absolute;
+  right: 0;
+  top: 0;
+  height: 100%;
+  width: 50px;
+  background-color: rgba(2, 23, 37, 0.9);
+}
+.cd-primary-nav-trigger .cd-menu-text {
+  color: rgba(255,255,255,1);
+  text-transform: uppercase;
+  font-weight: 500;
+  /* hide the text on small devices */
+  display: none;
+}
+.cd-primary-nav-trigger .cd-menu-icon {
+  /* this span is the central line of the menu icon */
+  display: inline-block;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  bottom: auto;
+  right: auto;
+  -webkit-transform: translateX(-50%) translateY(-50%);
+  -moz-transform: translateX(-50%) translateY(-50%);
+  -ms-transform: translateX(-50%) translateY(-50%);
+  -o-transform: translateX(-50%) translateY(-50%);
+  transform: translateX(-50%) translateY(-50%);
+  width: 18px;
+  height: 2px;
+  background-color: rgba(255,255,255,1);
+  -webkit-transition: background-color 0.3s;
+  -moz-transition: background-color 0.3s;
+  transition: background-color 0.3s;
+  /* these are the upper and lower lines in the menu icon */
+}
+.cd-primary-nav-trigger .cd-menu-icon::before, .cd-primary-nav-trigger .cd-menu-icon:after {
+  content: '';
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  background-color: rgba(255,255,255,1);
+  right: 0;
+  -webkit-transition: -webkit-transform .3s, top .3s, background-color 0s;
+  -moz-transition: -moz-transform .3s, top .3s, background-color 0s;
+  transition: transform .3s, top .3s, background-color 0s;
+}
+.cd-primary-nav-trigger .cd-menu-icon::before {
+  top: -5px;
+}
+.cd-primary-nav-trigger .cd-menu-icon::after {
+  top: 5px;
+}
+.cd-primary-nav-trigger .cd-menu-icon.is-clicked {
+  background-color: rgba(255, 255, 255, 0);
+}
+.cd-primary-nav-trigger .cd-menu-icon.is-clicked::before, .cd-primary-nav-trigger .cd-menu-icon.is-clicked::after {
+  background-color: rgba(255,255,255,1);
+}
+.cd-primary-nav-trigger .cd-menu-icon.is-clicked::before {
+  top: 0;
+  -webkit-transform: rotate(135deg);
+  -moz-transform: rotate(135deg);
+  -ms-transform: rotate(135deg);
+  -o-transform: rotate(135deg);
+  transform: rotate(135deg);
+}
+.cd-primary-nav-trigger .cd-menu-icon.is-clicked::after {
+  top: 0;
+  -webkit-transform: rotate(225deg);
+  -moz-transform: rotate(225deg);
+  -ms-transform: rotate(225deg);
+  -o-transform: rotate(225deg);
+  transform: rotate(225deg);
+}
+@media only screen and (min-width: 768px) {
+  .cd-primary-nav-trigger {
+    width: 100px;
+    padding-left: 1em;
+    background-color: transparent;
+    height: 30px;
+    line-height: 30px;
+    right: 2.2em;
+    top: 50%;
+    bottom: auto;
+    -webkit-transform: translateY(-50%);
+    -moz-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    -o-transform: translateY(-50%);
+    transform: translateY(-50%);
+  }
+  .cd-primary-nav-trigger .cd-menu-text {
+    display: inline-block;
+  }
+  .cd-primary-nav-trigger .cd-menu-icon {
+    left: auto;
+    right: 1em;
+    -webkit-transform: translateX(0) translateY(-50%);
+    -moz-transform: translateX(0) translateY(-50%);
+    -ms-transform: translateX(0) translateY(-50%);
+    -o-transform: translateX(0) translateY(-50%);
+    transform: translateX(0) translateY(-50%);
+  }
+}
+
+.cd-primary-nav {
+  /* by default it's hidden - on top of the viewport */
+  position: fixed;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  background: rgb(45, 48, 53);
+  z-index: 2;
+  text-align: center;
+  padding: 50px 0;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  overflow: auto;
+  /* this fixes the buggy scrolling on webkit browsers - mobile devices only - when overflow property is applied */
+  -webkit-overflow-scrolling: touch;
+  -webkit-transform: translateY(-100%);
+  -moz-transform: translateY(-100%);
+  -ms-transform: translateY(-100%);
+  -o-transform: translateY(-100%);
+  transform: translateY(-100%);
+  -webkit-transition-property: -webkit-transform;
+  -moz-transition-property: -moz-transform;
+  transition-property: transform;
+  -webkit-transition-duration: 0.4s;
+  -moz-transition-duration: 0.4s;
+  transition-duration: 0.4s;
+}
+.cd-primary-nav li {
+  font-size: 3em;
+  font-size: 50px;
+  font-weight: 300;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  margin: .2em 0;
+  text-transform: capitalize;
+}
+.cd-primary-nav a {
+  display: inline-block;
+  padding: .4em 1em;
+  border-radius: 0.25em;
+  -webkit-transition: background 0.2s;
+  -moz-transition: background 0.2s;
+  transition: background 0.2s;
+  color: rgb(212,175,55);
+}
+.no-touch .cd-primary-nav a:hover {
+  font-weight: 400;
+}
+.cd-primary-nav .cd-label {
+  color: #ffffff;
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: 14px;
+  font-size: 0.875rem;
+  margin: 2.4em 0 .8em;
+}
+.cd-primary-nav .cd-social {
+  display: inline-block;
+  margin: 0 .4em;
+}
+.cd-primary-nav .cd-social a {
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  background-image: url("http://static.tumblr.com/1ccbc9v/6msncetjv/cd-socials.svg");
+  background-repeat: no-repeat;
+  /* image replacement */
+  overflow: hidden;
+  text-indent: 100%;
+  white-space: nowrap;
+}
+.cd-primary-nav .cd-facebook a {
+  background-position: 0 0;
+}
+.cd-primary-nav .cd-instagram a {
+  background-position: -44px 0;
+}
+.cd-primary-nav .cd-dribbble a {
+  background-position: -88px 0;
+}
+.cd-primary-nav .cd-twitter a {
+  background-position: -132px 0;
+}
+.cd-primary-nav.is-visible {
+  -webkit-transform: translateY(0);
+  -moz-transform: translateY(0);
+  -ms-transform: translateY(0);
+  -o-transform: translateY(0);
+  transform: translateY(0);
+}
+@media only screen and (min-width: 768px) {
+  .cd-primary-nav {
+    padding: 80px 0;
+  }
+}
+@media only screen and (min-width: 1170px) {
+  .cd-primary-nav li {
+    font-size: 30px;
+    font-size: 1.875rem;
+  }
+  .cd-primary-nav .cd-label {
+    font-size: 16px;
+    font-size: 1rem;
+  }
+}
+
+@media all and (min-width: 320px) and (max-width: 780px) {
+	.cd-primary-nav a {
+	  font-size: 1.5rem;
+	  display: inline-block;
+	  padding: .4em 1em;
+	  border-radius: 0.25em;
+	  -webkit-transition: background 0.2s;
+	  -moz-transition: background 0.2s;
+	  transition: background 0.2s;
+	  color: rgb(212,175,55);
+	}
+}
+
+/* -------------------------------- 
+
+The .cd-intro change the background image
+
+-------------------------------- */
+.cd-intro {
+  position: relative;
+  height: 100%;
+  background: url(http://static.tumblr.com/1ccbc9v/D5snc75yq/cd-intro-bg.jpg) center center;
+  background-size: cover;
+  z-index: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+.cd-intro h1 {
+  position: absolute;
+  width: 90%;
+  max-width: 1170px;
+  left: 50%;
+  top: 50%;
+  bottom: auto;
+  right: auto;
+  -webkit-transform: translateX(-50%) translateY(-50%);
+  -moz-transform: translateX(-50%) translateY(-50%);
+  -ms-transform: translateX(-50%) translateY(-50%);
+  -o-transform: translateX(-50%) translateY(-50%);
+  transform: translateX(-50%) translateY(-50%);
+  color: white;
+  font-size: 50px;
+  font-size: 3em;
+  font-weight: 300;
+  text-align: center;
+  color: rgb(255,255,255);
+  letter-spacing: .05em;
+  line-height: 1.5em;
+}
+.large-header {
+	position: relative;
+	width: 100%;
+	background: #333;
+	overflow: hidden;
+	background-size: cover;
+	background-position: center center;
+	z-index: 1;
+}
+
+
+@media only screen and (min-width: 768px) {
+  .cd-intro h1 {
+    font-size: 80px;
+   
+  }
+}
+@media only screen and (min-width: 1170px) {
+  .cd-intro {
+    height: 700px;
+  }
+}
+
+.cd-main-content {
+  position: relative;
+  z-index: 1;
+}
+.cd-main-content p {
+  line-height: 1.6;
+  margin: 2em 0;
+}
+.cd-main-content-about p {
+  font-size: 1.2em;
+  line-height: 1.6;
+  text-align: center;
+  padding-bottom: 8em;
+  padding-top: 4em;
+}
+@media only screen and (min-width: 1170px) {
+  .cd-main-content p {
+    font-size: 20px;
+    font-size: 1.25rem;
+  }
+}
+
+.cd-container {
+	text-align: center;
+}
+.cd-container h1 {
+	font-family: 'Open Sans', serif;
+	font-weight: 700;
+}
+.cd-container h4 {
+	text-transform: uppercase;
+	font-weight: 400;
+	margin-bottom: 1em;
+}
+.read-more-btn {
+	margin: 0 auto;
+	width: 15rem;
+	border: #000 solid 1px;
+	padding: 20px 10px 20px 10px;
+	color: rgba(2, 23, 37, 0.7);
+}
+.read-more-btn:hover {
+	border: rgb(212,175,55) solid 1px;
+	color: rgb(212,175,55); 
+}
+.cd-container-more-about {
+	width: 100%;
+	max-width: 1280px;
+	background-color: #f9f9f9;
+	display: inline-block;
+	margin: 0 auto;
+	text-align: center;
+}
+.row {
+	margin-top: 0.2rem;
+}
+
+/* -------------------------------- 
+
+Work Thumbnails
+
+-------------------------------- */
+.cd-container-clmn-1 {
+	width: 24.7%;
+	height: 300px;
+	margin: 0px;
+	background-image: url(http://heydays.no/wp-content/uploads/2013/11/heydays_nora01-1440x900.jpg);
+	background-size: cover;
+	display: inline-block;
+}
+.cd-container-clmn-1:hover {
+	opacity: .5;
+}
+.cd-container-clmn-2 {
+	width: 24.7%;
+	height: 300px;
+	margin: 0;
+	background-image: url(http://heydays.no/wp-content/uploads/2013/07/heydays_berg_23-e1386238978376.jpg);
+	background-size: cover;
+	display: inline-block;
+}
+.cd-container-clmn-2:hover {
+	opacity: .5;
+}
+.cd-container-clmn-3 {
+	width: 24.7%;
+	height: 300px;
+	margin: 0;
+	background-image: url(http://heydays.no/wp-content/uploads/2013/07/heydays_premiss_10.jpg);
+	background-size: cover;
+	display: inline-block;
+}
+.cd-container-clmn-3:hover {
+	opacity: .5;
+}
+.cd-container-clmn-4 {
+	width: 24.7%;
+	height: 300px;
+	margin: 0;
+	background-image: url(http://heydays.no/wp-content/uploads/2013/11/heydays_goa_2b.jpg);
+	background-size: cover;
+	display: inline-block;
+}
+.cd-container-clmn-4:hover {
+	opacity: .5;
+}
+.cd-container-clmn-5 {
+	width: 24.7%;
+	height: 300px;
+	margin: 0;
+	background-image: url(http://heydays.no/wp-content/uploads/2013/12/Postalia.jpg);
+	background-size: cover;
+	display: inline-block;
+}
+.cd-container-clmn-5:hover {
+	opacity: .5;
+}
+.cd-container-clmn-6 {
+	width: 24.7%;
+	height: 300px;
+	margin: 0;
+	background-image: url(http://heydays.no/wp-content/uploads/2013/11/heydays_mellbye_11-1440x900.jpg);
+	background-size: cover;
+	display: inline-block;
+}
+.cd-container-clmn-6:hover {
+	opacity: .5;
+}
+.cd-container-clmn-7 {
+	width: 24.7%;
+	height: 300px;
+	margin: 0;
+	background-image: url(http://heydays.no/wp-content/uploads/2013/11/heydays_sjemmedal_05-1440x900.jpg);
+	background-size: cover;
+	display: inline-block;
+}
+.cd-container-clmn-7:hover {
+	opacity: .5;
+}
+.cd-container-clmn-8 {
+	width: 24.7%;
+	height: 300px;
+	margin: 0;
+	background-image: url(http://heydays.no/wp-content/uploads/2012/12/heydays_abn2012_071-1440x900.jpg);
+	background-size: cover;
+	display: inline-block;
+}
+.cd-container-clmn-8:hover {
+	opacity: .5;
+}
+
+.cd-container-people {
+	width: 100%;
+	background: none;
+}
+.cd-container-people-clmn-1 {
+	width: 32%;
+	background-color: #f9f9f9;
+	display: inline-block;
+}
+.cd-container-people-clmn-1 img {
+	width: 100%;
+}
+.cd-container-people-clmn-2 {
+	width: 32%;
+	background-color: #f9f9f9;
+	display: inline-block;
+}
+.cd-container-people-clmn-2 img {
+	width: 100%;
+}
+.cd-container-people-clmn-3 {
+	width: 32%;
+	background-color: #f9f9f9;
+	display: inline-block;
+}
+.cd-container-people-clmn-3 img {
+	width: 100%;
+}
+.cd-container-people-info {
+	text-align: left;
+	padding: 1em;
+}
+.cd-container-people h4 {
+	color: rgb(212,175,55);
+}
+.cd-container-people p {
+	font-size: 0.9rem;
+}
+
+
+.cd-container-home-blog {
+	margin-top: 3rem;
+	width: 100%;
+}
+.cd-container-blog-clmn-1 {
+	width: 50%;
+	float: left;
+	display: inline-block;
+}
+.cd-container-blog-clmn-1 img {
+	width: 100%;
+}
+.cd-container-blog-clmn-2 {
+	width: 50%;
+	height: 24.4rem;
+	float: right;
+	background-color: #f9f9f9;
+	padding: 40px;
+	display: inline-block;
+}
+.cd-container-blog-info h2 {
+	font-size: 2rem;
+	text-align: left;
+	font-weight: 400;
+}
+.cd-container-blog-info h4 {
+	font-size: 0.9rem;
+	text-align: left;
+}
+.cd-container-blog-info p {
+	font-size: 100%;
+	text-align: left;
+}
+.read-more-btn-small {
+	width: 8rem;
+	margin-top: 3em;
+	border: #000 solid 1px;
+	padding: 15px 5px 15px 5px;
+	color: rgba(2, 23, 37, 0.7);
+}
+.read-more-btn-small:hover {
+	border: rgb(212,175,55) solid 1px;
+	color: rgb(212,175,55); 
+}
+
+.cd-container-blog-read-posts {
+	width: 100%;
+}
+
+.read-more-posts-btn {
+	margin: 0 auto;
+	margin-bottom: 10rem;
+	text-align: center;
+	width: 15rem;
+	border: #000 solid 1px;
+	padding: 20px 10px 20px 10px;
+	color: rgba(2, 23, 37, 0.7);
+}
+.read-more-posts-btn:hover {
+	border: rgb(212,175,55) solid 1px;
+	color: rgb(212,175,55); 
+}
+.cd-container-contact-clmn-2 {
+	background-color: #f9f9f9;
+	padding: 4rem;
+}
+.cd-container-contact {
+	width: 100%;
+}
+.cd-container-contact img {
+	width: 100%;
+	margin-top: 3rem;
+}
+.contact-1 {
+	width: 49%;
+	display: inline-block;
+	vertical-align: top;
+}
+.contact-2 {
+	width: 49%;
+	display: inline-block;
+}
+.contact-clmn-content {
+	width: 70%;
+	margin: 0 auto;
+}
+.contact-clmn-content h4 {
+	font-weight: 700;
+}
+
+@media all and (min-width: 320px) and (max-width: 780px) {
+	.cd-container-clmn-1 {
+		width: 100%;
+	}
+	.cd-container-clmn-2 {
+		width: 100%;
+	}
+	.cd-container-clmn-3 {
+		width: 100%;
+	}
+	.cd-container-clmn-4 {
+		width: 100%;
+	}
+	.cd-container-clmn-5 {
+		width: 100%;
+	}
+	.cd-container-clmn-6 {
+		width: 100%;
+	}
+	.cd-container-clmn-7 {
+		width: 100%;
+	}
+	.cd-container-clmn-8 {
+		width: 100%;
+	}
+	.cd-container-people-clmn-1 {
+		width: 100%;
+		margin-top: 2em;
+	}
+	.cd-container-people-clmn-2 {
+		width: 100%;
+		margin-top: 2em;
+	}
+	.cd-container-people-clmn-3 {
+		width: 100%;
+		margin-top: 2em;
+	}
+	.cd-container-blog-clmn-1 {
+		width: 100%;
+	}
+	.cd-container-blog-clmn-2 {
+		width: 100%;
+	}
+	.cd-container-blog-read-posts {
+		padding-bottom: 2rem;
+	}
+	.cd-container-blog-clmn-2 {
+		height: 26.4rem;
+	}
+	.read-more-posts-btn {
+		margin-bottom: 5rem;
+	}
+	.cd-container-contact-clmn-2 {
+		padding: 0rem;
+		padding-top: 2rem;
+	}
+}
+
+
+/* -------------------------------- 
+
+About Page Style
+
+-------------------------------- */
+.cd-intro-about {
+  position: relative;
+  height: 100%;
+  background: url(https://s3-us-west-1.amazonaws.com/photos.snapwi.re/Week+10/SW_CalebMorris1.jpg) no-repeat center center;
+  background-size: cover;
+  z-index: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+.cd-intro-about h1 {
+  position: absolute;
+  width: 70%;
+  max-width: 1170px;
+  left: 50%;
+  top: 90%;
+  bottom: auto;
+  right: auto;
+  -webkit-transform: translateX(-50%) translateY(-50%);
+  -moz-transform: translateX(-50%) translateY(-50%);
+  -ms-transform: translateX(-50%) translateY(-50%);
+  -o-transform: translateX(-50%) translateY(-50%);
+  transform: translateX(-50%) translateY(-50%);
+  color: white;
+  font-size: 50px;
+  font-size: 3em;
+  font-weight: 300;
+  text-align: center;
+  color: #2d2d2d;
+  letter-spacing: .05em;
+  line-height: 1.5em;
+}
+.about__secondary-content {
+	padding-bottom: 3em;
+	font-size: 18px;
+	
+}
+.cd-main-services {
+	width: 100%;
+	max-width: 1280px;
+	height: 450px;
+}
+.cd-main-content-services-img img {
+	width: 50%;
+	height: 450px;
+	max-width: 640px;
+	float: left;
+}
+.cd-main-content-services-txt {
+	width: 50%;
+	max-width: 640px;
+	height: 450px;
+	float: right;
+	background-color: #f9f9f9;
+}
+.cd-main-content-services-txt-clmn {
+	width: 100%;
+	margin: 0 auto;
+	text-align: center;
+}
+.cd-main-content-services-txt-clmn-1 {
+	width: 47%;
+	display: inline-block;
+}
+.cd-main-content-services-txt-clmn-2 {
+	width: 47%;
+	display: inline-block;
+}
+.cd-main-content-services-txt h1 {
+	width: 100%;
+	padding: 40px;
+	font-family: 'Open Sans', serif;
+	font-weight: 700;
+}
+.cd-main-content-services-txt p {
+	width: 100%;
+	padding: 40px;
+	text-align: left;
+}
+
+@media all and (min-width: 320px) and (max-width: 780px) {
+	.cd-container-txt {
+		margin: 0;
+	}
+	.cd-main-services {
+		width: 100%;
+		height: auto; 
+	}
+	.cd-main-content-services-img img {
+		width: 100%;
+		height: auto;
+		max-width: 640px;
+		float: left;
+	}
+	.cd-main-content-services-txt {
+		width: 100%;
+		height: auto;
+		background-color: #f9f9f9;
+	}
+	.cd-main-content-services-txt-clmn-1 {
+		width: 100%;
+	}
+	.cd-main-content-services-txt-clmn-2 {
+		width: 100%;
+	}
+}
+
+@media only screen and (min-width: 768px) {
+  .cd-intro-project h1 {
+    font-size: 30px;
+    font-size: 1.875rem;
+  }
+}
+@media only screen and (min-width: 1170px) {
+  .cd-intro-project {
+    height: 700px;
+  }
+}
+
+.get-in-touch a {
+	font-size: 1.5em;
+	color: rgba(2, 23, 37, 0.7);
+}
+.get-in-touch a:hover {
+	color: #000;
+}
+
+
+/* -------------------------------- 
+
+Project Page Style
+
+-------------------------------- */
+.cd-intro-project {
+  position: relative;
+  height: 100%;
+  background: url(http://heydays.no/wp-content/uploads/2013/11/heydays_nora04-1440x900.jpg) no-repeat center center;
+  background-size: cover;
+  z-index: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+.cd-intro-project h1 {
+  position: absolute;
+  width: 70%;
+  max-width: 1170px;
+  left: 50%;
+  top: 90%;
+  bottom: auto;
+  right: auto;
+  -webkit-transform: translateX(-50%) translateY(-50%);
+  -moz-transform: translateX(-50%) translateY(-50%);
+  -ms-transform: translateX(-50%) translateY(-50%);
+  -o-transform: translateX(-50%) translateY(-50%);
+  transform: translateX(-50%) translateY(-50%);
+  color: white;
+  font-size: 50px;
+  font-size: 3em;
+  font-weight: 300;
+  text-align: center;
+  color: #2d2d2d;
+  letter-spacing: .05em;
+  line-height: 1.5em;
+}
+
+.cd-container-project-clmn-1 {
+	width: 65%;
+	display: inline-block;
+	vertical-align: top;
+	margin-right: 5%;
+}
+.cd-container-project-clmn-1 img {
+	width: 100%;
+	margin-bottom: 1em;
+}
+.cd-container-project-clmn-2 {
+	width: 29%;
+	display: inline-block;
+}
+.cd-container-project-clmn-1 h1 {
+  font-family: "Open Sans", sans-serif;
+  font-weight: 700;
+  color: #000;
+  line-height: 1.6;
+  text-align: left;
+  margin-bottom: .5em;
+}
+.cd-container-project-clmn-1 h4 {
+  font-size: .9em;
+  text-align: left;
+}
+.cd-container-project-clmn-1 p {
+  font-family: 'Cardo', serif;
+  line-height: 1.6;
+  text-align: left;
+  margin-top: 5em;
+  margin-bottom: 5em;
+}
+.cd-container-project-clmn-1-img {
+	width: 100%;
+	height: 300px;
+	margin: 0px;
+	background-image: url(http://heydays.no/wp-content/uploads/2013/11/heydays_nora01-1440x900.jpg);
+	background-size: cover;
+	display: inline-block;	
+}
+.cd-container-project-clmn-1-img:hover {
+	opacity: .5;
+}
+.cd-container-project-clmn-2-img {
+	width: 100%;
+	height: 300px;
+	margin: 0;
+	background-image: url(http://heydays.no/wp-content/uploads/2013/07/heydays_berg_23-e1386238978376.jpg);
+	background-size: cover;
+	display: inline-block;
+}
+.cd-container-project-clmn-2-img:hover {
+	opacity: .5;
+}
+.cd-container-project-clmn-3-img {
+	width: 100%;
+	height: 300px;
+	margin: 0;
+	background-image: url(http://heydays.no/wp-content/uploads/2013/07/heydays_premiss_10.jpg);
+	background-size: cover;
+	display: inline-block;
+}
+.cd-container-project-clmn-3-img:hover {
+	opacity: .5;
+}
+.cd-container-project-clmn-4-img {
+	width: 100%;
+	height: 300px;
+	margin: 0;
+	background-image: url(http://heydays.no/wp-content/uploads/2013/11/heydays_goa_2b.jpg);
+	background-size: cover;
+	display: inline-block;
+}
+.cd-container-project-clmn-4-img:hover {
+	opacity: .5;
+}
+.cd-container-project-clmn-5-img {
+	width: 100%;
+	height: 300px;
+	margin: 0;
+	background-image: url(http://heydays.no/wp-content/uploads/2013/12/Postalia.jpg);
+	background-size: cover;
+	display: inline-block;
+}
+.cd-container-project-clmn-5-img:hover {
+	opacity: .5;
+}
+.cd-container-project-clmn-6-img {
+	width: 100%;
+	height: 300px;
+	margin: 0;
+	background-image: url(http://heydays.no/wp-content/uploads/2013/11/heydays_mellbye_11-1440x900.jpg);
+	background-size: cover;
+	display: inline-block;
+}
+.cd-container-project-clmn-6-img:hover {
+	opacity: .5;
+}
+.cd-container-project-clmn-7-img {
+	width: 100%;
+	height: 300px;
+	margin: 0;
+	background-image: url(http://heydays.no/wp-content/uploads/2012/12/heydays_abn2012_071-1440x900.jpg);
+	background-size: cover;
+	display: inline-block;
+}
+.cd-container-project-clmn-7-img:hover {
+	opacity: .5;
+}
+
+@media all and (min-width: 320px) and (max-width: 780px) {
+	.cd-container-project-clmn-1 {
+		width: 100%;
+	}
+	.cd-container-project-clmn-1 p {
+		width: 100%;
+		display: inline-block;
+		vertical-align: top;
+	}
+	.cd-container-project-clmn-1-img {
+		width: 100%;
+	}
+	.cd-container-project-clmn-2 img {
+		width: 100%;
+	}
+	.cd-container-project-clmn-2 {
+		width: 100%;
+	}
+	.cd-container-project-clmn-2-img {
+		width: 100%;
+	}
+}
+
+@media only screen and (min-width: 768px) {
+  .cd-intro-project h1 {
+    font-size: 30px;
+    font-size: 1.875rem;
+  }
+}
+@media only screen and (min-width: 1170px) {
+  .cd-intro-project {
+    height: 700px;
+  }
+  .cd-intro-blog {
+    height: 400px;
+  }
+}
+.cd-container-project {
+  /* this class is used to give a max-width to the element it is applied to, and center it horizontally when it reaches that max-width */
+  width: 90%;
+  max-width: 1280px;
+  margin: 0 auto;
+  margin-top: 5rem;
+  margin-bottom: 1rem;
+  background-color: #f9f9f9;
+  padding: 4rem;
+}
+.cd-main-content-project {
+  position: relative;
+  z-index: 1;
+}
+.cd-main-content-project p {
+  line-height: 1.6;
+}
+.cd-main-content-project-img {
+  width: 100%;
+  margin: 0 auto;
+  right: 0;
+  left: 0;
+  text-align: center;
+}
+.cd-main-content-project-img img {
+  width: 70%;
+  margin: 0 auto;
+  text-align: center;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+@media only screen and (min-width: 1170px) {
+  .cd-main-content-project p {
+    font-size: 20px;
+    font-size: 1.25rem;
+  }
+}
+
+
+/* -------------------------------- 
+
+Work Page Style
+
+-------------------------------- */
+.cd-intro-work-page {
+  position: relative;
+  height: 100%;
+  background: url(http://s30.postimg.org/cow70ngjz/projects_bg_img.gif) center center;
+  background-size: cover;
+  z-index: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+@media only screen and (min-width: 1170px) {
+  .cd-intro-work-page {
+    height: 400px;
+  }
+}
+
+
+/* -------------------------------- 
+
+Blog Post Style
+
+-------------------------------- */
+.cd-intro-blog {
+  position: relative;
+  background: url(http://31.media.tumblr.com/428371076fae027a25221832ada0a540/tumblr_nau9zqjZay1tubinno1_1280.jpg) no-repeat center center;
+  background-size: cover;
+  z-index: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+.cd-intro-blog h1 {
+  position: absolute;
+  width: 70%;
+  max-width: 1170px;
+  left: 50%;
+  top: 90%;
+  bottom: auto;
+  right: auto;
+  -webkit-transform: translateX(-50%) translateY(-50%);
+  -moz-transform: translateX(-50%) translateY(-50%);
+  -ms-transform: translateX(-50%) translateY(-50%);
+  -o-transform: translateX(-50%) translateY(-50%);
+  transform: translateX(-50%) translateY(-50%);
+  color: white;
+  font-size: 50px;
+  font-size: 3em;
+  font-weight: 300;
+  text-align: center;
+  color: #2d2d2d;
+  letter-spacing: .05em;
+  line-height: 1.5em;
+}
+.cd-container-blog {
+  /* this class is used to give a max-width to the element it is applied to, and center it horizontally when it reaches that max-width */
+  width: 90%;
+  max-width: 1280px;
+  margin: 0 auto;
+  margin-top: 5rem;
+  margin-bottom: 5rem;
+  background-color: #f9f9f9;
+  padding: 4rem;
+}
+.cd-container-blog-post {
+  /* this class is used to give a max-width to the element it is applied to, and center it horizontally when it reaches that max-width */
+  width: 90%;
+  max-width: 1280px;
+  margin: 0 auto;
+  margin-top: 5rem;
+  margin-bottom: 1rem;
+  background-color: #f9f9f9;
+  padding: 4rem;
+}
+.cd-main-content-blog-post {
+  position: relative;
+  z-index: 1;
+}
+.cd-main-content-blog-post p {
+  line-height: 1.6;
+}
+.cd-main-content-blog-post-img {
+  width: 100%;
+  margin: 0 auto;
+  right: 0;
+  left: 0;
+  text-align: center;
+}
+.cd-main-content-blog-post-img img {
+  width: 70%;
+  margin: 0 auto;
+  text-align: center;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+.cd-intro-blog-post {
+  position: relative;
+  height: 100%;
+  background: url(http://heydays.no/wp-content/uploads/2013/11/heydays_nora04-1440x900.jpg) no-repeat center center;
+  background-size: cover;
+  z-index: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+.cd-intro-blog-post h1 {
+  position: absolute;
+  width: 70%;
+  max-width: 1170px;
+  left: 50%;
+  top: 90%;
+  bottom: auto;
+  right: auto;
+  -webkit-transform: translateX(-50%) translateY(-50%);
+  -moz-transform: translateX(-50%) translateY(-50%);
+  -ms-transform: translateX(-50%) translateY(-50%);
+  -o-transform: translateX(-50%) translateY(-50%);
+  transform: translateX(-50%) translateY(-50%);
+  color: white;
+  font-size: 50px;
+  font-size: 3em;
+  font-weight: 300;
+  text-align: center;
+  color: #2d2d2d;
+  letter-spacing: .05em;
+  line-height: 1.5em;
+}
+.read-more-btn-normal {
+	width: 12rem;
+	margin-top: 0rem;
+	border: #000 solid 1px;
+	padding: 15px 5px 15px 5px;
+	color: rgba(2,24,39,0.7);
+	text-align: center;
+}
+.read-more-btn-normal:hover {
+	border: rgb(212,175,55) solid 1px;
+	color: rgb(212,175,55); 
+}
+.cd-container-blog-post-clmn-1 {
+	width: 65%;
+	display: inline-block;
+	vertical-align: top;
+	margin-right: 5%;
+}
+.cd-container-blog-post-clmn-1 img {
+	width: 100%;
+	margin-bottom: 1em;
+}
+.cd-container-blog-post-description {
+	background-color: white;
+	padding: 2rem;
+	margin: 0;
+	margin-bottom: 4em;
+}
+.cd-container-blog-post-clmn-2 {
+	width: 29%;
+	display: inline-block;
+}
+.cd-container-blog-post-clmn-1 h1 {
+  font-size: 2em;
+  color: #000;
+  line-height: 1.6;
+  text-align: left;
+  margin-bottom: .5em;
+}
+.cd-container-blog-post-clmn-1 h4 {
+  font-size: .9em;
+  text-align: left;
+  color: rgb(212,175,55);
+}
+.cd-container-blog-post-clmn-1 p {
+  font-family: 'Cardo', serif;
+  line-height: 1.6;
+  text-align: left;
+  margin-top: 2em;
+  margin-bottom: 4em;
+}
+.cd-container-blog-post-clmn-2 h2 {
+  font-size: 1.5rem;
+  border-bottom: rgb(212,175,55) solid 2px; 
+  padding-bottom: 1rem;
+}
+.cd-container-blog-post-clmn-2 h3 {
+  font-size: 1rem;
+}
+.cd-container-blog-post-clmn-2 a {
+  color: rgba(2, 23, 37, 0.7);
+}
+.cd-container-blog-post-clmn-2 a:hover {
+  color: rgb(212,175,55);
+}
+.load-more-posts-btn {
+	margin: 0 auto;
+	margin-bottom: 0rem;
+	text-align: center;
+	width: 15rem;
+	border: #000 solid 1px;
+	padding: 20px 10px 20px 10px;
+	color: rgba(2, 23, 37, 0.7);
+}
+.load-more-posts-btn:hover {
+	border: rgb(212,175,55) solid 1px;
+	color: rgb(212,175,55); 
+}
+
+@media all and (min-width: 320px) and (max-width: 780px) {
+	.cd-container-project {
+		padding: 1rem;
+	}
+	.cd-container-blog {
+		padding: 0rem;
+	}
+	.cd-container-blog-post-clmn-1 {
+		width: 100%;
+		padding: 0;
+		margin: 0;
+	}
+	.cd-container-blog-post-description {
+		width: 100%;
+		background-color: white;
+		padding: 2rem;
+		margin: 0;
+		margin-bottom: 4em;
+	}
+	.cd-container-blog-post-content {
+		width: 100%;
+	}
+	.cd-container-project-clmn-2-img {
+		width: 100%;
+	}
+	.cd-container-blog-post-clmn-2 {
+		width: 100%;
+		padding: 2rem;
+	}
+	.cd-container-blog-post-clmn-2 a {
+		width: 100%;
+	}	
+}
+
+@media only screen and (min-width: 1170px) {
+  .cd-main-content-project p {
+    font-size: 20px;
+    font-size: 1.25rem;
+  }
+}
+
+
+/* -------------------------------- 
+
+Contact Page Style
+
+-------------------------------- */
+.cd-intro-contact {
+  position: relative;
+  background: url(http://static.tumblr.com/1ccbc9v/tBPncd7pp/cd-content-contact-bg_img.jpg) no-repeat center center;
+  background-size: cover;
+  z-index: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+.cd-intro-contact h1 {
+  position: absolute;
+  width: 70%;
+  max-width: 1170px;
+  left: 50%;
+  top: 90%;
+  bottom: auto;
+  right: auto;
+  -webkit-transform: translateX(-50%) translateY(-50%);
+  -moz-transform: translateX(-50%) translateY(-50%);
+  -ms-transform: translateX(-50%) translateY(-50%);
+  -o-transform: translateX(-50%) translateY(-50%);
+  transform: translateX(-50%) translateY(-50%);
+  color: white;
+  font-size: 50px;
+  font-size: 3em;
+  font-weight: 300;
+  text-align: center;
+  color: #2d2d2d;
+  letter-spacing: .05em;
+  line-height: 1.5em;
+}
+.cd-container-contact {
+  /* this class is used to give a max-width to the element it is applied to, and center it horizontally when it reaches that max-width */
+  width: 90%;
+  max-width: 1280px;
+  margin: 0 auto;
+  margin-top: 5rem;
+  margin-bottom: 5rem;
+  background-color: #f9f9f9;
+}
+
+.cd-container-contact {
+  /* this class is used to give a max-width to the element it is applied to, and center it horizontally when it reaches that max-width */
+  width: 90%;
+  max-width: 768px;
+  margin: 0 auto;
+  margin-top: 5rem;
+  margin-bottom: 2rem;
+}
+.cd-container-contact:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+.square-1 {
+	width: 39.4%;
+	height: 300px;
+	background-color: rgb(212,175,55);
+	display: inline-block;
+}
+.square-1 h2 {
+	color: white;
+	line-height: 2rem;
+	padding: 2rem;
+}
+.square-2 {
+	vertical-align: top;
+	width: 60%;
+	height: 300px;
+	background-image: url(https://unsplash.imgix.net/46/Ov6ZY1zLTWmhPC0wFysP_IMG_2896_edt.jpg?q=75&w=1080&h=1080&fit=max&fm=jpg&auto=format&s=6518e4df89659818f6c0392175a9c5e6);
+	background-size: cover;
+	display: inline-block;
+}
+.square-3 {
+	width: 60%;
+	height: 300px;
+	background-color: #f9f9f9;
+	display: inline-block;
+	vertical-align: top;
+}
+.square-3 p {
+	padding-left: 3rem;
+	padding-right: 3rem;
+}
+.square-4 {
+	width: 39.4%;
+	height: 300px;
+	background-color: #212121;
+	display: inline-block;
+}
+.square-4 h2 {
+	color: white;
+	line-height: 2rem;
+	padding: 2rem;
+}
+
+@media all and (min-width: 320px) and (max-width: 780px) {
+	.square-1 {
+		width: 100%;
+		height: 200px;
+	}
+	.square-2 {
+		width: 100%;
+		height: 200px;
+	}
+	.square-3 {
+		width: 100%;
+		height: 270px;
+	}
+	.square-4 {
+		width: 100%;
+		height: 200px;
+	}
+}
+@media only screen and (min-width: 1170px) {
+  .cd-intro-contact {
+    height: 400px;
+  }
+}
+
+#google-container {
+  position: relative;
+  width: 100%;
+  height: 200px;
+  background-color: #e7eaf0;
+}
+@media only screen and (min-width: 768px) {
+  #google-container {
+    height: 300px;
+  }
+}
+@media only screen and (min-width: 1170px) {
+  #google-container {
+    height: 400px;
+  }
+}
+
+#cd-google-map {
+  position: relative;
+}
+#cd-google-map address {
+  position: absolute;
+  width: 100%;
+  bottom: 0;
+  left: 0;
+  padding: 1em 1em;
+  background-color: #212121;
+  color: white;
+  font-size: 13px;
+  font-size: 0.8125rem;
+}
+@media only screen and (min-width: 768px) {
+  #cd-google-map address {
+    font-size: 15px;
+    font-size: 0.9375rem;
+    text-align: center;
+  }
+}
+
+#cd-zoom-in, #cd-zoom-out {
+  height: 32px;
+  width: 32px;
+  cursor: pointer;
+  margin-left: 10px;
+  background-color: rgb(212,175,55);
+  background-repeat: no-repeat;
+  background-size: 32px 64px;
+  background-image: url("http://static.tumblr.com/1ccbc9v/gBOncd6ht/cd-icon-controller.svg");
+}
+.no-touch #cd-zoom-in:hover, .no-touch #cd-zoom-out:hover {
+  background-color: #212121;
+}
+@media only screen and (min-width: 768px) {
+  #cd-zoom-in, #cd-zoom-out {
+    margin-left: 10px;
+  }
+}
+
+#cd-zoom-in {
+  background-position: 50% 0;
+  margin-top: 10px;
+  margin-bottom: 1px;
+}
+@media only screen and (min-width: 768px) {
+  #cd-zoom-in {
+    margin-top: 10px;
+  }
+}
+
+#cd-zoom-out {
+  background-position: 50% -32px;
+}
+
+
+
+/* -------------------------------- 
+
+Footer Style
+
+-------------------------------- */
+.footer {
+	width: 100%;
+	height: 100px;
+	background-color: #EEEEEE;
+}
+.footer-content {
+  width: 100%;
+  max-width: 768px;
+  margin: 0 auto;
+  padding-top: 40px;
+  padding: 40px 10px 0px 10px
+}
+.footer-content a {
+  color: #6C7A89;
+}
+.footer-clmn1 {
+  width: 50%;
+  float: left;
+}
+.footer-clmn1 a:hover {
+  color: rgb(212,175,55);
+}
+.footer-clmn2 {
+  width: 50%;
+  float: right;
+  text-align: right;
+}
+.footer-clmn2 a:hover {
+  color: rgb(212,175,55);
+}
+
+@media all and (min-width: 320px) and (max-width: 780px) {
+	.footer-clmn1 {
+		width: 100%;
+	}
+	.footer-clmn2 {
+		width: 100%;
+		text-align: left;
+		margin-top: 1rem;
+	}	
+}
+
+
+/* -------------------------------- 
+
+Social Share Style
+
+-------------------------------- */
+.share-project {
+	width: 100%;
+	height: 200px;
+	margin: 0 auto;
+}
+.share-project-content {
+  width: 90%;
+  max-width: 1170px;
+  margin: 0 auto;
+  padding-top: 70px;
+  text-align: center;
+}
+.share-btn {
+	width: 33%;
+	display: inline-block;
+    vertical-align: top;
+}
+.facebook-share {
+	display: inline-block;
+	color: #BDC3C7;
+	border: #BDC3C7 solid 1px;
+	padding: 20px 60px 20px 54px;
+	width: 250px;
+	text-transform: uppercase;
+	text-align: center;
+	background-color: white;
+	
+    -webkit-transition-property: background;
+       -moz-transition-property: background;
+         -o-transition-property: background;
+            transition-property: background;
+    -webkit-transition-duration: .2s;
+       -moz-transition-duration: .2s;
+         -o-transition-duration: .2s;
+            transition-duration: .2s;
+    -webkit-transition-timing-function: linear;
+       -moz-transition-timing-function: linear;
+         -o-transition-timing-function: linear;
+            transition-timing-function: linear;
+}
+.facebook-share:hover {
+	background-color: #3b5998;
+	border: #3b5998 solid 1px;
+	color: white;
+}
+.twitter-share {
+	display: inline-block;
+	color: #BDC3C7;
+	border: #BDC3C7 solid 1px;
+	padding: 20px 60px 20px 54px;
+	width: 250px;
+	text-transform: uppercase;
+	text-align: center;
+	background-color: white;
+	
+    -webkit-transition-property: background;
+       -moz-transition-property: background;
+         -o-transition-property: background;
+            transition-property: background;
+    -webkit-transition-duration: .2s;
+       -moz-transition-duration: .2s;
+         -o-transition-duration: .2s;
+            transition-duration: .2s;
+    -webkit-transition-timing-function: linear;
+       -moz-transition-timing-function: linear;
+         -o-transition-timing-function: linear;
+            transition-timing-function: linear;	
+}
+.twitter-share:hover {
+	background-color: #55acee;
+	border: #55acee solid 1px;
+	color: white;
+}
+.google-share {
+	display: inline-block;
+	color: #BDC3C7;
+	border: #BDC3C7 solid 1px;
+	padding: 20px 60px 20px 54px;
+	width: 250px;
+	text-transform: uppercase;
+	text-align: center;
+	background-color: white;
+	
+    -webkit-transition-property: background;
+       -moz-transition-property: background;
+         -o-transition-property: background;
+            transition-property: background;
+    -webkit-transition-duration: .2s;
+       -moz-transition-duration: .2s;
+         -o-transition-duration: .2s;
+            transition-duration: .2s;
+    -webkit-transition-timing-function: linear;
+       -moz-transition-timing-function: linear;
+         -o-transition-timing-function: linear;
+            transition-timing-function: linear;	
+}
+.google-share:hover {
+	background-color: #dd4b39;
+	border: #dd4b39 solid 1px;
+	color: white;
+}
+
+@media all and (min-width: 320px) and (max-width: 780px) {
+	.share-project {
+		display: none;
+	}	
+}
