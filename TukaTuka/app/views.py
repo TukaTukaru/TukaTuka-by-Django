@@ -57,8 +57,11 @@ def base(request):
 def about(request):
     return render(request, 'about.html')
 
-def test(request):
-    return render(request, 'test.html')
+def test_index(request):
+    return render(request, 'test_index.html')
+
+def test_about(request):
+    return render(request, 'test_about.html')
 
 def map(request):
     adresses = Ad.objects.all()

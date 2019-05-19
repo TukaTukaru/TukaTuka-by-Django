@@ -8,7 +8,8 @@ from .decorators import check_recaptcha
 urlpatterns = [
  path('', views.base, name='base'),
  path('about', views.about, name='about'),
- path('test', views.test, name='test'),
+ path('test_index', views.test_index, name='test_index'),
+ path('test_about', views.test_about, name='test_about'),
  path('map', views.map, name='map'),
  path('donate', views.donate, name='donate'),
  path('sell/<int:category>-prodat-vtorsyre-na-pererabotku', views.table, name='sell'),
