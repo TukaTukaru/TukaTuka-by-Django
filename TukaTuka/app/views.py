@@ -63,6 +63,12 @@ def test_index(request):
 def test_about(request):
     return render(request, 'test_about.html')
 
+def test_buy(request):
+    return render(request, 'test_buy.html')
+
+def test_sell(request):
+    return render(request, 'test_sell.html')
+
 def map(request):
     adresses = Ad.objects.all()
     lists_adress = [i.company_adress for i in adresses]
