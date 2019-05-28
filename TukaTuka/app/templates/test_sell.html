@@ -6,6 +6,8 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 
 	<link rel="shortcut icon" href="http://static.tumblr.com/1ccbc9v/sCFnc0fp4/apple-touch-icon-72x72.png">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
 
 	<link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700' rel='stylesheet' type='text/css'>
 
@@ -48,31 +50,48 @@
 	</section>
 
 
-	<main id="more" class="cd-main-content" style="margin-top: 8rem;">
+	<main id="more" class="cd-main-content">
 		<div class="cd-container">
-				<h4 style="color: rgb(212,175,55);">This is it!</h4>
-				<h1>Contact Us</h1>
+				<h1>Продажа сырья</h1>
 		</div>
 
 		<div class="cd-container-contact">
-			<div class="square-1">
-				<hr style="margin-left: 2rem; margin-top: 2rem; width: 2rem; height: 4px; background-color: white; ">
-				<h2>Rua Serpa Pinto, Lisbon, Portugal</h2>
-			</div>
-			<div class="square-2">
-			</div>
-			<div class="square-3">
-				<p>Good design as little design as possible. Good design is to chance. My goal is making something memorable and especially the consumer. Good design is aesthetic. Care and aesthetic. Good design emphasises the consumer. It does not only functional.</p>
-			</div>
-			<div class="square-4">
-				<hr style="margin-left: 2rem; margin-top: 2rem; width: 2rem; height: 4px; background-color: white; ">
-				<h2>+88 (0) 101 0000 000 <br> +88 (0) 101 0000 000</h2>
-			</div>
+          <table border="0" cellpadding="0" cellspacing="0" id="sheet0" class="bordered">
+            <col>
+            <col>
+            <col>
+            <col>
+            <col>
+            <col>
+            <thead>
+                <tr>
+                  <th>№</th>
+                  <th>Фото</th>
+                  <th>Наименование продукции</th>
+                  <th>Адрес</th>
+                  <th>Цена</th>
+                  <th>Объем</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for ad in filtr.qs reversed %}
+                <tr class="row0" onclick="window.location.href='{% url 'ad' ad.id %}'; return false">
+                    <td class="column5 style4 s">{{ forloop.counter }}</td>
+                    <td class="column0 d-none d-md-table-cell style4 null"><a href="{% url 'ad' ad.id %}">{% if ad.photo %}<img src="
+                    {{ ad.photo.url }}" border="0" />{% endif %}</a></td>
+                    <td class="column1 style1 s"><a href="{% url 'ad' ad.id %}">{{ ad.title }}</a></td>
+                    <td class="column2 d-none d-md-table-cell style4 s"><a href="{% url 'ad' ad.id %}">{{ ad.company_adress }}</a></td>
+                    <td class="column3 style4 null"><a href="{% url 'ad' ad.id %}">{% if ad.price == 0 or ad.price == None %}
+                    {% else %} {{ ad.price }} руб/тонна{% endif %}</a></td>
+                    <td class="column4 d-none d-md-table-cell style5 s"><a href="{% url 'ad' ad.id %}">{% if ad.volume == 0 or ad.volume == None %}
+                    {% else %}  {{ ad.volume }} тонн{% endif %}</a></td>
+
+                </tr>
+                {% endfor %}
+            </tbody>
+            </table>
 		</div>
 
-			<div class="cd-container">
-				<a href="mailto:youremail@yourdomain.com"><div class="read-more-btn">Shot us an Email</div></a>
-			</div>
 
 
 <!-- Footer -->
