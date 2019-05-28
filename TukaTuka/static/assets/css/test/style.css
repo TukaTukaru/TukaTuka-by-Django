@@ -749,7 +749,7 @@ Work Thumbnails
 }
 .cd-container-contact img {
 	width: 100%;
-	margin-top: 3rem;
+	/*margin-top: 3rem;*/
 }
 .contact-1 {
 	width: 49%;
@@ -1786,6 +1786,158 @@ Social Share Style
 	border: #dd4b39 solid 1px;
 	color: white;
 }
+
+/* Tables */
+table {
+    *border-collapse: collapse;
+    border-spacing: 0;
+    width: 100%;
+}
+.bordered thead th {
+  font-family: 'Open Sans', serif;
+  font-weight: 700;
+  font-size: 120%;
+  border-top: 0px solid #eee;
+}
+.bordered {
+    -moz-border-radius: 6px;
+    -webkit-border-radius: 6px;
+    border-radius: 6px;
+    font-smoothing: antialiased;
+    border: 0;
+  	border-spacing: 0;
+    -webkit-box-shadow: 0 1px 1px #ccc;
+    -moz-box-shadow: 0 1px 1px #ccc;
+    box-shadow: 0 1px 1px #ccc;
+}
+.bordered tr:nth-child(odd){ /* Задаем стили для нечетных рядов таблицы */
+	background: #fff;
+}
+.bordered tr:nth-child(even){ /* Задаем стили для четных рядов таблицы */
+	background: #eee;
+}
+
+.bordered tr:hover {
+    background: #ddd;
+    -o-transition: all 0.1s ease-in-out;
+    -webkit-transition: all 0.1s ease-in-out;
+    -moz-transition: all 0.1s ease-in-out;
+    -ms-transition: all 0.1s ease-in-out;
+    transition: all 0.1s ease-in-out;
+}
+
+.bordered td, .bordered th {
+    border-top: 1px solid #ccc;
+    padding: 10px;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.bordered th {
+    background-color: #fff;
+    background-image: -webkit-gradient(linear, left top, left bottom, from(#eee), to(#ddd));
+    background-image: -webkit-linear-gradient(top, #eee, #ddd);
+    background-image:    -moz-linear-gradient(top, #eee, #ddd);
+    background-image:     -ms-linear-gradient(top, #eee, #ddd);
+    background-image:      -o-linear-gradient(top, #eee, #ddd);
+    background-image:         linear-gradient(top, #eee, #ddd);
+    -webkit-box-shadow: 0 1px 0 rgba(255,255,255,.8) inset;
+    -moz-box-shadow:0 1px 0 rgba(255,255,255,.8) inset;
+    box-shadow: 0 1px 0 rgba(255,255,255,.8) inset;
+    border-top: none;
+    text-shadow: 0 1px 0 rgba(255,255,255,.5);
+}
+
+.bordered td:first-child, .bordered th:first-child {
+    border-left: none;
+}
+
+.bordered th:first-child {
+    -moz-border-radius: 10px 0 0 0;
+    -webkit-border-radius: 10px 0 0 0;
+    border-radius: 10px 0 0 0;
+}
+
+.bordered th:last-child {
+    -moz-border-radius: 0 10px 0 0;
+    -webkit-border-radius: 0 10px 0 0;
+    border-radius: 0 10px 0 0;
+}
+
+.bordered th:only-child{
+    -moz-border-radius: 6px 6px 0 0;
+    -webkit-border-radius: 6px 6px 0 0;
+    border-radius: 6px 6px 0 0;
+}
+
+.bordered tr:last-child td:first-child {
+    -moz-border-radius: 0 0 0 6px;
+    -webkit-border-radius: 0 0 0 6px;
+    border-radius: 0 0 0 6px;
+}
+
+.bordered tr:last-child td:last-child {
+    -moz-border-radius: 0 0 6px 0;
+    -webkit-border-radius: 0 0 6px 0;
+    border-radius: 0 0 6px 0;
+}
+
+.bordered div {
+	position: relative;
+}
+
+.bordered img {
+	border-radius: 8px;
+	position: relative;
+	z-index: 1;
+	left: 10px;
+    width: 84px;
+	height: 84px;
+}
+
+table {
+		width: 100%;
+	}
+
+		table.default {
+			width: 100%;
+		}
+
+			table.default tr {
+				border-top: solid 1px #eee;
+			}
+
+				table.default tr:first-child {
+					border-top: 0;
+				}
+
+			table.default td {
+				padding: 0.5em 1em 0.5em 1em;
+			}
+
+			table.default th {
+				text-align: left;
+				padding: 0.5em 1em 0.5em 1em;
+				text-transform: uppercase;
+				font-weight: 800;
+				letter-spacing: 0.04em;
+				margin: 0 0 1em 0;
+				font-size: 0.8em;
+			}
+
+			table.default thead {
+				background: #404248;
+				color: #fff;
+			}
+
+        a {
+            text-decoration: none;
+        }
+
+        a:hover {
+            color: #303236;
+            text-decoration: none;
+        }
 
 @media all and (min-width: 320px) and (max-width: 780px) {
 	.share-project {

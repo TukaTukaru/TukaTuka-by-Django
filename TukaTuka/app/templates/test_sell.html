@@ -74,20 +74,22 @@
                 </tr>
             </thead>
             <tbody>
-                {% for ad in filtr.qs reversed %}
-                <tr class="row0" onclick="window.location.href='{% url 'ad' ad.id %}'; return false">
-                    <td class="column5 style4 s">{{ forloop.counter }}</td>
-                    <td class="column0 d-none d-md-table-cell style4 null"><a href="{% url 'ad' ad.id %}">{% if ad.photo %}<img src="
-                    {{ ad.photo.url }}" border="0" />{% endif %}</a></td>
-                    <td class="column1 style1 s"><a href="{% url 'ad' ad.id %}">{{ ad.title }}</a></td>
-                    <td class="column2 d-none d-md-table-cell style4 s"><a href="{% url 'ad' ad.id %}">{{ ad.company_adress }}</a></td>
-                    <td class="column3 style4 null"><a href="{% url 'ad' ad.id %}">{% if ad.price == 0 or ad.price == None %}
-                    {% else %} {{ ad.price }} руб/тонна{% endif %}</a></td>
-                    <td class="column4 d-none d-md-table-cell style5 s"><a href="{% url 'ad' ad.id %}">{% if ad.volume == 0 or ad.volume == None %}
-                    {% else %}  {{ ad.volume }} тонн{% endif %}</a></td>
-
+                <tr>
+                    <td>один</td>
+                    <td><img src="{% static "images/22.jpg" %}"/></td>
+                    <td>имя</td>
+                    <td>улица Пушнкиа</td>
+                    <td>200 руб</td>
+                    <td>5 тонн</td>
                 </tr>
-                {% endfor %}
+                <tr>
+                    <td>два</td>
+                    <td><img src="{% static "images/24.jpg" %}"/></td>
+                    <td>имя</td>
+                    <td>улица Пушнкиа</td>
+                    <td>200 руб</td>
+                    <td>5 тонн</td>
+                </tr>
             </tbody>
             </table>
 		</div>
