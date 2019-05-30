@@ -528,6 +528,13 @@ The .cd-intro change the background image
 	padding: 20px 10px 20px 10px;
 	color: rgba(2, 23, 37, 0.7);
 }
+.za-btn {
+	margin: 0 auto;
+	width: 15rem;
+	border: #000 solid 1px;
+	padding: 20px 10px 20px 10px;
+	color: rgba(2, 23, 37, 0.7);
+}
 .read-more-btn:hover {
 	border: rgb(212,175,55) solid 1px;
 	color: rgb(212,175,55); 

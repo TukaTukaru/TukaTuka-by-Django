@@ -7,6 +7,8 @@
 
 	<link rel="shortcut icon" href="http://static.tumblr.com/1ccbc9v/sCFnc0fp4/apple-touch-icon-72x72.png">
 
+    <script src="https://kit.fontawesome.com/079ae4b1a8.js"></script>
+
 	<link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700' rel='stylesheet' type='text/css'>
 	<link href='http://fonts.googleapis.com/css?family=Playfair+Display:400,700' rel='stylesheet' type='text/css'>
 	<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600' rel='stylesheet' type='text/css'>
@@ -58,9 +60,9 @@
 			<h4 style="color: rgb(212,175,55);">Чем мы отличаемся</h4>
 			<h1>Наши преимущества</h1>
 			<ul style="margin-top: 3rem;">
-				<li><p>Простота. Менеджеры уточнят заявку и в кратчайшие сроки предложат выгодные условия сотрудничества</p></li>
-				<li><p>Новые партнеры. Сотрудничаем с недавно открывшимися предприятиями, новыми игроками отрасли</p></li>
-				<li><p>Ответственность за качество. Тщательно проверяем сырье, гарантируем качество продукции, привозим в удобное время</p></li>
+				<li><p><i class="fa fa-check-circle">&nbsp;&nbsp;</i>Простота. Менеджеры уточнят заявку и в кратчайшие сроки предложат выгодные условия сотрудничества</p></li>
+				<li><p><i class="fa fa-check-circle">&nbsp;&nbsp;</i>Новые партнеры. Сотрудничаем с недавно открывшимися предприятиями, новыми игроками отрасли</p></li>
+				<li><p><i class="fa fa-check-circle">&nbsp;&nbsp;</i>Ответственность за качество. Тщательно проверяем сырье, гарантируем качество продукции, привозим в удобное время</p></li>
 			</ul>
 		</div>
 
@@ -70,7 +72,24 @@
 		</div>
 
 		<div class="cd-container">
+            <form class="" action="" method="post">
+				{% csrf_token %}
+				<label align="left">E-mail</label>
+				{{ form.email }}<br>
 
+				<label align="left">Имя</label>
+				{{ form.name }}<br>
+
+				<label align="left">Телефон</label>
+				{{ form.phone_number }}<br>
+
+				<label align="left">Описание</label>
+				{{ form.description }}<br>
+
+				<label align="left">Максимально допустимая цена</label>
+				{{ form.price }}<br>
+				<button type="submit" class="read-more-posts-btn">Оставить заявку</button>
+			</form>
 		</div>
 
 
